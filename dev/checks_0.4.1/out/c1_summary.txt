@@ -1,0 +1,32 @@
+calls compared: 960 ( 60 datasets x 16 calls); predicted to change: 24 ; identical to 0.4.0 among the others: 936 of 936 
+  changed as expected (mmm -> fewclust_error naming the reason; auto -> GEE AR(1) FG identical to method = 'gee'): 24 of 24 
+    dataset method coherence          path_040 refit_code  path_041 method_041
+1         1   auto      TRUE constant fit used          5 no result        gee
+2         1    mmm      TRUE constant fit used          5 no result       <NA>
+15        1   auto     FALSE constant fit used          5 no result        gee
+16        1    mmm     FALSE constant fit used          5 no result       <NA>
+385      25   auto      TRUE constant fit used          5 no result        gee
+386      25    mmm      TRUE constant fit used          5 no result       <NA>
+399      25   auto     FALSE constant fit used          5 no result        gee
+400      25    mmm     FALSE constant fit used          5 no result       <NA>
+641      41   auto      TRUE constant fit used          5 no result        gee
+642      41    mmm      TRUE constant fit used          5 no result       <NA>
+655      41   auto     FALSE constant fit used          5 no result        gee
+656      41    mmm     FALSE constant fit used          5 no result       <NA>
+785      50   auto      TRUE constant fit used          5 no result        gee
+786      50    mmm      TRUE constant fit used          5 no result       <NA>
+799      50   auto     FALSE constant fit used          5 no result        gee
+800      50    mmm     FALSE constant fit used          5 no result       <NA>
+849      54   auto      TRUE constant fit used          5 no result        gee
+850      54    mmm      TRUE constant fit used          5 no result       <NA>
+863      54   auto     FALSE constant fit used          5 no result        gee
+864      54    mmm     FALSE constant fit used          5 no result       <NA>
+897      57   auto      TRUE constant fit used          5 no result        gee
+898      57    mmm      TRUE constant fit used          5 no result       <NA>
+911      57   auto     FALSE constant fit used          5 no result        gee
+912      57    mmm     FALSE constant fit used          5 no result       <NA>
+  recorded fits (trend, constant) identical where both versions recorded them: 228 of 228 
+  flip_test identical: 60 of 60 ; gee_vcov identical: 60 of 60 ; R/constants.R md5 identical: TRUE 
+  rule of D-90 on the package's own recorded fits: consistent in 960 of 960 calls
+GATE A (60 datasets): PASS 
+GATE B (60 datasets): PASS 

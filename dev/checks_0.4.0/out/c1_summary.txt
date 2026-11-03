@@ -1,0 +1,5 @@
+check 1: fits compared with 0.3.1: 795 ; refusals in 0.3.1 (0.4.0 must error on each): 45 ; mismatches: 0 
+  flip_test p-value and reason identical: 60 of 60 
+check 2: gee_vcov identical: 60 of 60 datasets (3 corstr x 2 scale.fix x 4 types each); R/constants.R md5 identical: TRUE 
+GATE check 1: PASS 
+GATE check 2: PASS 

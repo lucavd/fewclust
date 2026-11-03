@@ -1,0 +1,961 @@
+"dataset","method","corstr","correction","coherence","refused_040","refused_041","method_040","method_041","path_040","path_041","rule_path_041","refit_code","predicted_change","identical_040","changed_as_expected","rule_ok","recorded_fits_identical"
+1,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+1,"mmm","ar1","fg",TRUE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+1,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+1,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+1,"mmm","ar1","fg",FALSE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+2,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+2,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+2,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+2,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+2,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+3,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+3,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+3,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+3,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+3,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+4,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+4,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+4,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+4,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+4,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+5,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+5,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+5,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+5,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+5,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+6,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+6,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+6,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+6,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+6,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+7,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+7,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+7,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+7,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+7,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+8,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+8,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+8,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+8,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+8,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+9,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+9,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+9,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+9,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+9,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+10,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+10,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+10,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+10,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+10,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+11,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+11,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+11,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+11,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+11,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+12,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+12,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+12,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+12,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+12,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+13,"auto","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"mmm","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"auto","ar1","fg",FALSE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+13,"mmm","ar1","fg",FALSE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+14,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+14,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+14,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+14,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+15,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+15,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+15,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+15,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+15,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+16,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+16,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+16,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+16,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+16,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+17,"auto","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"mmm","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","exchangeable","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","independence","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","ar1","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","exchangeable","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","independence","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","ar1","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","exchangeable","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","independence","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","ar1","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","exchangeable","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"gee","independence","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"auto","ar1","fg",FALSE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+17,"mmm","ar1","fg",FALSE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",2,FALSE,TRUE,NA,TRUE,TRUE
+18,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",2,FALSE,TRUE,NA,TRUE,TRUE
+18,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+18,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",2,FALSE,TRUE,NA,TRUE,TRUE
+18,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",2,FALSE,TRUE,NA,TRUE,TRUE
+19,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+19,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+19,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+19,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+19,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+20,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+20,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+20,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+20,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+20,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+21,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+21,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+21,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+21,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+21,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+22,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+22,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+22,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+22,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+22,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+23,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+23,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+23,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+23,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+23,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+24,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+24,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+24,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+24,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+24,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+25,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+25,"mmm","ar1","fg",TRUE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+25,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+25,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+25,"mmm","ar1","fg",FALSE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+26,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+26,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+26,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+26,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+26,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+27,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+27,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+27,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+27,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+27,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+28,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+28,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+28,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+28,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+28,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+29,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+29,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+29,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+29,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+29,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+30,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+30,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+30,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+30,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+30,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+31,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+31,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+31,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+31,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+31,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+32,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+32,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+32,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+32,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+32,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+33,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+33,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+33,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+33,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+33,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+34,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+34,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+34,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+34,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+34,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+35,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+35,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+35,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+35,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+35,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+36,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+36,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+36,"gee","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","ar1","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","ar1","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","ar1","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+36,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+36,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+37,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+37,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+37,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+37,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+37,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+38,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+38,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+38,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+38,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+38,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+39,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+39,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+39,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+39,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+39,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+40,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+40,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+40,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+40,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+40,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+41,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+41,"mmm","ar1","fg",TRUE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+41,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+41,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+41,"mmm","ar1","fg",FALSE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+42,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+42,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+42,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+42,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+42,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+43,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+43,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+43,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+43,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+43,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+44,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+44,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+44,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+44,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+44,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+45,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+45,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+45,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+45,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+45,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+46,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+46,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+46,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+46,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+46,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+47,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+47,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+47,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+47,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+47,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+48,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+48,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+48,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+48,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+48,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+49,"auto","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"mmm","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","exchangeable","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","independence","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","ar1","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","exchangeable","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","independence","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","ar1","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","exchangeable","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","independence","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","ar1","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","exchangeable","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"gee","independence","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"auto","ar1","fg",FALSE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+49,"mmm","ar1","fg",FALSE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+50,"mmm","ar1","fg",TRUE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+50,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+50,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+50,"mmm","ar1","fg",FALSE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+51,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+51,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+51,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+51,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+51,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","constant fit used","constant fit used","constant fit used",1,FALSE,TRUE,NA,TRUE,TRUE
+52,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+52,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+52,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+52,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+52,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+53,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+53,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+53,"gee","ar1","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","exchangeable","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","independence","fg",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","ar1","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","exchangeable","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","independence","md",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","ar1","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","exchangeable","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","independence","kc",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","ar1","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","exchangeable","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"gee","independence","none",TRUE,TRUE,TRUE,NA,NA,NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+53,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+53,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+54,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+54,"mmm","ar1","fg",TRUE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+54,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+54,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+54,"mmm","ar1","fg",FALSE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+55,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+55,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+55,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+55,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+55,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+56,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+56,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+56,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+56,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+56,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+57,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+57,"mmm","ar1","fg",TRUE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+57,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+57,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","gee","constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+57,"mmm","ar1","fg",FALSE,FALSE,TRUE,"mmm",NA,"constant fit used","no result","no result",5,TRUE,FALSE,TRUE,TRUE,TRUE
+58,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+58,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+58,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+58,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+58,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+59,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+59,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+59,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+59,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+59,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+60,"auto","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+60,"mmm","ar1","fg",TRUE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+60,"gee","ar1","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","exchangeable","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","independence","fg",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","ar1","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","exchangeable","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","independence","md",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","ar1","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","exchangeable","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","independence","kc",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","ar1","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","exchangeable","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"gee","independence","none",TRUE,FALSE,FALSE,"gee","gee",NA,NA,NA,NA,FALSE,TRUE,NA,TRUE,NA
+60,"auto","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE
+60,"mmm","ar1","fg",FALSE,FALSE,FALSE,"mmm","mmm","trend fit kept","trend fit kept","trend fit kept",1,FALSE,TRUE,NA,TRUE,TRUE

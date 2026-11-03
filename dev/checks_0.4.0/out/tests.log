@@ -1,0 +1,39 @@
+control: ............
+corrections: ........................................................................
+diagnose: ....................................
+fit: ...............No `time` given: the rows of each group are taken in the order of `data`.
+i For repeated measurements give `time`, so that the series are ordered and their serial dependence is modelled.
+This message is displayed once per session.
+..........................
+flip: ................................................................................
+gee: ....................
+messages: ..............W..Sign-flip score test (p-value only; no estimate, no interval)
+
+  H0        : coefficient of time:arm = 0
+  groups    : 30; reference distribution: 1,999 random sign assignments plus the identity
+  not computable: constant outcome (all 1): no usable result, as for every strategy
+Sign-flip score test (p-value only; no estimate, no interval)
+
+  H0        : coefficient of time:arm = 0
+  groups    : 30; reference distribution: 1,999 random sign assignments plus the identity
+  statistic : 1.259 (sum of the effective score contributions)
+  p-value   : 0.0945
+..
+methods: .....................
+mmm-check: ..................................................................................
+mmm: ..............................................................
+separation: ..........W.....
+simulate: ................
+tidy: .................
+
+══ Warnings ════════════════════════════════════════════════════════════════════
+1. print notes cover the small designs ('test-messages.R:88:3') - The optimiser of the marginalized multilevel model did not converge (nlm code 5).
+i Treat the estimates with caution, or compare with `method = "gee"`.
+
+2. intercept-free designs are not falsely refused for separation ('test-separation.R:74:3') - The optimiser of the marginalized multilevel model did not converge (nlm code 3).
+i Treat the estimates with caution, or compare with `method = "gee"`.
+
+══ DONE ════════════════════════════════════════════════════════════════════════
+
+tests: files 13 ; expectations 494 ; failed 0 ; errors 0 ; skipped 0 ; warnings 2 
+GATE check 3-5 (tests): PASS 

@@ -1,0 +1,39 @@
+seconds: 1249 ; datasets: 800 ; both fits returned: 796 
+P1: share of fits changed by the coherence condition = 13 / 796 = 1.63% (MCSE 0.45; estimate +/- 2 MCSE: 0.73% to 2.53%)
+relevance interval 1% to 6%: UNDETERMINED 
+            dgp     N ntime     n changed
+         <char> <int> <int> <int>   <int>
+ 1:    GLMM-AR1    25     4    47       0
+ 2:    GLMM-AR1    25     8    50       2
+ 3:    GLMM-AR1    65     4    50       0
+ 4:    GLMM-AR1    65     8    50       0
+ 5: GLMM-native    25     4    50       0
+ 6: GLMM-native    25     8    50       2
+ 7: GLMM-native    65     4    50       0
+ 8: GLMM-native    65     8    50       1
+ 9:  GenBinaryY    25     4    50       1
+10:  GenBinaryY    25     8    50       3
+11:  GenBinaryY    65     4    50       0
+12:  GenBinaryY    65     8    50       1
+13:  Copula-AR1    25     4    49       0
+14:  Copula-AR1    25     8    50       3
+15:  Copula-AR1    65     4    50       0
+16:  Copula-AR1    65     8    50       0
+                        path_published                      path_coherence
+                                <char>                              <char>
+1:                   constant fit used                   constant fit used
+2:                      trend fit kept                      trend fit kept
+3: constant fit failed, trend fit kept constant fit failed, trend fit kept
+4:                      trend fit kept                   constant fit used
+       N
+   <int>
+1:   480
+2:   299
+3:     4
+4:    13
+among changed fits, time:trt estimate difference / SE (published):
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-2.611757 -0.249573  0.004768  0.070861  0.518113  1.459846 
+SE ratio coherence / published:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.988   1.789   2.204   2.100   2.306   2.975 

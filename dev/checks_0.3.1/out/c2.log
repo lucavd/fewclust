@@ -1,0 +1,32 @@
+chosen in table4: mmm_cc ; Figure 1a classes:
+       region            class
+     map|10|2 about the margin
+     map|10|3              GEE
+    map|10|4+              GEE
+  map|15-25|2 about the margin
+  map|15-25|3          similar
+ map|15-25|4+          similar
+    map|>25|2 about the margin
+    map|>25|3          similar
+   map|>25|4+          similar
+   N  T            class strategy reference alternative complement region_note
+  10  2 about the margin      mmm         t  gee_ar1_fg  flip_test       FALSE
+  25  2 about the margin      mmm         t  gee_ar1_fg  flip_test       FALSE
+ 145  2 about the margin      mmm         t  gee_ar1_fg       <NA>       FALSE
+  10  3              GEE      mmm         t  gee_ar1_fg  flip_test        TRUE
+  25  3          similar      mmm         t  gee_ar1_fg  flip_test       FALSE
+ 145  3          similar      mmm         t  gee_ar1_fg       <NA>       FALSE
+  10 10              GEE      mmm         t  gee_ar1_fg       <NA>        TRUE
+  25 10          similar      mmm         t  gee_ar1_fg       <NA>       FALSE
+ 145 10          similar      mmm         t  gee_ar1_fg       <NA>       FALSE
+ match
+  TRUE
+  TRUE
+  TRUE
+  TRUE
+  TRUE
+  TRUE
+  TRUE
+  TRUE
+  TRUE
+GATE check 4: PASS ( 9 of 9 cells as in the corrected study )

@@ -1,0 +1,10 @@
+"N","T","region","class","refused","strategy","reference","alternative","complement","region_note","old_note","exp_strategy","exp_alternative","exp_complement","exp_region_note","match"
+10,2,"map|10|2","about the margin",FALSE,"mmm","t","gee_ar1_fg","flip_test",FALSE,FALSE,"mmm","gee_ar1_fg","flip_test",FALSE,TRUE
+25,2,"map|15-25|2","about the margin",FALSE,"mmm","t","gee_ar1_fg","flip_test",FALSE,FALSE,"mmm","gee_ar1_fg","flip_test",FALSE,TRUE
+145,2,"map|>25|2","about the margin",FALSE,"mmm","t","gee_ar1_fg",NA,FALSE,FALSE,"mmm","gee_ar1_fg",NA,FALSE,TRUE
+10,3,"map|10|3","GEE",FALSE,"mmm","t","gee_ar1_fg","flip_test",TRUE,FALSE,"mmm","gee_ar1_fg","flip_test",TRUE,TRUE
+25,3,"map|15-25|3","similar",FALSE,"mmm","t","gee_ar1_fg","flip_test",FALSE,FALSE,"mmm","gee_ar1_fg","flip_test",FALSE,TRUE
+145,3,"map|>25|3","similar",FALSE,"mmm","t","gee_ar1_fg",NA,FALSE,FALSE,"mmm","gee_ar1_fg",NA,FALSE,TRUE
+10,10,"map|10|4+","GEE",FALSE,"mmm","t","gee_ar1_fg",NA,TRUE,FALSE,"mmm","gee_ar1_fg",NA,TRUE,TRUE
+25,10,"map|15-25|4+","similar",FALSE,"mmm","t","gee_ar1_fg",NA,FALSE,FALSE,"mmm","gee_ar1_fg",NA,FALSE,TRUE
+145,10,"map|>25|4+","similar",FALSE,"mmm","t","gee_ar1_fg",NA,FALSE,FALSE,"mmm","gee_ar1_fg",NA,FALSE,TRUE

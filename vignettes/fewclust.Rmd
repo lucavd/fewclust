@@ -1,0 +1,165 @@
+---
+title: "Getting started with fewclust"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with fewclust}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+has_dplyr <- requireNamespace("dplyr", quietly = TRUE)
+```
+
+fewclust fits regression models for a binary outcome measured repeatedly
+within a small number of groups: patients followed over a few visits,
+clinics observed over a few months, classes over a few terms.  With few
+groups the usual analyses (GEE with the standard sandwich, mixed models with
+Wald tests on a normal reference) give tests that reject too often.
+fewclust fits the methods that stayed calibrated in a simulation study of
+these designs (see `vignette("simulation-study")`).
+
+## A first fit
+
+`fc_trial` is a small synthetic trial: a binary outcome `y` measured at 4
+occasions (`time`) in each of 24 groups (`id`), with a group-level
+treatment `arm` and a covariate `x`.
+
+```{r}
+library(fewclust)
+fit <- fit_fewclust(fc_trial, y ~ time * arm, id = id, time = time)
+fit
+```
+
+The data come first and the columns are given by name, so the function
+works in a pipe and with tibbles:
+
+```{r}
+fc_trial |>
+  fit_fewclust(y ~ time * arm + x, id = id, time = time) |>
+  tidy(conf.int = TRUE)
+```
+
+The coefficients are marginal (population-averaged) log odds ratios: they
+compare the probability of the event between groups of the population, as
+with GEE, not within a group as with a mixed model.
+
+## What the default does
+
+`method = "auto"` (the default) fits the **marginalized multilevel model**
+of Heagerty (1999).  With `time` the model has a first-order transition
+term between consecutive observations of a group and a latent standard
+deviation that may change linearly over the occasions.  A convergence check
+replaces a trend fit at the boundary (or that did not converge) with the
+fit with a constant latent standard deviation, if that fit converges with
+finite estimates and standard errors; if it does not, the marginalized
+model gives no result for the dataset.  The tests use a t
+distribution with N - p degrees of freedom: N groups minus p coefficients.
+
+If the marginalized model gives no usable estimate, `fit_fewclust()` fits
+**GEE** with an AR(1) working correlation and the Fay-Graubard small-sample
+correction, with the same t reference, and says so with a message.  A
+coefficient is usable when its estimate and standard error are finite and
+smaller than 10 on the logit scale.
+
+`summary()` shows the details, including the convergence check:
+
+```{r}
+summary(fit)
+```
+
+## Choosing the method
+
+```{r}
+gee <- fit_fewclust(fc_trial, y ~ time * arm,
+  id = id, time = time,
+  method = "gee"
+)
+tidy(gee)
+```
+
+`corstr` sets the working correlation of GEE (`"ar1"`, `"exchangeable"`,
+`"independence"`) and `correction` the small-sample correction (`"fg"`,
+`"md"`, `"kc"`, `"none"`).  Choosing anything other than the Fay-Graubard
+correction gives a warning, because with few groups it was the most
+reliable.
+
+## Errors, warnings, messages and notes
+
+fewclust stops only when no estimate can be computed, and the error says
+what to do:
+
+```{r, error = TRUE}
+d <- fc_trial
+d$y <- 0
+fit_fewclust(d, y ~ time * arm, id = id, time = time)
+```
+
+Warnings flag results that are less reliable than usual:
+
+```{r}
+few <- simulate_clustered_binary(n_groups = 8, n_occasions = 4, seed = 5)
+fit8 <- fit_fewclust(few, y ~ time + arm, id = id, time = time)
+```
+
+Notes, printed with the fit, describe small designs.  With 2 or 3
+occasions and at most 25 groups the models have little power and some
+datasets give no usable estimate:
+
+```{r}
+short <- simulate_clustered_binary(n_groups = 12, n_occasions = 3, seed = 4)
+fit_fewclust(short, y ~ time * arm, id = id, time = time)
+```
+
+Every condition has a class, `"fewclust_error"`, `"fewclust_warning"` or
+`"fewclust_message"`, so you can catch or silence them selectively, for
+example with `tryCatch(..., fewclust_error = function(e) NULL)`.
+
+## A p-value for the smallest designs
+
+`flip_test()` tests one coefficient with the sign-flip score test of
+Hemerik, Goeman and Finos (2020).  It gives a p-value only, no estimate and
+no interval, but it keeps its level with few groups and short series:
+
+```{r}
+flip_test(short, y ~ time * arm, id = id, time = time, seed = 1)
+```
+
+## Many fits
+
+Fits are ordinary objects, so they combine with the tidyverse:
+
+```{r, eval = has_dplyr}
+sites <- dplyr::bind_rows(
+  A = simulate_clustered_binary(n_groups = 20, seed = 1),
+  B = simulate_clustered_binary(n_groups = 20, seed = 2),
+  .id = "site"
+)
+sites |>
+  dplyr::group_by(site) |>
+  dplyr::group_modify(\(d, key) {
+    tidy(fit_fewclust(d, y ~ time + arm, id = id, time = time))
+  })
+```
+
+Inside your own functions, pass the column names with `{{ }}`:
+
+```{r}
+fit_by <- function(data, cluster) {
+  fit_fewclust(data, y ~ time + arm, id = {{ cluster }}, time = time)
+}
+coef(fit_by(fc_trial, id))
+```
+
+## References
+
+Heagerty PJ (1999). Marginally specified logistic-normal models for
+longitudinal binary data. *Biometrics* 55(3), 688-698.
+
+Fay MP, Graubard BI (2001). Small-sample adjustments for Wald-type tests
+using sandwich estimators. *Biometrics* 57(4), 1198-1206.
+
+Hemerik J, Goeman JJ, Finos L (2020). Robust testing in generalized linear
+models by sign flipping score contributions. *Journal of the Royal
+Statistical Society: Series B* 82(3), 841-864.

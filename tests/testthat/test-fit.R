@@ -1,0 +1,96 @@
+test_that("the default fit is the marginalized model with a t reference", {
+  fit <- fit_fewclust(fc_trial, y ~ time * arm + x, id = id, time = time)
+  expect_s3_class(fit, "fewclust")
+  expect_equal(fit$method, "mmm")
+  expect_null(fit$fallback)
+  expect_equal(fit$df, 24 - 5)
+  tab <- tidy(fit)
+  expect_equal(tab$df, rep(19, 5))
+  expect_equal(tab$p.value, 2 * pt(-abs(tab$statistic), 19))
+  expect_s3_class(fit$engine, "fewclust_mmm")
+  expect_equal(fit$n_groups, 24L)
+  expect_equal(fit$n_obs, 96L)
+  expect_equal(fit$n_occasions, 4)
+})
+
+test_that("method = 'gee' is GEE with AR(1) and Fay-Graubard by default", {
+  fit <- fit_fewclust(fc_trial, y ~ time * arm + x, id = id, time = time, method = "gee")
+  expect_equal(fit$method, "gee")
+  expect_equal(fit$corstr, "ar1")
+  expect_equal(fit$correction, "fg")
+  expect_s3_class(fit$engine, "geeglm")
+  expect_equal(tidy(fit)$std.error, unname(sqrt(diag(gee_vcov(fit$engine, "fg")))))
+})
+
+test_that("corstr and correction choose the GEE variant", {
+  d <- fc_test_data(30, seed = 2)
+  ex <- fit_fewclust(d, y ~ time + arm, id = id, method = "gee", corstr = "exchangeable")
+  expect_equal(ex$corstr, "exchangeable")
+  kc <- suppressWarnings(fit_fewclust(d, y ~ time + arm, id = id, method = "gee", correction = "kc"))
+  expect_equal(tidy(kc)$std.error, unname(sqrt(diag(gee_vcov(kc$engine, "kc")))))
+  un <- suppressWarnings(fit_fewclust(d, y ~ time + arm, id = id, method = "gee", correction = "none"))
+  expect_equal(tidy(un)$std.error, unname(sqrt(diag(gee_vcov(un$engine, "unc")))))
+  expect_error(fit_fewclust(d, y ~ time + arm, id = id, method = "glmm"), "must be one of")
+})
+
+test_that("the default falls back to GEE when the marginalized model fails", {
+  d <- fc_test_data(30, seed = 2)
+  local_mocked_bindings(fit_mmm = function(...) fewclust:::fc_failure("stubbed failure"),
+                        .package = "fewclust")
+  expect_message(fit <- fit_fewclust(d, y ~ time + arm, id = id), "stubbed failure",
+                 class = "fewclust_message")
+  expect_equal(fit$method, "gee")
+  expect_match(fit$fallback, "stubbed failure")
+  # an explicit request does not fall back
+  expect_error(fit_fewclust(d, y ~ time + arm, id = id, method = "mmm"), "stubbed failure",
+               class = "fewclust_error")
+})
+
+test_that("when both models fail the error points to flip_test()", {
+  d <- fc_test_data(30, seed = 2)
+  local_mocked_bindings(fit_mmm = function(...) fewclust:::fc_failure("stub MMM"),
+                        fc_gee_model = function(...) fewclust:::fc_failure("stub GEE"),
+                        .package = "fewclust")
+  err <- expect_error(fit_fewclust(d, y ~ time + arm, id = id), class = "fewclust_error")
+  expect_match(conditionMessage(err), "stub MMM")
+  expect_match(conditionMessage(err), "stub GEE")
+  expect_match(conditionMessage(err), "flip_test")
+})
+
+test_that("a coefficient failing the usability criterion gets NA inference and a warning", {
+  d <- fc_test_data(40, seed = 3, n_occasions = 6)
+  d$x100 <- d$x / 100
+  expect_warning(fit <- fit_fewclust(d, y ~ time * arm + x100, id = id, time = time),
+                 "x100", class = "fewclust_warning")
+  tab <- tidy(fit)
+  bad <- tab$term == "x100"
+  expect_true(tab$std.error[bad] >= 10)
+  expect_true(is.na(tab$p.value[bad]))
+  expect_true(all(is.finite(tab$p.value[!bad])))
+})
+
+test_that("incomplete rows are dropped and counted", {
+  d <- fc_trial
+  d$x[1:3] <- NA
+  fit <- fit_fewclust(d, y ~ time + arm + x, id = id, time = time)
+  expect_equal(fit$n_obs, 93L)
+  expect_match(paste(fit$notes, collapse = " "), "3 rows with missing values")
+})
+
+test_that("conf_level sets the intervals", {
+  fit <- fit_fewclust(fc_trial, y ~ time + arm, id = id, time = time, conf_level = 0.9)
+  tab <- tidy(fit, conf.int = TRUE, conf.level = 0.9)
+  expect_equal(tab$conf.high - tab$estimate, qt(0.95, fit$df) * tab$std.error)
+  expect_error(fit_fewclust(fc_trial, y ~ arm, id = id, conf_level = 1), "conf_level")
+})
+
+test_that("argument validation gives clear errors", {
+  expect_error(fit_fewclust(fc_trial, y ~ arm), "id", class = "fewclust_error")
+  expect_error(fit_fewclust(as.matrix(fc_trial), y ~ arm, id = id), "data frame",
+               class = "fewclust_error")
+  expect_error(fit_fewclust(fc_trial, ~ arm, id = id), "two-sided", class = "fewclust_error")
+  expect_error(fit_fewclust(fc_trial, y ~ arm, id = nope))
+  expect_error(fit_fewclust(fc_trial, y ~ arm, id = id, control = list()), "fewclust_control")
+  expect_error(fit_fewclust(fc_trial, y ~ arm + (1 | id), id = id), "random-effects",
+               class = "fewclust_error")
+})

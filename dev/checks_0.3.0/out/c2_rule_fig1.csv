@@ -1,0 +1,10 @@
+"N","T","refused","strategy","reference","alternative","complement","mmm_closer_note","exp_strategy","exp_reference","exp_alternative","exp_complement","exp_mmm_closer_note","match"
+10,2,FALSE,"gee_ar1_fg","t","mmm","flip_test",FALSE,"gee_ar1_fg","t","mmm","flip_test",FALSE,TRUE
+25,2,FALSE,"gee_ar1_fg","t","mmm","flip_test",TRUE,"gee_ar1_fg","t","mmm","flip_test",TRUE,TRUE
+145,2,FALSE,"gee_ar1_fg","t","mmm",NA,TRUE,"gee_ar1_fg","t","mmm",NA,TRUE,TRUE
+10,3,FALSE,"gee_ar1_fg","t","mmm","flip_test",FALSE,"gee_ar1_fg","t","mmm","flip_test",FALSE,TRUE
+25,3,FALSE,"gee_ar1_fg","t","mmm","flip_test",FALSE,"gee_ar1_fg","t","mmm","flip_test",FALSE,TRUE
+145,3,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,TRUE
+10,10,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,TRUE
+25,10,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,TRUE
+145,10,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,"gee_ar1_fg","t","mmm",NA,FALSE,TRUE

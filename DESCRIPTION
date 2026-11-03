@@ -1,0 +1,51 @@
+Package: fewclust
+Title: Regression for Clustered Binary Outcomes with Few Clusters
+Version: 0.4.2
+Authors@R:
+    person("Luca", "Vedovelli", , "lucavd@gmail.com", role = c("aut", "cre"))
+Description: Fits regression models for binary outcomes measured
+    repeatedly within a small number of groups (clusters), with tests and
+    intervals that stay calibrated with few groups and short series.  The
+    default is the marginalized multilevel model of Heagerty (1999)
+    <doi:10.1111/j.0006-341X.1999.00688.x> with a convergence check and
+    Wald statistics referred to a t distribution; generalized estimating
+    equations with a first-order autoregressive working correlation and the
+    small-sample sandwich correction of Fay and Graubard (2001)
+    <doi:10.1111/j.0006-341X.2001.01198.x> are the fallback.  The
+    corrections of Mancl and DeRouen (2001)
+    <doi:10.1111/j.0006-341X.2001.00126.x> and Kauermann and Carroll (2001)
+    <doi:10.1198/016214501753382309> are available, and the sign-flip score
+    test of Hemerik, Goeman and Finos (2020) <doi:10.1111/rssb.12369> gives
+    a p-value for the smallest designs.  The defaults follow a simulation
+    study of these methods.  Fits take the data first, accept bare column
+    names and have 'broom' methods returning tibbles.
+License: MIT + file LICENSE
+URL: https://github.com/lucavd/fewclust
+BugReports: https://github.com/lucavd/fewclust/issues
+Depends:
+    R (>= 4.1)
+Imports:
+    cli (>= 3.6.0),
+    geepack,
+    generics,
+    rlang (>= 1.1.0),
+    stats,
+    tibble,
+    tidyselect (>= 1.2.0),
+    utils
+Suggests:
+    covr,
+    dplyr,
+    knitr,
+    purrr,
+    rmarkdown,
+    spelling,
+    testthat (>= 3.2.0)
+VignetteBuilder:
+    knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-GB
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0

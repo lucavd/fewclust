@@ -1,0 +1,17 @@
+"N","T","covariate","outcome","p","reason","no_constant_reason"
+10,2,FALSE,0,NA,"score numerically zero",TRUE
+25,2,FALSE,0,NA,"score numerically zero",TRUE
+10,4,FALSE,0,NA,"score numerically zero",TRUE
+25,4,FALSE,0,NA,"score numerically zero",TRUE
+10,2,TRUE,0,NA,"score numerically zero",TRUE
+25,2,TRUE,0,NA,"score numerically zero",TRUE
+10,4,TRUE,0,NA,"score numerically zero",TRUE
+25,4,TRUE,0,NA,"score numerically zero",TRUE
+10,2,FALSE,1,NA,"score numerically zero",TRUE
+25,2,FALSE,1,NA,"score numerically zero",TRUE
+10,4,FALSE,1,NA,"score numerically zero",TRUE
+25,4,FALSE,1,NA,"score numerically zero",TRUE
+10,2,TRUE,1,NA,"score numerically zero",TRUE
+25,2,TRUE,1,NA,"score numerically zero",TRUE
+10,4,TRUE,1,NA,"score numerically zero",TRUE
+25,4,TRUE,1,NA,"score numerically zero",TRUE

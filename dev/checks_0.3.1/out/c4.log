@@ -1,0 +1,9 @@
+                            dataset        formula  group   time chosen
+                             <char>         <char> <char> <char> <char>
+1:                         fc_trial y ~ arm * time     id   time    mmm
+2: simulated N=25 T=4 seed 20261027 y ~ arm * time     id   time    mmm
+   paper_rule condition_met
+       <char>        <lgcl>
+1:        mmm          TRUE
+2:        mmm          TRUE
+GATE check 10: PASS 

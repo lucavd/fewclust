@@ -1,0 +1,37 @@
+  N T covariate outcome plan_refused_D2 fits_refused_D2 flip_na flip_reason_ok
+ 10 2     FALSE       0            TRUE              20    TRUE           TRUE
+ 25 2     FALSE       0            TRUE              20    TRUE           TRUE
+ 10 4     FALSE       0            TRUE              20    TRUE           TRUE
+ 25 4     FALSE       0            TRUE              20    TRUE           TRUE
+ 10 2      TRUE       0            TRUE              20    TRUE           TRUE
+ 25 2      TRUE       0            TRUE              20    TRUE           TRUE
+ 10 4      TRUE       0            TRUE              20    TRUE           TRUE
+ 25 4      TRUE       0            TRUE              20    TRUE           TRUE
+ 10 2     FALSE       1            TRUE              20    TRUE           TRUE
+ 25 2     FALSE       1            TRUE              20    TRUE           TRUE
+ 10 4     FALSE       1            TRUE              20    TRUE           TRUE
+ 25 4     FALSE       1            TRUE              20    TRUE           TRUE
+ 10 2      TRUE       1            TRUE              20    TRUE           TRUE
+ 25 2      TRUE       1            TRUE              20    TRUE           TRUE
+ 10 4      TRUE       1            TRUE              20    TRUE           TRUE
+ 25 4      TRUE       1            TRUE              20    TRUE           TRUE
+   ok
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+ TRUE
+flip_test reason: constant outcome (all 0): no usable result, as for every strategy constant outcome (all 1): no usable result, as for every strategy 
+counter-check (one outcome changed): reason 'constant outcome' absent in 16 of 16 
+GATE check 8: PASS ( 16 of 16 datasets; 320 of 320 fits refused with D2 )

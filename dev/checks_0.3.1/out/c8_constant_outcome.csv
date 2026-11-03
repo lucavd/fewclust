@@ -1,0 +1,17 @@
+"N","T","covariate","outcome","plan_refused_D2","fits_refused_D2","n_strategies","flip_na","flip_not_computable","flip_reason","flip_reason_ok","ok"
+10,2,FALSE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+25,2,FALSE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+10,4,FALSE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+25,4,FALSE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+10,2,TRUE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+25,2,TRUE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+10,4,TRUE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+25,4,TRUE,0,TRUE,20,20,TRUE,TRUE,"constant outcome (all 0): no usable result, as for every strategy",TRUE,TRUE
+10,2,FALSE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE
+25,2,FALSE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE
+10,4,FALSE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE
+25,4,FALSE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE
+10,2,TRUE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE
+25,2,TRUE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE
+10,4,TRUE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE
+25,4,TRUE,1,TRUE,20,20,TRUE,TRUE,"constant outcome (all 1): no usable result, as for every strategy",TRUE,TRUE

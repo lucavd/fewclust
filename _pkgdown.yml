@@ -1,0 +1,26 @@
+url: https://lucavd.github.io/fewclust/
+template:
+  bootstrap: 5
+
+reference:
+- title: Fit
+  contents:
+  - fit_fewclust
+  - summary.fewclust
+  - predict.fewclust
+  - tidy.fewclust
+  - fewclust_control
+- title: Test and variance
+  contents:
+  - flip_test
+  - gee_vcov
+- title: Data
+  contents:
+  - fc_trial
+  - simulate_clustered_binary
+
+articles:
+- title: Vignettes
+  contents:
+  - fewclust
+  - simulation-study

@@ -1,0 +1,5 @@
+replicates with an estimable design: 4749358 ; with a constant outcome: 9711 ; of these usable for GEE AR(1) + FG by the paper's filter: 9646 
+H0, 2,376 design points: mean usable share 92.121 (Table 4: 92.121 ); without the constant-outcome datasets 91.897 
+H0, 2-3 occasions and <= 25 clusters ( 216 design points): mean usable share 45.944 (Table 4: 45.944 ); without them 43.72 
+largest share of constant-outcome datasets in a design point (H0): 13.13 % at Copula-AR1 M1 N 10 T 2 
+study rows read unchanged (md5 of three files): TRUE 

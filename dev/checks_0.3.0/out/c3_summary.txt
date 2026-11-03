@@ -1,0 +1,3 @@
+gee_vcov (4 estimators x 3 working correlations x scale.fix TRUE/FALSE x 100 datasets): 600 of 600 sets identical; sets containing an error message (identical too): 64 
+marginalized-model engine with explicit control (40 datasets): 40 of 40 identical
+GATE check 6: PASS 

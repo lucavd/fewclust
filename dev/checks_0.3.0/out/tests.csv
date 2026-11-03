@@ -1,0 +1,106 @@
+"file","test","nb","failed","skipped","error"
+"test-compare.R","compare_strategies tabulates every strategy with the study's verdicts",11,0,FALSE,FALSE
+"test-compare.R","a subset of strategies is honoured and the chosen one is always present",4,0,FALSE,FALSE
+"test-compare.R","failed strategies are rows with a reason, never numbers",4,0,FALSE,FALSE
+"test-compare.R","glmm_wald is skipped when the random-effects covariance is not identifiable",2,0,FALSE,FALSE
+"test-control.R","control returns the study defaults",7,0,FALSE,FALSE
+"test-control.R","control validates its arguments",7,0,FALSE,FALSE
+"test-corrections.R","on balanced designs the corrections inflate the SE (empirical)",54,0,FALSE,FALSE
+"test-corrections.R","uncorrected sandwich reproduces geepack's own robust variance",1,0,FALSE,FALSE
+"test-corrections.R","corrections vanish as the number of groups grows",3,0,FALSE,FALSE
+"test-corrections.R","KC and MD fail loudly, with the cluster named, when leverage hits 1",3,0,FALSE,FALSE
+"test-corrections.R","gee_vcov validates its input",3,0,FALSE,FALSE
+"test-corrections.R","prior weights are honoured exactly as geepack honours them",1,0,FALSE,FALSE
+"test-corrections.R","non-contiguous ids are blocked exactly as geepack blocks them",1,0,FALSE,FALSE
+"test-corrections.R","fits using geeglm's waves argument are rejected",2,0,FALSE,FALSE
+"test-corrections.R","a garbage variance is a classed error, never a returned number",2,0,FALSE,FALSE
+"test-corrections.R","Fay-Graubard follows Fay and Graubard (2001) also where diag(Q) is negative",2,0,FALSE,FALSE
+"test-decision.R","the automatic choice is GEE AR(1) with Fay-Graubard and a t reference",11,0,FALSE,FALSE
+"test-decision.R","the rule gives the choice of Figure 1 on the 3 x 3 grid of the check",54,0,FALSE,FALSE
+"test-decision.R","D1: fewer than 10 groups is refused",5,0,FALSE,FALSE
+"test-decision.R","D1: more coefficients than groups is refused",2,0,FALSE,FALSE
+"test-decision.R","D2: a constant outcome is refused",2,0,FALSE,FALSE
+"test-decision.R","D2: an outcome that varies in a single group is refused",3,0,FALSE,FALSE
+"test-decision.R","D3: separation is refused before fitting",3,0,FALSE,FALSE
+"test-decision.R","D4: short series with few groups carry the caution and the complement",10,0,FALSE,FALSE
+"test-decision.R","beyond the simulated range the rule is flagged as extrapolated",1,0,FALSE,FALSE
+"test-decision.R","D5: overrides are recorded with the study's cautions (Table 4)",20,0,FALSE,FALSE
+"test-decision.R","a qualified GEE strategy overrides the working correlation of control",2,0,FALSE,FALSE
+"test-decision.R","the automatic choice with another working correlation is flagged",3,0,FALSE,FALSE
+"test-decision.R","the marginalized model at 10 groups is flagged as conservative",3,0,FALSE,FALSE
+"test-decision.R","glmm_wald is refused when the covariance is not identifiable",5,0,FALSE,FALSE
+"test-decision.R","an irregular grid of time values is flagged, a regular one is not",3,0,FALSE,FALSE
+"test-decision.R","intermittent missing occasions are flagged for the AR(1) working correlation",5,0,FALSE,FALSE
+"test-decision.R","one observation per group is refused",3,0,FALSE,FALSE
+"test-diagnose.R","diagnosis measures groups, occasions, prevalence and df",10,0,FALSE,FALSE
+"test-diagnose.R","occasions are the longest series, with or without `time`",5,0,FALSE,FALSE
+"test-diagnose.R","group and time accept bare names, strings and formulas",4,0,FALSE,FALSE
+"test-diagnose.R","a random-effects term names the group and the slope structure",7,0,FALSE,FALSE
+"test-diagnose.R","parsing validates the outcome, the design and missing data",6,0,FALSE,FALSE
+"test-diagnose.R","logical and factor outcomes are accepted",4,0,FALSE,FALSE
+"test-fit.R","auto_cluster_fit returns GEE AR(1) with Fay-Graubard and t inference",14,0,FALSE,FALSE
+"test-fit.R","the alternative is the marginalized model with t inference",3,0,FALSE,FALSE
+"test-fit.R","the marginalized model's mean estimates equal MMLB's on the fixture",3,0,FALSE,FALSE
+"test-fit.R","a user override fits the requested strategy with its cautions",6,0,FALSE,FALSE
+"test-fit.R","refusals are returned, not thrown",9,0,FALSE,FALSE
+"test-fit.R","a failing GEE fit falls back to the marginalized model and says so",9,0,FALSE,FALSE
+"test-fit.R","when both strategies of the rule fail the refusal names the sign-flip test",2,0,FALSE,FALSE
+"test-fit.R","a coefficient failing the usability criterion gets NA inference, not a refusal",7,0,FALSE,FALSE
+"test-fit.R","incomplete rows are reported in the fit",2,0,FALSE,FALSE
+"test-fit.R","argument validation",3,0,FALSE,FALSE
+"test-fit.R","alpha changes the intervals and confint reports them",5,0,FALSE,FALSE
+"test-flip.R","flip_test reproduces the study's p-value with enumeration (N <= 12)",20,0,FALSE,FALSE
+"test-flip.R","flip_test reproduces the study's p-value with random signs (N > 12)",15,0,FALSE,FALSE
+"test-flip.R","row order and column order of the data do not change the result",3,0,FALSE,FALSE
+"test-flip.R","the RNG state is used when no seed is given, and left alone when one is",2,0,FALSE,FALSE
+"test-flip.R","the default term is the last column of the mean model",3,0,FALSE,FALSE
+"test-flip.R","a covariate enters the model without the tested term",1,0,FALSE,FALSE
+"test-flip.R","an arm with only zero outcomes gives no answer (score numerically zero)",5,0,FALSE,FALSE
+"test-flip.R","the test refuses an outcome that is not binary and needs two groups",2,0,FALSE,FALSE
+"test-flip.R","print says it is a p-value only",3,0,FALSE,FALSE
+"test-flip.R","a tested term that is identically zero gives no answer, not an error",4,0,FALSE,FALSE
+"test-gee.R","fit_gee builds a broom-shaped coefficient table with t reference",5,0,FALSE,FALSE
+"test-gee.R","z reference uses the normal distribution",2,0,FALSE,FALSE
+"test-gee.R","t and z references genuinely differ at small G",2,0,FALSE,FALSE
+"test-gee.R","a correction failure surfaces as a structured failure, not an error",3,0,FALSE,FALSE
+"test-gee.R","a 2-level factor outcome fits identically to its 0/1 recoding",2,0,FALSE,FALSE
+"test-gee.R","fit warnings are captured into notes, not destroyed",1,0,FALSE,FALSE
+"test-gee.R","the GEE strategy is the study's fit, whatever the order of the rows",5,0,FALSE,FALSE
+"test-glmm.R","glmm_wald reproduces glmer's fixed effects and model-based SEs",4,0,FALSE,FALSE
+"test-glmm.R","glmm_lrt p-values are drop-one likelihood-ratio tests",5,0,FALSE,FALSE
+"test-glmm.R","random slopes from the formula are honoured by the mixed model",2,0,FALSE,FALSE
+"test-glmm.R","an offset reaches the mixed model",1,0,FALSE,FALSE
+"test-glmm.R","a 2-level factor outcome fits like its 0/1 recoding",1,0,FALSE,FALSE
+"test-methods.R","print, summary, tidy and glance describe the fit",16,0,FALSE,FALSE
+"test-methods.R","an overridden fit says so in the summary",2,0,FALSE,FALSE
+"test-methods.R","print shows the notes and compare prints each note once per block",2,0,FALSE,FALSE
+"test-mmm-check.R","the check reproduces the branch, estimate and p-value of the study",72,0,FALSE,FALSE
+"test-mmm-check.R","the default check gives the same branch on the six study datasets",6,0,FALSE,FALSE
+"test-mmm-check.R","a failing constant fit keeps the trend fit and says so",4,0,FALSE,FALSE
+"test-mmm.R","Gauss-Hermite rule integrates moments of the standard normal",3,0,FALSE,FALSE
+"test-mmm.R","the marginalized model reaches the optimum of MMLB::mm along the same path",24,0,FALSE,FALSE
+"test-mmm.R","the analytic gradient matches central differences",1,0,FALSE,FALSE
+"test-mmm.R","with a vanishing latent variance the likelihood is the logistic GLM",1,0,FALSE,FALSE
+"test-mmm.R","the convergence check replaces a boundary fit by the constant-SD fit",10,0,FALSE,FALSE
+"test-mmm.R","without `time` the model has a constant latent SD and no transition",4,0,FALSE,FALSE
+"test-mmm.R","the unit of time changes neither the dependence model nor the optimum",6,0,FALSE,FALSE
+"test-mmm.R","the coherence condition catches a converged false optimum on real data",7,0,FALSE,FALSE
+"test-mmm.R","a trend fit below its own sub-model is treated as a false optimum (stub)",3,0,FALSE,FALSE
+"test-mmm.R","repeated time values within a group are refused at parse time",1,0,FALSE,FALSE
+"test-mmm.R","a fit with no usable coefficient is a structured failure",2,0,FALSE,FALSE
+"test-plot.R","plot methods run without error",5,0,FALSE,FALSE
+"test-separation.R","complete separation by a continuous covariate is detected pre-fit",1,0,FALSE,FALSE
+"test-separation.R","quasi-separation by a pure dummy cell is detected and named",2,0,FALSE,FALSE
+"test-separation.R","well-behaved data are not flagged",1,0,FALSE,FALSE
+"test-separation.R","monotone separation by a discrete covariate is detected exactly",2,0,FALSE,FALSE
+"test-separation.R","a pure non-extreme cell is NOT separation (the MLE is finite)",1,0,FALSE,FALSE
+"test-separation.R","the max_tab_levels threshold governs the boundary-tie check",2,0,FALSE,FALSE
+"test-separation.R","intercept-free designs are not falsely refused for separation",3,0,FALSE,FALSE
+"test-separation.R","a constant outcome yields no spurious separation evidence",2,0,FALSE,FALSE
+"test-separation.R","near-boundary but non-separated data are not flagged",1,0,FALSE,FALSE
+"test-simulate.R","generator returns the documented shape",7,0,FALSE,FALSE
+"test-simulate.R","same seed reproduces identical data, different seed does not",2,0,FALSE,FALSE
+"test-simulate.R","seed argument does not disturb the caller's RNG stream",1,0,FALSE,FALSE
+"test-simulate.R","random slopes vary across groups when slope_sd > 0",1,0,FALSE,FALSE
+"test-simulate.R","prevalence is approximately honoured",1,0,FALSE,FALSE
+"test-simulate.R","invalid arguments are rejected",4,0,FALSE,FALSE

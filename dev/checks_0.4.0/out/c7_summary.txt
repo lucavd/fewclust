@@ -1,0 +1,3 @@
+* checking HTML version of manual ... NOTE
+Status: 1 NOTE
+GATE check 6: PASS

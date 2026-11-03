@@ -1,0 +1,557 @@
+dgp,N,ntime,label,sim_id,design_degenerate,generated,data_identical,constant,cc_ok,study_no_result_d90,used_saved,code_saved,est_saved,se_saved,pkg_status,pkg_strategy,path_pkg,est_pkg,se_pkg,default_status,default_strategy,default_path,est_default,se_default,error,compared,numeric_compared,branch_match,match,study_usable,pkg_usable,both_fitted,differs,compared_d90,match_d90,key_no_mmm
+GLMM-AR1,10,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,17.5349081588942,4576.34251097935,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-1.09861228866811,12235.1520538558,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-20.4674562341785,3286549.70575501,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,17.5349081588942,4576.34251097935,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-1.09861228866811,12235.1520538558,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-20.4674562341785,3286549.70575501,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,-16.5850034858509,5479.41566042021,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.292383703836669,1.02503045431581,fitted,mmm,constant fit used,-0.292383703836726,1.02503049157503,fitted,mmm,constant fit used,-0.292383703836726,1.02503049157503,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,10,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,2.76426282729354,1.38954414440045,fitted,mmm,constant fit used,2.76426282729353,1.3895441789775,fitted,mmm,constant fit used,2.76426282729353,1.3895441789775,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,10,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-16.7466743195299,60023.5615499343,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.292793630254421,0.955396530615553,fitted,mmm,constant fit used,0.292793630254422,0.955396572379763,fitted,mmm,constant fit used,0.292793630254422,0.955396572379763,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,10,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,A,5,18.4968210491322,9048.95718111239,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 53.0 to 56.0 between 25 and
+  100 iterations, with 10 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 53.0 to 56.0 between 25 and
+  100 iterations, with 10 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,10,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,0.0164102439876304,0.146224462727824,fitted,gee,no result,0.0954620238411903,0.26474324489663,fitted,gee,no result,0.0954620238411903,0.26474324489663,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GLMM-AR1,10,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.599164026738737,0.302581007759857,fitted,mmm,constant fit used,0.599164026738788,0.302581018093726,fitted,mmm,constant fit used,0.599164026738788,0.302581018093726,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,10,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.132924193160487,0.343730657882679,fitted,mmm,constant fit used,0.132924193162074,0.343730681372246,fitted,mmm,constant fit used,0.132924193162074,0.343730681372246,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,10,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.359540702004365,0.273660004529221,fitted,mmm,constant fit used,-0.3595407020029,0.273660014592927,fitted,mmm,constant fit used,-0.3595407020029,0.273660014592927,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,10,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.263192636931733,0.308444877205292,fitted,mmm,constant fit used,0.263192636931723,0.308444900260989,fitted,mmm,constant fit used,0.263192636931723,0.308444900260989,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,10,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,16.1874054165916,2442.34096416463,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 115.4 to 122.4 between 25 and
+  100 iterations, with 25 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 115.4 to 122.4 between 25 and
+  100 iterations, with 25 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,25,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.15699381345259,1.36538021916247,fitted,mmm,trend fit kept,0.156993813452175,1.36538017534762,fitted,mmm,trend fit kept,0.156993813452175,1.36538017534762,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,-18.0107832825091,4630.55797254945,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); the refit without the time trend of the latent
+  standard deviation returned no finite estimate or standard error (nlm code
+  3), so the model gives no result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); the refit without the time trend of the latent
+  standard deviation returned no finite estimate or standard error (nlm code
+  3), so the model gives no result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,25,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,19.2634834298678,24689.1822159422,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,25,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-16.9974533293502,2880.74191623101,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,25,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,-17.2412179597951,4287.41834511556,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 3), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 3), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,25,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,19.2634834298678,24689.1822159422,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-AR1,25,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,1.78276823476391,0.791184395183191,fitted,mmm,constant fit used,1.78276823476398,0.791184422588785,fitted,mmm,constant fit used,1.78276823476398,0.791184422588785,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.624126265190308,0.53367275171601,fitted,mmm,trend fit kept,-0.624126265190232,0.533672778767485,fitted,mmm,trend fit kept,-0.624126265190232,0.533672778767485,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.455135769799475,0.624862870248411,fitted,mmm,constant fit used,0.455135769800236,0.624862919278663,fitted,mmm,constant fit used,0.455135769800236,0.624862919278663,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,1.72570256194715,0.815124579084355,fitted,mmm,constant fit used,1.7257025619612,0.815124626861907,fitted,mmm,constant fit used,1.7257025619612,0.815124626861907,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.331123491500013,0.500987242385768,fitted,mmm,trend fit kept,-0.331123491500294,0.500987267605209,fitted,mmm,trend fit kept,-0.331123491500294,0.500987267605209,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.827577333311184,0.641086105650468,fitted,mmm,constant fit used,0.827577333311751,0.641086137632643,fitted,mmm,constant fit used,0.827577333311751,0.641086137632643,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.126252726143312,0.215100673628989,fitted,mmm,trend fit kept,0.12625272613965,0.215100687889894,fitted,mmm,trend fit kept,0.12625272613965,0.215100687889894,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0334213722715988,0.153732498504474,fitted,mmm,trend fit kept,0.0334213722840643,0.153732503388022,fitted,mmm,trend fit kept,0.0334213722840643,0.153732503388022,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.201164261430067,0.163370027958345,fitted,mmm,trend fit kept,0.201164202595403,0.163370059595532,fitted,mmm,trend fit kept,0.201164202595403,0.163370059595532,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.123128983361884,0.208266672967271,fitted,mmm,constant fit used,-0.123128983353086,0.208266695641061,fitted,mmm,constant fit used,-0.123128983353086,0.208266695641061,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.246476768693452,0.183998016408516,fitted,mmm,trend fit kept,-0.246476768693427,0.183998071048172,fitted,mmm,trend fit kept,-0.246476768693427,0.183998071048172,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,25,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.15182280147169,0.167136750237728,fitted,mmm,constant fit used,0.151822801471671,0.167136759080017,fitted,mmm,constant fit used,0.151822801471671,0.167136759080017,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.565686616039956,0.927937485968919,fitted,mmm,constant fit used,0.565686616039969,0.927937503983273,fitted,mmm,constant fit used,0.565686616039969,0.927937503983273,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,0.864976434378053,0.825609937311019,fitted,gee,no result,0.886762496293573,0.887346891657999,fitted,gee,no result,0.886762496293573,0.887346891657999,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GLMM-AR1,65,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.867639797590029,1.10542902806411,fitted,mmm,constant fit used,-0.867639797589129,1.10542904362561,fitted,mmm,constant fit used,-0.867639797589129,1.10542904362561,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.565686616039956,0.927937485968919,fitted,mmm,constant fit used,0.565686616039969,0.927937503983273,fitted,mmm,constant fit used,0.565686616039969,0.927937503983273,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,0.864976434378053,0.825609937311019,fitted,gee,no result,0.886762496293573,0.887346891657999,fitted,gee,no result,0.886762496293573,0.887346891657999,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GLMM-AR1,65,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-1.22576176138383,1.12958894599618,fitted,mmm,constant fit used,-1.22576176138323,1.12958896855819,fitted,mmm,constant fit used,-1.22576176138323,1.12958896855819,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.00306543072434707,0.32352699540948,fitted,mmm,trend fit kept,0.00306543072417293,0.323527001663712,fitted,mmm,trend fit kept,0.00306543072417293,0.323527001663712,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,1.48427725326638,0.52148457254443,fitted,mmm,trend fit kept,1.48427725326594,0.521484591581765,fitted,mmm,trend fit kept,1.48427725326594,0.521484591581765,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.242669514303144,0.251335500448324,fitted,mmm,trend fit kept,-0.242669514303149,0.251335505568874,fitted,mmm,trend fit kept,-0.242669514303149,0.251335505568874,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.170930703769646,0.335262847468622,fitted,mmm,constant fit used,-0.170930703769646,0.335262857773105,fitted,mmm,constant fit used,-0.170930703769646,0.335262857773105,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,1.34266146344647,0.522286713597777,fitted,mmm,constant fit used,1.34266146344625,0.522286738299483,fitted,mmm,constant fit used,1.34266146344625,0.522286738299483,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.309827102955093,0.301134702996007,fitted,mmm,trend fit kept,-0.309827102955563,0.301134714284656,fitted,mmm,trend fit kept,-0.309827102955563,0.301134714284656,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.255879706283686,0.12012406629573,fitted,mmm,trend fit kept,0.25587970628367,0.120124073269903,fitted,mmm,trend fit kept,0.25587970628367,0.120124073269903,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.489370211492338,0.111242307289596,fitted,mmm,constant fit used,0.489370211492336,0.111242309120194,fitted,mmm,constant fit used,0.489370211492336,0.111242309120194,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0939500476773583,0.106733922808883,fitted,mmm,trend fit kept,0.0939500476774006,0.106733927217008,fitted,mmm,trend fit kept,0.0939500476774006,0.106733927217008,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0782970556217844,0.127627066277303,fitted,mmm,trend fit kept,0.0782970556213611,0.127627076947306,fitted,mmm,trend fit kept,0.0782970556213611,0.127627076947306,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.219283684085376,0.112746779558922,fitted,mmm,constant fit used,0.219283684085376,0.112746785777581,fitted,mmm,constant fit used,0.219283684085376,0.112746785777581,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-AR1,65,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.054816827166797,0.106784461335942,fitted,mmm,trend fit kept,-0.0548168271667545,0.106784468415163,fitted,mmm,trend fit kept,-0.0548168271667545,0.106784468415163,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,-20.1976030480415,7174.23982988123,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 5); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 5), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 5); its log-likelihood is below that of the fit without
+  the trend (a false optimum); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 5), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,22.2592157011814,33196.4633604565,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'trt' separates the outcome classes except at the boundary value 1
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'trt' separates the outcome classes except at the boundary value 1
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-20.4674562341852,36861.0712414072,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,-20.1976030480415,7174.23982988123,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 5); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 5), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 5); its log-likelihood is below that of the fit without
+  the trend (a false optimum); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 5), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,22.2592157011814,33196.4633604565,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'trt' separates the outcome classes except at the boundary value 1
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'trt' separates the outcome classes except at the boundary value 1
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-20.4674562341852,36861.0712414072,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-17.0691894893689,30012.0202072531,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,1.53260987093314,0.839281688502886,fitted,mmm,trend fit kept,1.53260987093314,0.839281699823738,fitted,mmm,trend fit kept,1.53260987093314,0.839281699823738,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,1.28121251339492,1.26424195029771,fitted,gee,no result,1.12749561967519,0.837763284608566,fitted,gee,no result,1.12749561967519,0.837763284608566,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GLMM-native,10,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,2,-17.4209052632121,3680.3066438512,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 52.7 to 55.7 between 25 and
+  100 iterations, with 15 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,10,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,1.27238349071213,0.614252118162388,fitted,mmm,trend fit kept,1.27238349071198,0.614252161720229,fitted,mmm,trend fit kept,1.27238349071198,0.614252161720229,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,1.28121251339492,1.26424195029771,fitted,gee,no result,1.12749561967519,0.837763284608566,fitted,gee,no result,1.12749561967519,0.837763284608566,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GLMM-native,10,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.204933598312846,0.203952006899229,fitted,mmm,trend fit kept,-0.204933597951976,0.203951994520718,fitted,mmm,trend fit kept,-0.204933597951976,0.203951994520718,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.0542416191339046,0.229931257911672,fitted,mmm,constant fit used,0.0542416191339065,0.229931263111749,fitted,mmm,constant fit used,0.0542416191339065,0.229931263111749,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.622910117254748,0.288738185316268,fitted,mmm,trend fit kept,0.622910117252843,0.288738158193081,fitted,mmm,trend fit kept,0.622910117252843,0.288738158193081,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.209152579836375,0.217361771349143,fitted,mmm,constant fit used,-0.209152579836367,0.217361780657425,fitted,mmm,constant fit used,-0.209152579836367,0.217361780657425,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.10740356327362,0.258017964306553,fitted,mmm,constant fit used,-0.107403563273659,0.258017977665407,fitted,mmm,constant fit used,-0.107403563273659,0.258017977665407,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,10,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.451445692228555,0.285821889601499,fitted,mmm,trend fit kept,0.451445692228623,0.285821763053449,fitted,mmm,trend fit kept,0.451445692228623,0.285821763053449,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,18.6201583726343,18550.4723827549,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,25,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.105396559831013,1.16499936008037,fitted,mmm,trend fit kept,0.105396559830779,1.16499932257279,fitted,mmm,trend fit kept,0.105396559830779,1.16499932257279,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,36.6323273798327,11759.7304597848,fitted,mmm,trend fit kept,36.6323273798327,11770.7405639632,fitted,mmm,trend fit kept,36.6323273798327,11770.7405639632,,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE
+GLMM-native,25,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,18.6201583726343,18550.4723827549,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GLMM-native,25,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.105396559831013,1.16499936008037,fitted,mmm,trend fit kept,0.105396559830779,1.16499932257279,fitted,mmm,trend fit kept,0.105396559830779,1.16499932257279,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,36.6323273798327,11759.7304597848,fitted,mmm,trend fit kept,36.6323273798327,11770.7405639632,fitted,mmm,trend fit kept,36.6323273798327,11770.7405639632,,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE
+GLMM-native,25,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,1.25937444124908,1.04300545983113,fitted,mmm,trend fit kept,1.25937444124899,1.04300550526594,fitted,mmm,trend fit kept,1.25937444124899,1.04300550526594,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.390419458193695,0.706514476352467,fitted,mmm,trend fit kept,0.390419458193897,0.706514521839243,fitted,mmm,trend fit kept,0.390419458193897,0.706514521839243,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,1.69470974482502,0.772513759715569,fitted,mmm,constant fit used,1.69470974482616,0.772513819475775,fitted,mmm,constant fit used,1.69470974482616,0.772513819475775,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,1.50376349455661,1.03261379070728,fitted,mmm,trend fit kept,1.50376349456514,1.0326138404263,fitted,mmm,trend fit kept,1.50376349456514,1.0326138404263,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.0675775354462,0.650699402014947,fitted,mmm,constant fit used,-0.0675775354461875,0.650699438502443,fitted,mmm,constant fit used,-0.0675775354461875,0.650699438502443,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,0.685984300084371,1.03054496003266,fitted,gee,no result,0.768408397544704,0.440455986989196,fitted,gee,no result,0.768408397544704,0.440455986989196,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GLMM-native,25,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.249055375352798,0.239930800040704,fitted,mmm,trend fit kept,0.249055375353017,0.239930813269792,fitted,mmm,trend fit kept,0.249055375353017,0.239930813269792,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0549098137521222,0.176985722706197,fitted,mmm,trend fit kept,0.0549098137537526,0.176985727900628,fitted,mmm,trend fit kept,0.0549098137537526,0.176985727900628,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.301990656706688,0.172303858319562,fitted,mmm,trend fit kept,0.301990656706582,0.172303864778046,fitted,mmm,trend fit kept,0.301990656706582,0.172303864778046,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0676591900319184,0.204813348328877,fitted,mmm,trend fit kept,0.067659190042236,0.204813369694723,fitted,mmm,trend fit kept,0.067659190042236,0.204813369694723,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.398896263201846,0.177021230975712,fitted,mmm,constant fit used,-0.39889626320181,0.177021239754987,fitted,mmm,constant fit used,-0.39889626320181,0.177021239754987,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,25,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.0989894168498743,0.186622931707691,fitted,mmm,constant fit used,0.098989416849077,0.18662294434903,fitted,mmm,constant fit used,0.098989416849077,0.18662294434903,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,17.67282453504,2939.72878321652,fitted,mmm,trend fit kept,17.6728245350391,2838.95584297004,fitted,mmm,trend fit kept,17.6728245350391,2838.95584297004,,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE
+GLMM-native,65,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.311820962849098,1.15359121710592,fitted,mmm,trend fit kept,0.311820962849117,1.15359124309976,fitted,mmm,trend fit kept,0.311820962849117,1.15359124309976,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.430400271527647,1.09041617653776,fitted,mmm,constant fit used,0.430400271525885,1.09041620253798,fitted,mmm,constant fit used,0.430400271525885,1.09041620253798,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,17.4456969295572,2921.22708737422,fitted,mmm,trend fit kept,17.4456969295564,2913.49215743167,fitted,mmm,trend fit kept,17.4456969295564,2913.49215743167,,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE
+GLMM-native,65,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.00748501755094184,1.16669549068506,fitted,mmm,constant fit used,-0.00748501754894989,1.16669551020966,fitted,mmm,constant fit used,-0.00748501754894989,1.16669551020966,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.430400271527647,1.09041617653776,fitted,mmm,constant fit used,0.430400271525885,1.09041620253798,fitted,mmm,constant fit used,0.430400271525885,1.09041620253798,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.275994478721976,0.31140351687063,fitted,mmm,constant fit used,0.275994478721972,0.311403525728423,fitted,mmm,constant fit used,0.275994478721972,0.311403525728423,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.155383093497227,0.278055246057782,fitted,mmm,trend fit kept,-0.155383093497224,0.278055256971345,fitted,mmm,trend fit kept,-0.155383093497224,0.278055256971345,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.237460853763791,0.280366187776098,fitted,mmm,trend fit kept,0.237460853763455,0.280366196233029,fitted,mmm,trend fit kept,0.237460853763455,0.280366196233029,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0946254083551082,0.32942533747033,fitted,mmm,trend fit kept,0.0946254083550496,0.32942535017983,fitted,mmm,trend fit kept,0.0946254083550496,0.32942535017983,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.125934582410218,0.300193241953088,fitted,mmm,trend fit kept,-0.125934582410211,0.300193254479323,fitted,mmm,trend fit kept,-0.125934582410211,0.300193254479323,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0981663191688254,0.292483182540746,fitted,mmm,trend fit kept,0.0981663191691972,0.292483193153164,fitted,mmm,trend fit kept,0.0981663191691972,0.292483193153164,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.234012849213624,0.109305519958734,fitted,mmm,trend fit kept,0.23401284929544,0.1093055256899,fitted,mmm,trend fit kept,0.23401284929544,0.1093055256899,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.233947454627147,0.0976731043374581,fitted,mmm,constant fit used,0.233947454627152,0.0976731060666611,fitted,mmm,constant fit used,0.233947454627152,0.0976731060666611,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.290323804707877,0.0967415421582446,fitted,mmm,constant fit used,0.29032380470788,0.0967415451526968,fitted,mmm,constant fit used,0.29032380470788,0.0967415451526968,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.117593837160639,0.106947029348306,fitted,mmm,constant fit used,0.117593837162727,0.106947037076477,fitted,mmm,constant fit used,0.117593837162727,0.106947037076477,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.0625806203626048,0.0928398057397998,fitted,mmm,constant fit used,0.0625806203626096,0.0928398097665424,fitted,mmm,constant fit used,0.0625806203626096,0.0928398097665424,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GLMM-native,65,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.0511983861524015,0.0934104575681239,fitted,mmm,constant fit used,0.0511983861524019,0.0934104629315705,fitted,mmm,constant fit used,0.0511983861524019,0.0934104629315705,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,10,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,20.5660685216903,25317.9841714455,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'trt' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'trt' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,10,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,-0.000283153987924882,20182.4173975795,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,10,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,-1.6094381711966,14616.6894246273,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,10,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,20.5660685216903,25317.9841714455,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'trt' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'trt' separates the outcome classes except at the boundary value 0
+  (quasi-complete)
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,TRUE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,10,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,-0.000283153987924882,20182.4173975795,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome does not vary within any group: every other group has a
+constant outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,10,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,-1.6094381711966,14616.6894246273,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,"error: The outcome varies in only one group: every other group has a constant
+outcome.
+ℹ These models need the outcome to vary within at least two groups; consider
+  exact or permutation inference at the group level.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,10,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,1.69957492533679,1.1273964710565,fitted,gee,no result,1.67307004406611,0.909677692801716,fitted,gee,no result,1.67307004406611,0.909677692801716,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GenBinaryY,10,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.765274026713725,0.93232654278348,fitted,mmm,trend fit kept,0.765274026713725,0.932326610311672,fitted,mmm,trend fit kept,0.765274026713725,0.932326610311672,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,10,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.0708517631080767,0.846468018056863,fitted,mmm,constant fit used,0.0708517631082996,0.846468040223606,fitted,mmm,constant fit used,0.0708517631082996,0.846468040223606,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,10,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,1.69957492533679,1.1273964710565,fitted,gee,no result,1.67307004406611,0.909677692801716,fitted,gee,no result,1.67307004406611,0.909677692801716,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GenBinaryY,10,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.142936948961981,0.819180673153502,fitted,mmm,constant fit used,0.14293694896143,0.819180749211772,fitted,mmm,constant fit used,0.14293694896143,0.819180749211772,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,10,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.0708517631080767,0.846468018056863,fitted,mmm,constant fit used,0.0708517631082996,0.846468040223606,fitted,mmm,constant fit used,0.0708517631082996,0.846468040223606,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,10,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.174000336960302,0.0993756483267729,fitted,mmm,trend fit kept,-0.174000336960621,0.0993756809507848,fitted,mmm,constant fit used,-0.21661480173393,0.210169197431603,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE
+GenBinaryY,10,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.583867878267716,0.340174394310736,fitted,mmm,constant fit used,0.583867878267688,0.340174389309042,fitted,mmm,constant fit used,0.583867878267688,0.340174389309042,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,10,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 125.6 to 132.6 between 25 and
+  100 iterations, with 30 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 125.6 to 132.6 between 25 and
+  100 iterations, with 30 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,10,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.138952294879976,0.0727348161488445,fitted,mmm,trend fit kept,-0.138952294880467,0.0727348649068515,fitted,mmm,constant fit used,-0.25578799699362,0.218140119090755,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE
+GenBinaryY,10,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.316854743320318,0.358537391718877,fitted,mmm,constant fit used,0.316854743319941,0.35853742117692,fitted,mmm,constant fit used,0.316854743319941,0.35853742117692,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,10,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,37.2341388350131,5770.81183932319,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 132.6 to 139.6 between 25 and
+  100 iterations, with 55 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• diverging fit: max |linear predictor| grew from 132.6 to 139.6 between 25 and
+  100 iterations, with 55 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,25,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,17.7201749297669,5894.16200677983,fitted,mmm,trend fit kept,17.7201749297585,,fitted,mmm,trend fit kept,17.7201749297585,,,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE
+GenBinaryY,25,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,A,5,-0.831711343563844,2.10183867619067,fitted,gee,no result,-0.85354683347876,2.3722160288592,fitted,gee,no result,-0.85354683347876,2.3722160288592,,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GenBinaryY,25,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.867496331634067,1.2030001449355,fitted,mmm,trend fit kept,0.86749633163377,1.20300011047482,fitted,mmm,trend fit kept,0.86749633163377,1.20300011047482,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,17.7201749297669,5894.16200677983,fitted,mmm,trend fit kept,17.7201749297585,,fitted,mmm,trend fit kept,17.7201749297585,,,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE
+GenBinaryY,25,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,A,5,-0.831711343563844,2.10183867619067,fitted,gee,no result,-0.85354683347876,2.3722160288592,fitted,gee,no result,-0.85354683347876,2.3722160288592,,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GenBinaryY,25,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.867496331634067,1.2030001449355,fitted,mmm,trend fit kept,0.86749633163377,1.20300011047482,fitted,mmm,trend fit kept,0.86749633163377,1.20300011047482,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,-16.3333125413095,3703.82294196141,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+• diverging fit: max |linear predictor| grew from 51.1 to 54.1 between 25 and
+  100 iterations, with 23 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+• diverging fit: max |linear predictor| grew from 51.1 to 54.1 between 25 and
+  100 iterations, with 23 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,25,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.937972100507759,0.453789475263486,fitted,mmm,trend fit kept,0.937972100507712,0.453789489838979,fitted,mmm,trend fit kept,0.937972100507712,0.453789489838979,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.176760277898616,0.211162937697989,fitted,mmm,trend fit kept,-0.17676027789858,0.211162203108727,fitted,mmm,constant fit used,-0.00781155479680487,0.422295712411866,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE
+GenBinaryY,25,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,-16.3333125413095,3703.82294196141,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+• diverging fit: max |linear predictor| grew from 51.1 to 54.1 between 25 and
+  100 iterations, with 23 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,"error: The mean model shows quasi separation: some covariate predicts the
+outcome perfectly, so the estimates are infinite.
+• column 'time:trt' separates the outcome classes except at the boundary value
+  0 (quasi-complete)
+• diverging fit: max |linear predictor| grew from 51.1 to 54.1 between 25 and
+  100 iterations, with 23 fitted value(s) at the 0/1 boundary
+ℹ Remove or coarsen the covariate, or use a penalised (Firth) logistic
+  regression, as in the packages logistf or brglm2.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,25,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,5,0.830646428821179,0.101707883518618,fitted,gee,no result,0.575839770055461,0.450619109624396,fitted,gee,no result,0.575839770055461,0.450619109624396,,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,,TRUE
+GenBinaryY,25,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.171720829276666,0.436899218749799,fitted,mmm,constant fit used,-0.171720829276667,0.436899229285339,fitted,mmm,constant fit used,-0.171720829276667,0.436899229285339,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.282401414530342,0.200808366830618,fitted,mmm,constant fit used,0.282401414530328,0.200808372574815,fitted,mmm,constant fit used,0.282401414530328,0.200808372574815,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.321860490013812,0.179814159051235,fitted,mmm,constant fit used,0.321860490013813,0.179814163560006,fitted,mmm,constant fit used,0.321860490013813,0.179814163560006,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.0788495480834744,0.166707842163459,fitted,mmm,trend fit kept,-0.0788495480837585,0.166707842485591,fitted,mmm,trend fit kept,-0.0788495480837585,0.166707842485591,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.145583008635864,0.214210758935309,fitted,mmm,constant fit used,0.14558300863625,0.214210770631482,fitted,mmm,constant fit used,0.14558300863625,0.214210770631482,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.0733148608884744,0.206270612459723,fitted,mmm,constant fit used,-0.0733148608884417,0.206270690657013,fitted,mmm,constant fit used,-0.0733148608884417,0.206270690657013,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,25,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.162081830297865,0.178784877069387,fitted,mmm,trend fit kept,-0.162081830297833,0.178784885678473,fitted,mmm,trend fit kept,-0.162081830297833,0.178784885678473,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,2,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,16.866334820416,1905.76269711473,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 3), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); its log-likelihood is below that of the fit without
+  the trend (a false optimum); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 3), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,65,2,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.198857343445095,1.10030927428573,fitted,mmm,constant fit used,-0.19885734345425,1.10030929982573,fitted,mmm,constant fit used,-0.19885734345425,1.10030929982573,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,2,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,1.12295530972161,1.21177977634771,fitted,mmm,constant fit used,1.12295530972272,1.21177980007085,fitted,mmm,constant fit used,1.12295530972272,1.21177980007085,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,2,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,B,3,16.866334820416,1905.76269711473,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 3), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,"error: Neither model gave a usable estimate.
+✖ Marginalized multilevel model: convergence check: the optimiser did not
+  converge (nlm code 3); its log-likelihood is below that of the fit without
+  the trend (a false optimum); the refit without the time trend of the latent
+  standard deviation did not converge (nlm code 3), so the model gives no
+  result.
+✖ GEE: model-based information matrix is singular (aliased or degenerate
+  design, possibly separation).
+ℹ `flip_test()` gives a p-value for one coefficient without fitting either
+  model.",,,,,,FALSE,FALSE,FALSE,,FALSE,FALSE,FALSE,FALSE,FALSE,,FALSE
+GenBinaryY,65,2,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.198857343445095,1.10030927428573,fitted,mmm,constant fit used,-0.19885734345425,1.10030929982573,fitted,mmm,constant fit used,-0.19885734345425,1.10030929982573,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,2,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,1.12295530972161,1.21177977634771,fitted,mmm,constant fit used,1.12295530972272,1.21177980007085,fitted,mmm,constant fit used,1.12295530972272,1.21177980007085,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,4,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.219073338962447,0.331599623570189,fitted,mmm,constant fit used,0.219073338962327,0.331599637934591,fitted,mmm,constant fit used,0.219073338962327,0.331599637934591,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,4,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,2,0.00943464987471854,0.169740285607168,fitted,mmm,trend fit kept,0.00953358029681934,0.124735428319379,fitted,mmm,constant fit used,0.00419217485083684,0.312970871751832,,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+GenBinaryY,65,4,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.141859483551278,0.351375020998762,fitted,mmm,trend fit kept,0.141859483549969,0.351375043712731,fitted,mmm,trend fit kept,0.141859483549969,0.351375043712731,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,4,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,0.0343499105608018,0.370801208089872,fitted,mmm,constant fit used,0.034349910560793,0.370801224239935,fitted,mmm,constant fit used,0.034349910560793,0.370801224239935,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,4,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,B,1,-0.184174885782048,0.352250511986391,fitted,mmm,constant fit used,-0.184174885782288,0.352250525257453,fitted,mmm,constant fit used,-0.184174885782288,0.352250525257453,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,4,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.110961905962397,0.254941909734037,fitted,mmm,trend fit kept,0.1109619059624,0.254941875858964,fitted,mmm,trend fit kept,0.1109619059624,0.254941875858964,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,8,mmlb,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.20096619941287,0.117557604460673,fitted,mmm,trend fit kept,0.20096619941306,0.117557611045737,fitted,mmm,trend fit kept,0.20096619941306,0.117557611045737,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,8,mmlb,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.231226312494018,0.113963529050112,fitted,mmm,trend fit kept,0.231226312429891,0.11396353361587,fitted,mmm,trend fit kept,0.231226312429891,0.11396353361587,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,8,mmlb,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.149880656383823,0.107312560878716,fitted,mmm,trend fit kept,0.149880656383207,0.107312565808607,fitted,mmm,trend fit kept,0.149880656383207,0.107312565808607,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,8,manual,1,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,0.0702545617383932,0.132844849932705,fitted,mmm,trend fit kept,0.0702545617382756,0.132844860507258,fitted,mmm,trend fit kept,0.0702545617382756,0.132844860507258,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,8,manual,2,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.0274249156117303,0.132647902105895,fitted,mmm,trend fit kept,-0.0274249156117365,0.132647912902258,fitted,mmm,trend fit kept,-0.0274249156117365,0.132647912902258,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE
+GenBinaryY,65,8,manual,3,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,A,1,-0.0891083512144913,0.114767009066082,fitted,mmm,trend fit kept,-0.0891083512143966,0.114767017475013,fitted,mmm,trend fit kept,-0.0891083512143966,0.114767017475013,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE

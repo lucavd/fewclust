@@ -1,0 +1,25 @@
+md5 of the input files:
+                       file                             plan
+          V5_S7f_table4.csv bae9d66a6dda8790e8cdd1537a062888
+        V5_S7f_h2h_boot.csv 14eeef1dbc4c46cd9692b2420331d3bf
+         V5_S7f_rule_dp.csv 494a22502e437a372f7210a7bb3f39cf
+ V5_S7f_cp_S7d_dp_rates.csv e3b6711c6f423493081ce98f422444d9
+                              now
+ bae9d66a6dda8790e8cdd1537a062888
+ 14eeef1dbc4c46cd9692b2420331d3bf
+ 494a22502e437a372f7210a7bb3f39cf
+ e3b6711c6f423493081ce98f422444d9
+values compared: 344 ; equal: 344 ; per source:
+           
+            TRUE
+  ar1_fg_hi   14
+  h2h         45
+  table4     285
+strategies: 19 of 19 ; chosen in the file: mmm_cc ; in the package: mmm_cc 
+ design_points all_strategies         chosen  ar1_fg_points    map_classes 
+          TRUE           TRUE           TRUE           TRUE           TRUE 
+    md5_inputs 
+          TRUE 
+lines with the old recommendation: 0 
+version in DESCRIPTION: 0.3.1 ; NEWS opens with 0.3.1: TRUE 
+GATE check 9: PASS 

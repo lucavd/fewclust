@@ -1,0 +1,37 @@
+compared: 127 ; mismatches: 8 
+usable by the paper's filter: study 119 ; package 118 ; both 118 ; neither (among compared) 8 
+mismatches among datasets usable for the study: 2 of 119 ; among datasets usable for neither: 6 
+usable for one and not the other: 1 
+description, default control (check_coherence = TRUE): reported fit different in 4 of 127 fitted datasets; path changed in 4 
+          dgp     N ntime  label sim_id       path_pkg      default_path
+       <char> <int> <int> <char>  <int>         <char>            <char>
+1: GenBinaryY    10     8   mmlb      1 trend fit kept constant fit used
+2: GenBinaryY    10     8 manual      1 trend fit kept constant fit used
+3: GenBinaryY    25     4   mmlb      3 trend fit kept constant fit used
+4: GenBinaryY    65     4   mmlb      2 trend fit kept constant fit used
+       est_pkg  est_default     se_pkg se_default
+         <num>        <num>      <num>      <num>
+1: -0.17400034 -0.216614802 0.09937568  0.2101692
+2: -0.13895229 -0.255787997 0.07273486  0.2181401
+3: -0.17676028 -0.007811555 0.21116220  0.4222957
+4:  0.00953358  0.004192175 0.12473543  0.3129709
+           dgp     N ntime  label sim_id events n_obs study_used study_A_code study_A_slope study_A_est   study_A_se study_B_code study_B_est study_B_se                            pkg_path
+        <char> <int> <int> <char>  <int>  <num> <int>     <char>        <int>         <num>       <num>        <num>        <int>       <num>      <num>                              <char>
+1:    GLMM-AR1    10     8   mmlb      1     24    70          B            3      4.349623  0.09559094          NaN            5  0.01641024  0.1462245 constant fit failed, trend fit kept
+2: GLMM-native    25     2   mmlb      3      2    42          A            1      2.718282 36.63232738 1.175973e+04           NA          NA         NA                      trend fit kept
+3: GLMM-native    25     2 manual      3      2    42          A            1      2.718282 36.63232738 1.175973e+04           NA          NA         NA                      trend fit kept
+4: GLMM-native    65     2   mmlb      1     17   104          A            1      2.530142 17.67282454 2.939729e+03           NA          NA         NA                      trend fit kept
+5: GLMM-native    65     2 manual      1     16   104          A            1      2.571898 17.44569693 2.921227e+03           NA          NA         NA                      trend fit kept
+6:  GenBinaryY    25     2   mmlb      1      6    41          A            1      2.565152 17.72017493 5.894162e+03           NA          NA         NA                      trend fit kept
+7:  GenBinaryY    25     2 manual      1      6    41          A            1      2.565152 17.72017493 5.894162e+03           NA          NA         NA                      trend fit kept
+8:  GenBinaryY    65     4   mmlb      2     39   221          A            2     15.890130  0.00943465 1.697403e-01           NA          NA         NA                      trend fit kept
+   pkg_trend_code pkg_trend_slope pkg_trend_est pkg_trend_se pkg_const_code pkg_const_est pkg_const_se pkg_trend_logLik pkg_const_logLik study_usable pkg_usable
+            <int>           <num>         <num>        <num>          <int>         <num>        <num>            <num>            <num>       <lgcl>     <lgcl>
+1:              3        4.349623    0.09559094           NA              5   0.016410245 1.462258e-01       -21.875871       -19.394736         TRUE      FALSE
+2:              1        2.718282   36.63232738 1.177074e+04              1  36.632327380 1.176567e+04        -6.601827        -6.601827        FALSE      FALSE
+3:              1        2.718282   36.63232738 1.177074e+04              1  36.632327380 1.176567e+04        -6.601827        -6.601827        FALSE      FALSE
+4:              1        2.530142   17.67282454 2.838956e+03              1  17.672824140 2.677854e+03       -42.184298       -42.184298        FALSE      FALSE
+5:              1        2.571898   17.44569693 2.913492e+03              1  17.445696551 2.712019e+03       -40.945644       -40.945644        FALSE      FALSE
+6:              1        2.565152   17.72017493           NA              1  17.792826137           NA       -14.951559       -14.951559        FALSE      FALSE
+7:              1        2.565152   17.72017493           NA              1  17.792826137           NA       -14.951559       -14.951559        FALSE      FALSE
+8:              2       15.889864    0.00953358 1.247354e-01              1   0.004192175 3.129709e-01       -89.428311       -87.458002         TRUE       TRUE

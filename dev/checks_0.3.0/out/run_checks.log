@@ -1,0 +1,14 @@
+installed: 0.3.0
+══ DONE ════════════════════════════════════════════════════════════════════════
+
+tests: files 15 ; expectations 632 ; failed 0 ; errors 0 ; skipped 0 
+GATE check 3: PASS ( 9 of 9 cells as in Figure 1 )
+GATE check 7: PASS 
+GATE check 8: PASS 
+GATE check 6: PASS 
+GATE check 1: PASS 
+GATE check 2: PASS 
+P1: share of fits changed by the coherence condition = 13 / 796 = 1.63% (MCSE 0.45; estimate +/- 2 MCSE: 0.73% to 2.53%)
+relevance interval 1% to 6%: UNDETERMINED 
+GATE check 4: PASS
+~/MMM untouched: yes

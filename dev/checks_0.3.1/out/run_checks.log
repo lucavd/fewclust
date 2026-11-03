@@ -1,0 +1,21 @@
+inputs at start:
+bae9d66a6dda8790e8cdd1537a062888  /home/user/MMM/tables/V5_S7f_table4.csv
+14eeef1dbc4c46cd9692b2420331d3bf  /home/user/MMM/tables/V5_S7f_h2h_boot.csv
+494a22502e437a372f7210a7bb3f39cf  /home/user/MMM/tables/V5_S7f_rule_dp.csv
+e3b6711c6f423493081ce98f422444d9  /home/user/MMM/tables/V5_S7f_cp_S7d_dp_rates.csv
+~/MMM at start (informative; another session works there): 6b2159e, 143 changed paths
+installed: 0.3.1
+══ DONE ════════════════════════════════════════════════════════════════════════
+
+tests: files 15 ; expectations 706 ; failed 0 ; errors 0 ; skipped 0 
+GATE check 4: PASS ( 9 of 9 cells as in the corrected study )
+GATE check 10: PASS 
+GATE check 9: PASS 
+GATE check 8: PASS ( 16 of 16 datasets; 320 of 320 fits refused with D2 )
+GATE check 7: PASS 
+GATE check 1: PASS 
+GATE check 2: PASS 
+GATE check 3: FAIL 
+GATE check 5: PASS
+inputs unchanged during the checks: yes
+~/MMM at end (informative): 6b2159e, 144 changed paths

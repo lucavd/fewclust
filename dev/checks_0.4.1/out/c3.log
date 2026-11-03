@@ -1,0 +1,49 @@
+Warning message:
+In fifelse(scen == "M1c", 1L, as.integer(sub("M", "", scen))) :
+  NAs introduced by coercion
+fewclust 0.4.1 ; seconds: 60 
+datasets: 162 ; errors in the check: 0 ; generated: 162 ; data identical to the saved run (n_obs, sum_y): 162 
+compared: 125 ; mismatches: 18 
+mismatches among datasets usable for the study: 12 of 119 
+description, default control (check_coherence = TRUE): reported fit different in 4 of 125 fitted datasets; path changed in 4 
+          dgp     N ntime  label sim_id pkg_strategy       path_pkg default_strategy      default_path     est_pkg  est_default     se_pkg se_default
+       <char> <int> <int> <char>  <int>       <char>         <char>           <char>            <char>       <num>        <num>      <num>      <num>
+1: GenBinaryY    10     8   mmlb      1          mmm trend fit kept              mmm constant fit used -0.17400034 -0.216614802 0.09937568  0.2101692
+2: GenBinaryY    10     8 manual      1          mmm trend fit kept              mmm constant fit used -0.13895229 -0.255787997 0.07273486  0.2181401
+3: GenBinaryY    25     4   mmlb      3          mmm trend fit kept              mmm constant fit used -0.17676028 -0.007811555 0.21116220  0.4222957
+4: GenBinaryY    65     4   mmlb      2          mmm trend fit kept              mmm constant fit used  0.00953358  0.004192175 0.12473543  0.3129709
+D-90: study without result among compared: 11 ; of which the package reports no marginalized model (GEE): 11 
+D-90: compared 114 ; mismatches 7 
+mismatches:
+            dgp     N ntime  label sim_id used_saved code_saved study_no_result_d90 pkg_strategy       path_pkg   est_saved     est_pkg     se_saved       se_pkg
+         <char> <int> <int> <char>  <int>     <char>      <int>              <lgcl>       <char>         <char>       <num>       <num>        <num>        <num>
+ 1:    GLMM-AR1    10     8   mmlb      1          B          5                TRUE          gee      no result  0.01641024  0.09546202 1.462245e-01 2.647432e-01
+ 2:    GLMM-AR1    65     2   mmlb      2          B          5                TRUE          gee      no result  0.86497643  0.88676250 8.256099e-01 8.873469e-01
+ 3:    GLMM-AR1    65     2 manual      2          B          5                TRUE          gee      no result  0.86497643  0.88676250 8.256099e-01 8.873469e-01
+ 4: GLMM-native    10     4   mmlb      3          B          5                TRUE          gee      no result  1.28121251  1.12749562 1.264242e+00 8.377633e-01
+ 5: GLMM-native    10     4 manual      3          B          5                TRUE          gee      no result  1.28121251  1.12749562 1.264242e+00 8.377633e-01
+ 6: GLMM-native    25     2   mmlb      3          A          1               FALSE          mmm trend fit kept 36.63232738 36.63232738 1.175973e+04 1.177074e+04
+ 7: GLMM-native    25     2 manual      3          A          1               FALSE          mmm trend fit kept 36.63232738 36.63232738 1.175973e+04 1.177074e+04
+ 8: GLMM-native    25     4 manual      3          B          5                TRUE          gee      no result  0.68598430  0.76840840 1.030545e+00 4.404560e-01
+ 9: GLMM-native    65     2   mmlb      1          A          1               FALSE          mmm trend fit kept 17.67282454 17.67282454 2.939729e+03 2.838956e+03
+10: GLMM-native    65     2 manual      1          A          1               FALSE          mmm trend fit kept 17.44569693 17.44569693 2.921227e+03 2.913492e+03
+11:  GenBinaryY    10     4   mmlb      1          B          5                TRUE          gee      no result  1.69957493  1.67307004 1.127396e+00 9.096777e-01
+12:  GenBinaryY    10     4 manual      1          B          5                TRUE          gee      no result  1.69957493  1.67307004 1.127396e+00 9.096777e-01
+13:  GenBinaryY    25     2   mmlb      1          A          1               FALSE          mmm trend fit kept 17.72017493 17.72017493 5.894162e+03           NA
+14:  GenBinaryY    25     2   mmlb      2          A          5                TRUE          gee      no result -0.83171134 -0.85354683 2.101839e+00 2.372216e+00
+15:  GenBinaryY    25     2 manual      1          A          1               FALSE          mmm trend fit kept 17.72017493 17.72017493 5.894162e+03           NA
+16:  GenBinaryY    25     2 manual      2          A          5                TRUE          gee      no result -0.83171134 -0.85354683 2.101839e+00 2.372216e+00
+17:  GenBinaryY    25     4 manual      2          B          5                TRUE          gee      no result  0.83064643  0.57583977 1.017079e-01 4.506191e-01
+18:  GenBinaryY    65     4   mmlb      2          A          2               FALSE          mmm trend fit kept  0.00943465  0.00953358 1.697403e-01 1.247354e-01
+study rows read unchanged (md5 before = after): TRUE 
+                               item value                                                                                source
+                             <char> <int>                                                                                <char>
+1:                            n_cmp   125 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+2:                       n_mismatch    18 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+3:                   n_usable_study   119 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+4:                n_mismatch_usable    12 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+5:                            n_coh     4 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+6:                        n_cmp_d90   114 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+7:                   n_mismatch_d90     7 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+8:            n_study_no_result_d90    11 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv
+9: n_study_no_result_d90_pkg_no_mmm    11 fewclust 0.4.1: fewclust/dev/checks_0.4.1/c3_coherence.R -> out/c3_coherence_rows.csv

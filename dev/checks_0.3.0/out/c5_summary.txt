@@ -1,0 +1,6 @@
+Table 4 values compared: 133 ; equal: 133 ; strategies: 19 of 19 
+ design_points all_strategies 
+          TRUE           TRUE 
+lines quoting the v4 study (1,896 design points): 0 
+version in DESCRIPTION: 0.3.0 ; NEWS opens with 0.3.0: TRUE 
+GATE check 8: PASS 

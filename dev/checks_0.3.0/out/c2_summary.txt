@@ -1,0 +1,11 @@
+   N  T   strategy reference alternative complement mmm_closer_note match
+  10  2 gee_ar1_fg         t         mmm  flip_test           FALSE  TRUE
+  25  2 gee_ar1_fg         t         mmm  flip_test            TRUE  TRUE
+ 145  2 gee_ar1_fg         t         mmm       <NA>            TRUE  TRUE
+  10  3 gee_ar1_fg         t         mmm  flip_test           FALSE  TRUE
+  25  3 gee_ar1_fg         t         mmm  flip_test           FALSE  TRUE
+ 145  3 gee_ar1_fg         t         mmm       <NA>           FALSE  TRUE
+  10 10 gee_ar1_fg         t         mmm       <NA>           FALSE  TRUE
+  25 10 gee_ar1_fg         t         mmm       <NA>           FALSE  TRUE
+ 145 10 gee_ar1_fg         t         mmm       <NA>           FALSE  TRUE
+GATE check 3: PASS ( 9 of 9 cells as in Figure 1 )

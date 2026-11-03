@@ -1,0 +1,53 @@
+fewclust 0.3.1 ; seconds: 64 
+datasets: 162 ; errors in the check: 0 ; generated: 162 ; data identical to the saved run (n_obs, sum_y): 162 of 162 
+compared (study fit usable, package fitted): 127 ; of which numerically (study's reported fit with nlm code 1-2): 114 
+check 3 (strategy mmm, same branch, estimate all.equal 1e-6, SE all.equal 1e-5): 119 of 127 
+  branch: constant fit used by the study 65 ; by the package 64 
+  not compared:
+   generated  cc_ok                                    pkg_status constant
+      <lgcl> <lgcl>                                        <char>   <lgcl>
+1:      TRUE   TRUE refused: D2: outcome varies in a single group    FALSE
+2:      TRUE   TRUE                       refused: D3: separation    FALSE
+3:      TRUE   TRUE          refused: fit failure in "gee_ar1_fg"    FALSE
+4:      TRUE  FALSE                       refused: D3: separation    FALSE
+       N
+   <int>
+1:    14
+2:    16
+3:     4
+4:     1
+  mismatches:
+           dgp     N ntime  label sim_id used_saved
+        <char> <int> <int> <char>  <int>     <char>
+1:    GLMM-AR1    10     8   mmlb      1          B
+2: GLMM-native    25     2   mmlb      3          A
+3: GLMM-native    25     2 manual      3          A
+4: GLMM-native    65     2   mmlb      1          A
+5: GLMM-native    65     2 manual      1          A
+6:  GenBinaryY    25     2   mmlb      1          A
+7:  GenBinaryY    25     2 manual      1          A
+8:  GenBinaryY    65     4   mmlb      2          A
+                              path_pkg code_saved   est_saved     est_pkg
+                                <char>      <int>       <num>       <num>
+1: constant fit failed, trend fit kept          5  0.01641024  0.09559094
+2:                      trend fit kept          1 36.63232738 36.63232738
+3:                      trend fit kept          1 36.63232738 36.63232738
+4:                      trend fit kept          1 17.67282454 17.67282454
+5:                      trend fit kept          1 17.44569693 17.44569693
+6:                      trend fit kept          1 17.72017493 17.72017493
+7:                      trend fit kept          1 17.72017493 17.72017493
+8:                      trend fit kept          2  0.00943465  0.00953358
+       se_saved       se_pkg
+          <num>        <num>
+1: 1.462245e-01           NA
+2: 1.175973e+04 1.177074e+04
+3: 1.175973e+04 1.177074e+04
+4: 2.939729e+03 2.838956e+03
+5: 2.921227e+03 2.913492e+03
+6: 5.894162e+03           NA
+7: 5.894162e+03           NA
+8: 1.697403e-01 1.247354e-01
+largest relative |est| and |se| difference (numeric comparisons): 0.01048586 NA 
+description: default control (check_coherence = TRUE) gives a different reported fit in NA of 127 fitted datasets
+study rows read unchanged (md5 before = after): TRUE 
+GATE check 3: FAIL 

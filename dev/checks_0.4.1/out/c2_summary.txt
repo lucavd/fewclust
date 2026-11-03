@@ -1,0 +1,64 @@
+fewclust 0.4.0 vs 0.4.1 ; datasets 800 ; seconds 434 and 835 
+check errors: 0 ; data identical to the saved run (n_obs, sum_y): 800 of 800 ; study files unchanged (md5): TRUE 
+gate A: identical to 0.4.0 outside the predicted set and changed as expected inside: 800 of 800 ; predicted to change (mmm): 221 ; (engine): 267 ; recorded fits identical: 752 of 752 
+gate B: rule of D-90 on the package's own fits: 800 of 800 
+
+Keys (study: no result under D-90), method = 'mmm', check_coherence = FALSE:
+Key: <scen, why>
+     scen                 why     n no_result by_check design_refusal result engine_no_result auto_gee
+   <char>              <char> <int>     <int>    <int>          <int>  <int>            <int>    <int>
+1:     M3 refit not converged   120       120       98             22      0              120       83
+2:     M3    refit not finite   120       118       93             25      2              118       66
+3:     M4 refit not converged    40        13       10              3     27               13        9
+4:     M4    refit not finite    40        23       12             11     17               18       10
+5:     M5 refit not converged    40        11       10              1     29               10       10
+6:     M5    refit not finite    40        29       11             18     11               25        5
+
+Converged refits (study used fit B with nlm code 1-2): agreement of time:trt with fit B (est 1e-6, SE 1e-5):
+Key: <scen, dgp>
+      scen         dgp     n agree constant_used no_result_by_check design_refusal trend_kept engine_agree
+    <char>      <char> <int> <int>         <int>              <int>          <int>      <int>        <int>
+ 1:     M3  Copula-AR1    60    56            57                  1              1          1           57
+ 2:     M3    GLMM-AR1    60    58            59                  0              1          0           58
+ 3:     M3 GLMM-native    60    55            55                  2              3          0           55
+ 4:     M3  GenBinaryY    60    55            56                  0              2          2           56
+ 5:     M4  Copula-AR1    20     0            17                  0              0          3            0
+ 6:     M4    GLMM-AR1    20     0            16                  1              0          3            0
+ 7:     M4 GLMM-native    20     0            11                  0              0          9            0
+ 8:     M4  GenBinaryY    20     0            16                  0              0          4            0
+ 9:     M5  Copula-AR1    20     0            17                  0              0          3            0
+10:     M5    GLMM-AR1    20     0            12                  0              1          7            0
+11:     M5 GLMM-native    20     0            11                  2              0          7            0
+12:     M5  GenBinaryY    20     0            14                  0              0          6            0
+
+exceptions (written to c2_exceptions.csv): 262 
+       kind   scen        dgp     N ntime  label sim_id                 why A_code  A_slope B_code      B_est     mmm_status          mmm_path pkg_trend_code pkg_trend_slope pkg_const_code pkg_const_finite  mmm_est
+     <char> <char>     <char> <int> <int> <char>  <int>              <char>  <int>    <num>  <int>      <num>         <char>            <char>          <int>           <num>          <int>           <lgcl>    <num>
+  1:   conv     M3 Copula-AR1    15     4 manual    997     refit converged      3 1.23e+01      1 -16.283000 fewclust_error              <NA>              3        1.23e+01              1             TRUE       NA
+  2:   conv     M3 Copula-AR1    20     3 manual    956     refit converged      5 1.25e-04      2   0.403690         fitted constant fit used              5        1.25e-04              2             TRUE  0.40369
+  3:   conv     M3 Copula-AR1    55     2 manual    105     refit converged      5 1.73e+00      1   0.323160 fewclust_error         no result              5        1.73e+00              1            FALSE       NA
+  4:   conv     M3 Copula-AR1   125     2   mmlb    792     refit converged      3 4.76e+01      1  -0.839070         fitted    trend fit kept              2        4.76e+01              1             TRUE -1.30850
+  5:   conv     M4 Copula-AR1    10    10   mmlb    701     refit converged      4 1.40e-05      1   0.111350         fitted constant fit used              4        1.89e-05              1             TRUE  0.08933
+ ---                                                                                                                                                                                                                  
+258:    key     M5 GenBinaryY    25     3   mmlb    113 refit not converged      5 1.12e-01      5   0.188480         fitted constant fit used              5        1.20e+01              1             TRUE  0.49959
+259:    key     M5 GenBinaryY    25     4 manual    220 refit not converged      5 6.53e-04      5  -0.376090         fitted    trend fit kept              1        3.30e-01              1             TRUE -0.38646
+260:    key     M5 GenBinaryY    45     3 manual    934    refit not finite      5 2.23e+00     NA         NA         fitted constant fit used              1        4.90e-08              1             TRUE  0.84777
+261:    key     M5 GenBinaryY    45     4 manual    718 refit not converged      5 8.43e+00      5   0.023797         fitted    trend fit kept              1        3.80e-01              1             TRUE -0.16377
+262:    key     M5 GenBinaryY   105     2   mmlb    785 refit not converged      5 7.99e+00      5   0.649300         fitted constant fit used              3        4.36e+01              1             TRUE  0.67139
+     mmm_se      B_se
+      <num>     <num>
+  1:     NA 3111.0000
+  2: 0.1090    0.2063
+  3:     NA    1.4390
+  4: 0.6487    0.7436
+  5: 0.2654    0.2827
+ ---                 
+258: 0.8720    0.8941
+259: 0.6742    0.6805
+260: 1.2320        NA
+261: 0.4422    0.4454
+262: 0.9979    1.0110
+
+GATE A (study sample): PASS 
+GATE B (study sample): PASS 
+GATE C: PASS 

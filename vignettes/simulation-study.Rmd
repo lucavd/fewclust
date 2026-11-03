@@ -1,0 +1,119 @@
+---
+title: "What the simulation study found"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{What the simulation study found}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", echo = FALSE)
+st <- fewclust:::.fc_study
+t4 <- st$table4
+fmt <- function(x) format(x, big.mark = ",")
+pct <- function(x) sprintf("%.1f%%", x)
+```
+
+The defaults of fewclust come from a simulation study of methods for
+clustered binary outcomes with few clusters and short series (Vedovelli et
+al., manuscript).  This page summarises the findings behind them; the
+numbers are read from the tables of the study stored in the package.
+
+## The design of the study
+
+The study covered `r fmt(st$design_points)` design points: from
+`r st$min_groups` to `r st$max_groups` clusters, up to `r st$max_occasions`
+occasions, `r st$mechanisms` data-generating mechanisms (the fourth purely
+serial).  For each method and design point it estimated the type I error
+under the null hypothesis and counted the design points where it was
+clearly above 7.5% or clearly below 2.5%.  A dataset counted as usable for
+a method when the method returned a finite estimate and standard error
+smaller than 10 on the logit scale; a dataset whose outcome was constant
+gave no usable result for any method.
+
+## Which methods stayed calibrated
+
+All Wald tests below use a t reference on N - p degrees of freedom.
+
+```{r}
+rows <- c(
+  "mmm_cc", "gee_ar1_fg", "gee_exch_fg", "gee_ind_fg", "gee_ar1_md",
+  "gee_ar1_kc", "gee_ar1_unc", "glmer", "flip"
+)
+rows <- intersect(rows, rownames(t4))
+labels <- c(
+  mmm_cc = "Marginalized multilevel model, convergence check",
+  gee_ar1_fg = "GEE AR(1), Fay-Graubard",
+  gee_exch_fg = "GEE exchangeable, Fay-Graubard",
+  gee_ind_fg = "GEE independence, Fay-Graubard",
+  gee_ar1_md = "GEE AR(1), Mancl-DeRouen",
+  gee_ar1_kc = "GEE AR(1), Kauermann-Carroll",
+  gee_ar1_unc = "GEE AR(1), no correction",
+  glmer = "Mixed model, Wald test",
+  flip = "Sign-flip score test"
+)
+tab <- data.frame(
+  Method = unname(labels[rows]),
+  `Above 7.5%` = t4[rows, "hi_all"],
+  `Below 2.5%` = t4[rows, "lo_all"],
+  `Usable` = pct(t4[rows, "pu"]),
+  `Usable, 2-3 occasions and at most 25 clusters` = pct(t4[rows, "pu_small"]),
+  check.names = FALSE
+)
+knitr::kable(tab, caption = sprintf(
+  "Design points (of %s) clearly above 7.5%% or below 2.5%% type I error, and mean share of usable datasets.",
+  fmt(st$design_points)
+))
+```
+
+```{r, include = FALSE}
+hi_mmm <- t4["mmm_cc", "hi_all"]
+gee_rows <- setdiff(grep("^gee_", rownames(t4), value = TRUE), "gee_ar1_fg")
+others_more <- all(t4[gee_rows, "hi_all"] > t4["gee_ar1_fg", "hi_all"])
+flip_level <- t4["flip", "hi_all"] == 0 && t4["flip", "lo_all"] == 0
+```
+
+The marginalized multilevel model with the convergence check was
+`r if (hi_mmm == 0) "never clearly above 7.5%" else sprintf("clearly above 7.5%% at %d design points", hi_mmm)`,
+and is the default of `fit_fewclust()`.  GEE with an AR(1) working
+correlation and the Fay-Graubard correction was clearly above 7.5% at
+`r t4["gee_ar1_fg", "hi_all"]` design points, all with
+`r unique(st$ar1_fg_hi$N)` clusters and `r unique(st$ar1_fg_hi$ntime)`
+occasions; it is the fallback.
+`r if (others_more) "The other corrections, and GEE without a correction, were above 7.5% more often." else ""`
+
+With `r st$min_groups` clusters the marginalized model tended to be
+conservative: clearly below 2.5% at `r t4["mmm_cc", "lo_N10"]` of the
+`r t4["mmm_cc", "n_N10"]` design points with `r st$min_groups` clusters.
+
+## Short series and few clusters
+
+With 2-3 occasions and at most `r st$few_groups` clusters no method with an
+interval was both available and calibrated: the marginalized model gave a
+usable result in `r pct(t4["mmm_cc", "pu_small"])` of the datasets and GEE
+AR(1) with Fay-Graubard in `r pct(t4["gee_ar1_fg", "pu_small"])`.  The
+sign-flip score test (`flip_test()`) answered in
+`r pct(t4["flip", "pu_small"])``r if (flip_level) " and kept its level" else ""`,
+but it gives a p-value only, with little power.
+
+## The two methods head to head
+
+```{r}
+h <- st$h2h
+parts <- do.call(rbind, strsplit(h$region, "|", fixed = TRUE))
+tab2 <- data.frame(
+  Clusters = parts[, 2], Occasions = parts[, 3], `Design points` = h$n_dp,
+  `GEE AR(1) + FG` = sprintf("%.1f", h$mad_gee),
+  `Marginalized model` = sprintf("%.1f", h$mad_mmm),
+  Closer = ifelse(h$class %in% c("GEE", "MMM"), h$class, "neither (within the margin)"),
+  check.names = FALSE
+)
+knitr::kable(tab2, caption = paste(
+  "Mean absolute distance of the type I error from 5% (percentage points)",
+  sprintf(
+    "and which method was closer by more than the margin of %s %s.",
+    format(unique(h$margin)), if (identical(unique(h$margin), 1L)) "point" else "points"
+  )
+))
+```

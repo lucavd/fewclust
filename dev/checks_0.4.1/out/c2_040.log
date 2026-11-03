@@ -1,0 +1,4 @@
+Warning message:
+In fifelse(scen == "M1c", 1L, as.integer(sub("M", "", scen))) :
+  NAs introduced by coercion
+fewclust 0.4.0 : datasets 800 ; errors in the check: 0 ; seconds 434 

@@ -1,0 +1,79 @@
+Warning message:
+In fifelse(scen == "M1c", 1L, as.integer(sub("M", "", scen))) :
+  NAs introduced by coercion
+datasets in the pool: 126 (A1 96 A2 6 A3 24 )
+seconds: 26 
+datasets with an error in the check: 0 
+Empty data.table (0 rows and 7 cols): dgp,N,ntime,label,sim_id,set...
+fewclust 0.3.1 
+datasets: 126 ; with an error in the check: 0 ; data identical to the saved run (n_obs, sum_y): 126 
+check 1 (sign-flip p-value equal to the saved one, |diff| <= 1e-12, or both not computable with the same reason): 126 of 126 
+  with enumeration of all signs: 73 ; with 1,999 random signs + identity: 51 ; not computable (saved): 49 ; not generated, here and in the saved run: 2 
+                why_saved
+                   <char>
+1: score numerically zero
+2:    zero score variance
+3: score numerically zero
+4:    zero score variance
+                                                             why_pkg     N
+                                                              <char> <int>
+1:                                            score numerically zero    36
+2:                                               zero score variance     4
+3: constant outcome (all 0): no usable result, as for every strategy     7
+4: constant outcome (all 0): no usable result, as for every strategy     2
+  degenerate designs (excluded from every denominator of the paper): 8 
+  constant outcome (D-82): 9 ; of these with the package reason "constant outcome": 9 
+                why_saved
+                   <char>
+1: score numerically zero
+2:    zero score variance
+                                                             why_pkg     N
+                                                              <char> <int>
+1: constant outcome (all 0): no usable result, as for every strategy     7
+2: constant outcome (all 0): no usable result, as for every strategy     2
+strategy chosen by auto_cluster_fit():
+                                                                                                  auto_strategy
+                                                                                                         <char>
+1:                                                                refused: D2: outcome varies in a single group
+2: error: the fixed-effects design is rank deficient: time:trt collinear with the other columns; drop or recode
+3:                                                                                                          mmm
+4:                                                                                refused: D2: constant outcome
+5:                                                                                      refused: D3: separation
+6:                                                                         refused: fit failure in "gee_ar1_fg"
+7:                                                                                                         <NA>
+       N
+   <int>
+1:    24
+2:     6
+3:    61
+4:     7
+5:    16
+6:    10
+7:     2
+check 2 (strategy = "gee_ar1_fg" = saved GEE AR(1) + Fay-Graubard, relative tolerance 1e-8): 51 of 51 compared
+  not compared: refused by the package 73 ; saved GEE or FG not usable 0 
+                                                                                                              pkg_status
+                                                                                                                  <char>
+1:                                                                         refused: D2: outcome varies in a single group
+2: refused: error: the fixed-effects design is rank deficient: time:trt collinear with the other columns; drop or recode
+3:                                                                         refused: D2: outcome varies in a single group
+4:                                                                                  refused: fit failure in "gee_ar1_fg"
+5:                                                                                         refused: D2: constant outcome
+6:                                                                                               refused: D3: separation
+7:                                                                                                                  <NA>
+8:                                                                                               refused: D3: separation
+   pkg_strategy gee_saved_ok     N
+         <char>       <lgcl> <int>
+1:         <NA>        FALSE    22
+2:         <NA>        FALSE     6
+3:         <NA>         TRUE     2
+4:         <NA>        FALSE    20
+5:         <NA>         TRUE     7
+6:         <NA>        FALSE    15
+7:         <NA>           NA     2
+8:         <NA>         TRUE     1
+largest |p_pkg - p_saved|: 0 
+largest relative |est| and |se| difference: 0 0 
+study rows read unchanged (md5 before = after): TRUE 
+GATE check 1: PASS 
+GATE check 2: PASS 

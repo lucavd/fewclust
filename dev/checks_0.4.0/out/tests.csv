@@ -1,0 +1,90 @@
+"file","test","nb","failed","skipped","error","warning"
+"test-control.R","control returns the study defaults",6,0,FALSE,FALSE,0
+"test-control.R","control validates its arguments",6,0,FALSE,FALSE,0
+"test-corrections.R","on balanced designs the corrections inflate the SE (empirical)",54,0,FALSE,FALSE,0
+"test-corrections.R","uncorrected sandwich reproduces geepack's own robust variance",1,0,FALSE,FALSE,0
+"test-corrections.R","corrections vanish as the number of groups grows",3,0,FALSE,FALSE,0
+"test-corrections.R","KC and MD fail loudly, with the cluster named, when leverage hits 1",3,0,FALSE,FALSE,0
+"test-corrections.R","gee_vcov validates its input",3,0,FALSE,FALSE,0
+"test-corrections.R","prior weights are honoured exactly as geepack honours them",1,0,FALSE,FALSE,0
+"test-corrections.R","non-contiguous ids are blocked exactly as geepack blocks them",1,0,FALSE,FALSE,0
+"test-corrections.R","fits using geeglm's waves argument are rejected",2,0,FALSE,FALSE,0
+"test-corrections.R","a garbage variance is a classed error, never a returned number",2,0,FALSE,FALSE,0
+"test-corrections.R","Fay-Graubard follows Fay and Graubard (2001) also where diag(Q) is negative",2,0,FALSE,FALSE,0
+"test-diagnose.R","diagnosis measures groups, occasions, prevalence and df",10,0,FALSE,FALSE,0
+"test-diagnose.R","occasions are the longest series, with or without `time`",5,0,FALSE,FALSE,0
+"test-diagnose.R","group and time accept bare names, strings and formulas",4,0,FALSE,FALSE,0
+"test-diagnose.R","a random-effects term names the group and the slope structure",7,0,FALSE,FALSE,0
+"test-diagnose.R","parsing validates the outcome, the design and missing data",6,0,FALSE,FALSE,0
+"test-diagnose.R","logical and factor outcomes are accepted",4,0,FALSE,FALSE,0
+"test-fit.R","the default fit is the marginalized model with a t reference",10,0,FALSE,FALSE,0
+"test-fit.R","method = 'gee' is GEE with AR(1) and Fay-Graubard by default",5,0,FALSE,FALSE,0
+"test-fit.R","corstr and correction choose the GEE variant",4,0,FALSE,FALSE,0
+"test-fit.R","the default falls back to GEE when the marginalized model fails",4,0,FALSE,FALSE,0
+"test-fit.R","when both models fail the error points to flip_test()",4,0,FALSE,FALSE,0
+"test-fit.R","a coefficient failing the usability criterion gets NA inference and a warning",4,0,FALSE,FALSE,0
+"test-fit.R","incomplete rows are dropped and counted",2,0,FALSE,FALSE,0
+"test-fit.R","conf_level sets the intervals",2,0,FALSE,FALSE,0
+"test-fit.R","argument validation gives clear errors",6,0,FALSE,FALSE,0
+"test-flip.R","flip_test reproduces the study's p-value with enumeration (N <= 12)",20,0,FALSE,FALSE,0
+"test-flip.R","flip_test reproduces the study's p-value with random signs (N > 12)",15,0,FALSE,FALSE,0
+"test-flip.R","row order and column order of the data do not change the result",3,0,FALSE,FALSE,0
+"test-flip.R","the RNG state is used when no seed is given, and left alone when one is",2,0,FALSE,FALSE,0
+"test-flip.R","the default term is the last column of the mean model",3,0,FALSE,FALSE,0
+"test-flip.R","a covariate enters the model without the tested term",1,0,FALSE,FALSE,0
+"test-flip.R","an arm with only zero outcomes gives no answer (score numerically zero)",6,0,FALSE,FALSE,0
+"test-flip.R","the test refuses an outcome that is not binary and needs two groups",2,0,FALSE,FALSE,0
+"test-flip.R","print says it is a p-value only",3,0,FALSE,FALSE,0
+"test-flip.R","a tested term that is identically zero gives no answer, not an error",5,0,FALSE,FALSE,0
+"test-flip.R","a constant outcome is not computable, with its own reason",16,0,FALSE,FALSE,0
+"test-flip.R","tidy() gives a one-row tibble",3,0,FALSE,FALSE,0
+"test-flip.R","the number of random sign assignments is set with `reps`",1,0,FALSE,FALSE,0
+"test-gee.R","fit_gee builds a broom-shaped coefficient table with t reference",5,0,FALSE,FALSE,0
+"test-gee.R","z reference uses the normal distribution",2,0,FALSE,FALSE,0
+"test-gee.R","t and z references genuinely differ at small G",2,0,FALSE,FALSE,0
+"test-gee.R","a correction failure surfaces as a structured failure, not an error",3,0,FALSE,FALSE,0
+"test-gee.R","a 2-level factor outcome fits identically to its 0/1 recoding",2,0,FALSE,FALSE,0
+"test-gee.R","fit warnings are captured into notes, not destroyed",1,0,FALSE,FALSE,0
+"test-gee.R","the GEE strategy is the study's fit, whatever the order of the rows",5,0,FALSE,FALSE,0
+"test-messages.R","errors are classed and say what to do",6,0,FALSE,FALSE,0
+"test-messages.R","warnings fire where the results are less reliable",5,0,FALSE,FALSE,0
+"test-messages.R","messages are informative and can be silenced",2,0,FALSE,FALSE,0
+"test-messages.R","print notes cover the small designs",4,0,FALSE,FALSE,1
+"test-messages.R","no message quotes the internal counts of the simulation study",2,0,FALSE,FALSE,0
+"test-methods.R","print and summary describe the fit",7,0,FALSE,FALSE,0
+"test-methods.R","coef, vcov, confint and nobs follow base R conventions",9,0,FALSE,FALSE,0
+"test-methods.R","predict gives the marginal log-odds and probabilities",4,0,FALSE,FALSE,0
+"test-methods.R","factor covariates are handled in predict",1,0,FALSE,FALSE,0
+"test-mmm-check.R","the check reproduces the branch, estimate and p-value of the study",72,0,FALSE,FALSE,0
+"test-mmm-check.R","the default check gives the same branch on the six study datasets",6,0,FALSE,FALSE,0
+"test-mmm-check.R","a failing constant fit keeps the trend fit and says so",4,0,FALSE,FALSE,0
+"test-mmm.R","Gauss-Hermite rule integrates moments of the standard normal",3,0,FALSE,FALSE,0
+"test-mmm.R","the marginalized model reaches the optimum of MMLB::mm along the same path",24,0,FALSE,FALSE,0
+"test-mmm.R","the analytic gradient matches central differences",1,0,FALSE,FALSE,0
+"test-mmm.R","with a vanishing latent variance the likelihood is the logistic GLM",1,0,FALSE,FALSE,0
+"test-mmm.R","the convergence check replaces a boundary fit by the constant-SD fit",10,0,FALSE,FALSE,0
+"test-mmm.R","without `time` the model has a constant latent SD and no transition",4,0,FALSE,FALSE,0
+"test-mmm.R","the unit of time changes neither the dependence model nor the optimum",6,0,FALSE,FALSE,0
+"test-mmm.R","the coherence condition catches a converged false optimum on real data",7,0,FALSE,FALSE,0
+"test-mmm.R","a trend fit below its own sub-model is treated as a false optimum (stub)",3,0,FALSE,FALSE,0
+"test-mmm.R","repeated time values within a group are refused at parse time",1,0,FALSE,FALSE,0
+"test-mmm.R","a fit with no usable coefficient is a structured failure",2,0,FALSE,FALSE,0
+"test-separation.R","complete separation by a continuous covariate is detected pre-fit",1,0,FALSE,FALSE,0
+"test-separation.R","quasi-separation by a pure dummy cell is detected and named",2,0,FALSE,FALSE,0
+"test-separation.R","well-behaved data are not flagged",1,0,FALSE,FALSE,0
+"test-separation.R","monotone separation by a discrete covariate is detected exactly",2,0,FALSE,FALSE,0
+"test-separation.R","a pure non-extreme cell is NOT separation (the MLE is finite)",1,0,FALSE,FALSE,0
+"test-separation.R","the max_tab_levels threshold governs the boundary-tie check",2,0,FALSE,FALSE,0
+"test-separation.R","intercept-free designs are not falsely refused for separation",4,0,FALSE,FALSE,1
+"test-separation.R","a constant outcome yields no spurious separation evidence",2,0,FALSE,FALSE,0
+"test-separation.R","near-boundary but non-separated data are not flagged",1,0,FALSE,FALSE,0
+"test-simulate.R","generator returns the documented shape",7,0,FALSE,FALSE,0
+"test-simulate.R","same seed reproduces identical data, different seed does not",2,0,FALSE,FALSE,0
+"test-simulate.R","seed argument does not disturb the caller's RNG stream",1,0,FALSE,FALSE,0
+"test-simulate.R","random slopes vary across groups when slope_sd > 0",1,0,FALSE,FALSE,0
+"test-simulate.R","prevalence is approximately honoured",1,0,FALSE,FALSE,0
+"test-simulate.R","invalid arguments are rejected",4,0,FALSE,FALSE,0
+"test-tidy.R","tibbles, pipes and bare or quoted column names work",1,0,FALSE,FALSE,0
+"test-tidy.R","column names can be passed through a user function with {{ }}",2,0,FALSE,FALSE,0
+"test-tidy.R","tidy, glance and augment return tibbles with broom's names",11,0,FALSE,FALSE,0
+"test-tidy.R","fits work inside dplyr and purrr workflows",3,0,FALSE,FALSE,0

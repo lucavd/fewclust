@@ -1,0 +1,43 @@
+keys in M3-M5: 342535 ; converged-refit boundary datasets (not keys) in M3-M5: 1262957 
+      kind   scen         dgp                 why     N
+    <char> <char>      <char>              <char> <int>
+ 1:   conv     M3  Copula-AR1     refit converged    60
+ 2:   conv     M3    GLMM-AR1     refit converged    60
+ 3:   conv     M3 GLMM-native     refit converged    60
+ 4:   conv     M3  GenBinaryY     refit converged    60
+ 5:   conv     M4  Copula-AR1     refit converged    20
+ 6:   conv     M4    GLMM-AR1     refit converged    20
+ 7:   conv     M4 GLMM-native     refit converged    20
+ 8:   conv     M4  GenBinaryY     refit converged    20
+ 9:   conv     M5  Copula-AR1     refit converged    20
+10:   conv     M5    GLMM-AR1     refit converged    20
+11:   conv     M5 GLMM-native     refit converged    20
+12:   conv     M5  GenBinaryY     refit converged    20
+13:    key     M3  Copula-AR1 refit not converged    30
+14:    key     M3  Copula-AR1    refit not finite    30
+15:    key     M3    GLMM-AR1 refit not converged    30
+16:    key     M3    GLMM-AR1    refit not finite    30
+17:    key     M3 GLMM-native refit not converged    30
+18:    key     M3 GLMM-native    refit not finite    30
+19:    key     M3  GenBinaryY refit not converged    30
+20:    key     M3  GenBinaryY    refit not finite    30
+21:    key     M4  Copula-AR1 refit not converged    10
+22:    key     M4  Copula-AR1    refit not finite    10
+23:    key     M4    GLMM-AR1 refit not converged    10
+24:    key     M4    GLMM-AR1    refit not finite    10
+25:    key     M4 GLMM-native refit not converged    10
+26:    key     M4 GLMM-native    refit not finite    10
+27:    key     M4  GenBinaryY refit not converged    10
+28:    key     M4  GenBinaryY    refit not finite    10
+29:    key     M5  Copula-AR1 refit not converged    10
+30:    key     M5  Copula-AR1    refit not finite    10
+31:    key     M5    GLMM-AR1 refit not converged    10
+32:    key     M5    GLMM-AR1    refit not finite    10
+33:    key     M5 GLMM-native refit not converged    10
+34:    key     M5 GLMM-native    refit not finite    10
+35:    key     M5  GenBinaryY refit not converged    10
+36:    key     M5  GenBinaryY    refit not finite    10
+      kind   scen         dgp                 why     N
+    <char> <char>      <char>              <char> <int>
+sample: 800 datasets; keys 400 ; converged 400 ; of which M3: 240 and 240 
+source files unchanged while sampling (md5): TRUE 

@@ -1,0 +1,23 @@
+bibentry(
+  bibtype = "Manual",
+  title = "{fewclust}: Regression for Clustered Binary Outcomes with Few Clusters",
+  author = person("Luca", "Vedovelli"),
+  year = "2026",
+  note = sprintf("R package version %s", meta$Version),
+  url = "https://github.com/lucavd/fewclust",
+  header = "To cite fewclust in publications use:"
+)
+
+bibentry(
+  bibtype = "Unpublished",
+  title = paste("Choosing an analysis for clustered binary outcomes when",
+                "clusters are few and series are short: a simulation study",
+                "and two clinical applications"),
+  author = c(person("Luca", "Vedovelli"), person("Danila", "Azzolina"),
+             person("Mohammad Junayed", "Bhuyan"), person("Daniele", "Sabbatini"),
+             person("Riccardo", "Iannaco"), person("Ileana", "Baldi"),
+             person("Dario", "Gregori")),
+  year = "2026",
+  note = "Manuscript; the defaults of fewclust follow its recommendation",
+  header = "The defaults of the package come from:"
+)
