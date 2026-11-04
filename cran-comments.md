@@ -2,27 +2,29 @@
 
 ## Submission
 
-This is a new submission (fewclust 0.4.0).
+This is a new submission (fewclust 0.4.3).
 
 ## Test environments
 
-- Ubuntu 24.04 (noble), R 4.6.1: `R CMD check --as-cran` -- 0 errors, 0 warnings, 1 NOTE.
-  The NOTE says that the HTML validation of the manual was skipped because
-  HTML Tidy is not installed on the test machine.  The remote checks of the
-  incoming feasibility step (URLs) were switched off, as the repository is
-  made public with the submission.
+- Ubuntu 24.04 (noble), R 4.6.1: `R CMD check --as-cran`, with the CRAN
+  incoming checks and their remote part switched on
+  (`_R_CHECK_CRAN_INCOMING_REMOTE_=TRUE`): 0 errors, 0 warnings, 2 NOTEs.
+
+## R CMD check results
+
+- NOTE: New submission.
+- NOTE: HTML validation of the manual was skipped because HTML Tidy is not
+  installed on the test machine.
 
 ## Notes for the reviewers
 
-- The `URL` and `BugReports` fields point at the public repository that
-  hosts the package; it is made public together with this submission, so
-  the incoming check may report the two URLs as not yet reachable.
-- The marginalized multilevel model is implemented inside the package
-  because the only other implementation (MMLB) is not on CRAN.  The test
-  suite compares the fit with reference values computed by MMLB and
-  stored as small fixtures.
-- The small-sample sandwich corrections are implemented inside the package
-  because the pre-existing implementation on CRAN was found numerically
-  unstable at small samples in the simulation study that motivates this
-  package, and computes a different quantity for the Kauermann-Carroll
-  correction.
+- The marginalized multilevel model of Heagerty (1999) is implemented in the
+  package because the only other R implementation (MMLB) is not on CRAN.
+  The test suite compares the fits with reference values computed by MMLB
+  and stored as small fixtures.
+- The small-sample sandwich corrections are implemented in the package.
+  For the Kauermann-Carroll correction, the implementation in 'geesmv'
+  applies a symmetric matrix square root to a matrix that is not symmetric; the
+  package uses a similarity transformation that makes it symmetric first.
+- The defaults follow a simulation study of these methods (Vedovelli et
+  al., manuscript); the package's vignette summarises its findings.

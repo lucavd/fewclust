@@ -1,0 +1,8 @@
+10c10
+< # lucavd/MMM (working copy of step S11; md5 below) and checked against them
+---
+> # lucavd/MMM (commit dce9cf9, step S11 closed; md5 below) and checked against them
+19c19
+< #   1a0b3e54ffde63ffd504a7e2da999280  V5_S7f_numbers.csv
+---
+> #   581a4f38d7da8f702e3700ad55cef109  V5_S7f_numbers.csv

@@ -3,6 +3,7 @@ AR
 autoregressive
 Bernoulli
 Biometrics
+cli
 DeRouen
 df
 doi
@@ -11,6 +12,8 @@ estimand
 estimands
 et
 Finos
+geesmv
+GenBinaryY
 GH
 GLMM
 Goeman
@@ -22,6 +25,7 @@ Inspectable
 inspectable
 intraclass
 JASA
+JJ
 Kauermann
 Liang
 lme
@@ -29,13 +33,20 @@ Mancl
 marginalized
 MMLB
 nlm
-Overridable
 overridable
+Overridable
 parametrised
+PJ
 quadrature
+reformulas
 RJ
 RSSB
+rssb
 Schildcrout
 SD
+tibble
+tibbles
+tidyselect
+tidyverse
 Vedovelli
 Zeger

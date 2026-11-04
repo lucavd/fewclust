@@ -1,3 +1,14 @@
+# fewclust 0.4.3
+
+Preparation of the first CRAN release; the fits and their numbers are
+those of 0.4.2.
+
+- The notes printed with a fit are a clean bulleted list.
+- The header of `R/constants.R` records the checksums of the final tables
+  of the study; the stored values are unchanged.
+- `DESCRIPTION` names the copyright holder; README shows the CRAN
+  installation.
+
 # fewclust 0.4.2
 
 ## Numbers of the simulation study

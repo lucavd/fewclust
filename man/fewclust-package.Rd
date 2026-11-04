@@ -34,11 +34,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Luca Vedovelli \email{lucavd@gmail.com}
+\strong{Maintainer}: Luca Vedovelli \email{lucavd@gmail.com} [copyright holder]
 
 Authors:
 \itemize{
-  \item Luca Vedovelli \email{lucavd@gmail.com}
+  \item Luca Vedovelli \email{lucavd@gmail.com} [copyright holder]
 }
 
 }

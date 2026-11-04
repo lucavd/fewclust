@@ -1,0 +1,2 @@
+R/ files changed since 0.4.2: fewclust/R/constants.R fewclust/R/methods.R 
+GATE 2: PASS

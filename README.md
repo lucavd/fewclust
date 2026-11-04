@@ -9,6 +9,9 @@ with defaults you do not need to change.
 ## Installation
 
 ```r
+install.packages("fewclust")
+
+# development version
 # install.packages("remotes")
 remotes::install_github("lucavd/fewclust")
 ```

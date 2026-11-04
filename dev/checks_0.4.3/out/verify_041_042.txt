@@ -1,0 +1,79 @@
+Independent re-run of the checks of fewclust 0.4.1 (commit 45c7946) and 0.4.2 (commit f05c914), 2026-11-03,
+on clean copies (git archive) in a separate scratch directory, 3 workers instead of 5, study sample redrawn by c2_study_sample.R.
+~/MMM at dce9cf9; source tables of R/constants.R (md5 as in its header): 7bfc80131cac92e8a8ec26ecc99a071d V5_S7f_cp_S7d_dp_rates.csv; 5a76d7ea9435db43c51aeaa50363d779 V5_S7f_h2h_boot.csv; 3c5c582ba7bc2bab1f0c75386a21c678 V5_S7f_rule_dp.csv; 10ece8d5a079f6f67ec787a36914a80d V5_S7f_table4.csv; 
+
+== 0.4.1: gate lines of the re-run
+GATE D (tests): PASS 
+GATE D (lint): PASS 
+GATE A (60 datasets): PASS 
+GATE B (60 datasets): PASS 
+GATE A (study sample): PASS 
+GATE B (study sample): PASS 
+GATE C: PASS 
+compared: 125 ; mismatches: 18 
+description, default control (check_coherence = TRUE): reported fit different in 4 of 125 fitted datasets; path changed in 4 
+GATE D (R CMD check): PASS
+== 0.4.1: output files, re-run vs committed (cmp)
+  identical  c1_040.log
+  identical  c1_041.log
+  identical  c1_identity.csv
+  identical  c1_summary.txt
+  differs    c2_040.log
+  differs    c2_041.log
+  identical  c2_exceptions.csv
+  identical  c2_sample_summary.txt
+  identical  c2_sample.csv
+  identical  c2_study_rows.csv
+  differs    c2_summary.txt
+  identical  c3_coherence_rows.csv
+  identical  c3_coherence.csv
+  differs    c3_summary.txt
+  differs    c3.log
+  differs    c7_build.log
+  differs    c7_check.log
+  identical  c7_summary.txt
+  identical  install_040.log
+  identical  install.log
+  identical  lint.csv
+  identical  lint.log
+  identical  tests.csv
+  identical  tests.log
+  (the files that differ contain only run times or timestamps:)
+    c2_040.log: < fewclust 0.4.0 : datasets 800 ; errors in the check: 0 ; seconds 434 
+    c2_040.log: > fewclust 0.4.0 : datasets 800 ; errors in the check: 0 ; seconds 1623 
+    c2_041.log: < fewclust 0.4.1 : datasets 800 ; errors in the check: 0 ; seconds 835 
+    c2_041.log: > fewclust 0.4.1 : datasets 800 ; errors in the check: 0 ; seconds 1186 
+    c2_summary.txt: < fewclust 0.4.0 vs 0.4.1 ; datasets 800 ; seconds 434 and 835 
+    c2_summary.txt: > fewclust 0.4.0 vs 0.4.1 ; datasets 800 ; seconds 1623 and 1186 
+    c3_summary.txt: < fewclust 0.4.1 ; seconds: 60 
+    c3_summary.txt: > fewclust 0.4.1 ; seconds: 111 
+    c3.log: < fewclust 0.4.1 ; seconds: 60 
+    c3.log: > fewclust 0.4.1 ; seconds: 111 
+    c7_build.log, c7_check.log: time stamps and paths of the check directory
+
+== 0.4.2: gate lines of the re-run
+R/constants.R written: 19 strategies, 15 columns; 2 points; 9 map cells; chosen mmm_cc ; registry ids attached: 159 of 375 values
+GATE 1: PASS 
+GATE 2: FAIL
+GATE 3 (tests): PASS 
+GATE 3 (lint): PASS 
+GATE D (R CMD check): PASS
+  GATE 2 needs git history (absent in the archive copy); on the repository: R/ files changed 45c7946..f05c914: fewclust/R/constants.R
+== 0.4.2: output files, re-run vs committed (cmp)
+  identical  c1_summary.txt
+  identical  c1.log
+  differs    c7_build.log
+  differs    c7_check.log
+  identical  c7_summary.txt
+  identical  constants_diff.csv
+  identical  install.log
+  identical  lint.csv
+  identical  lint.log
+  identical  make_constants.log
+  identical  tests.csv
+  identical  tests.log
+  constants regenerated from the committed tables vs R/constants.R of f05c914:
+    19c19
+    < #   1a0b3e54ffde63ffd504a7e2da999280  V5_S7f_numbers.csv
+    ---
+    > #   581a4f38d7da8f702e3700ad55cef109  V5_S7f_numbers.csv

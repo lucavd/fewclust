@@ -1,8 +1,8 @@
 Package: fewclust
 Title: Regression for Clustered Binary Outcomes with Few Clusters
-Version: 0.4.2
+Version: 0.4.3
 Authors@R:
-    person("Luca", "Vedovelli", , "lucavd@gmail.com", role = c("aut", "cre"))
+    person("Luca", "Vedovelli", , "lucavd@gmail.com", role = c("aut", "cre", "cph"))
 Description: Fits regression models for binary outcomes measured
     repeatedly within a small number of groups (clusters), with tests and
     intervals that stay calibrated with few groups and short series.  The

@@ -1,0 +1,7 @@
+constants vs 0.4.2: changed lines 4, of which header lines (commit, registry md5) 4
+fewclust 0.4.3 ; values checked against the tables: table4 285 , ar1_fg_hi 18 , h2h 63 , scalars 9 
+registry ids written next to values: 168 ; equal to the registry value: 168 
+md5 sources = header = registry: TRUE ; structure as before: TRUE 
+constants changed: 0 (  )
+GATE 1: PASS 
+GATE 1 (constants): PASS

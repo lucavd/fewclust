@@ -1,0 +1,4 @@
+* checking CRAN incoming feasibility ... [3s/69s] NOTE
+* checking HTML version of manual ... NOTE
+Status: 2 NOTEs
+GATE 4 (R CMD check --as-cran, incoming remote): PASS

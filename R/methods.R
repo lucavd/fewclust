@@ -97,7 +97,7 @@ fc_print_notes <- function(notes) {
   }
   cat("\nNotes:\n")
   for (n in notes) {
-    cat(strwrap(n, indent = 2, exdent = 4, initial = "* "), sep = "\n")
+    cat(strwrap(n, indent = 0, exdent = 4, initial = "  * "), sep = "\n")
   }
 }
 
