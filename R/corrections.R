@@ -12,8 +12,9 @@
 #' The Kauermann-Carroll factor \eqn{(I - H_i)^{-1/2}} is computed through a
 #' similarity transformation that makes the matrix symmetric before the
 #' eigendecomposition, so eigenvalues are real by construction.  When a
-#' cluster's leverage reaches 1 (for instance when a covariate identifies a
-#' single cluster) the correction is mathematically undefined: the function
+#' cluster's leverage reaches 1 (for instance when a covariate identifies
+#' a single cluster), or when the estimated working covariance is not
+#' positive definite, the variance is mathematically undefined: the function
 #' then signals a classed error (condition class
 #' `"fewclust_correction_error"`) naming the cluster, rather than returning
 #' an unstable number.  A final gate rejects any non-finite or
@@ -150,21 +151,22 @@ fc_gee_components <- function(fit) {
     R <- fc_working_cor(corstr, alpha, n_i)
     sdv <- sqrt(v_vec[idx])
     Vi <- (sdv %o% sdv) * R
-    Vinv <- tryCatch(solve(Vi), error = function(e) NULL)
-    if (is.null(Vinv)) {
+    L <- tryCatch(t(chol(Vi)), error = function(e) NULL)
+    if (is.null(L)) {
       fc_correction_error(sprintf(
         paste0(
-          "the working covariance is singular for cluster '%s': the ",
-          "estimated working correlation is at a degenerate value ",
-          "(e.g. exchangeable alpha at 1); try corstr = ",
-          "\"independence\" or a conditional strategy"
+          "the working covariance is not positive definite for cluster ",
+          "'%s': the estimated working correlation is at a degenerate value ",
+          "(e.g. exchangeable alpha at 1 or below -1/(n_i - 1), or ",
+          "|ar1| >= 1); try corstr = \"independence\""
         ),
         label
       ))
     }
+    Vinv <- chol2inv(t(L))
     e <- y[idx] - mu[idx]
     list(
-      D = D, Vi = Vi, e = e,
+      D = D, Vi = Vi, L = L, e = e,
       DtVinv = crossprod(D, Vinv), U = crossprod(D, Vinv %*% e)
     )
   }, blocks, names(blocks))
@@ -246,16 +248,7 @@ fc_vcov_md <- function(comp) {
 fc_vcov_kc <- function(comp) {
   U_list <- lapply(seq_along(comp$clusters), function(k) {
     cl <- comp$clusters[[k]]
-    L <- tryCatch(t(chol(cl$Vi)), error = function(e) NULL)
-    if (is.null(L)) {
-      fc_correction_error(sprintf(
-        paste0(
-          "Kauermann-Carroll correction undefined: the working ",
-          "covariance of cluster '%s' is not positive definite"
-        ),
-        comp$cluster_labels[k]
-      ))
-    }
+    L <- cl$L
     G <- solve(L, cl$D %*% comp$Binv %*% t(cl$D)) # L^{-1} D B^{-1} D'
     S <- t(solve(L, t(G))) # ... L^{-T}, symmetric
     S <- (S + t(S)) / 2

@@ -30,8 +30,9 @@ Kauermann-Carroll (\code{"kc"}).
 The Kauermann-Carroll factor \eqn{(I - H_i)^{-1/2}} is computed through a
 similarity transformation that makes the matrix symmetric before the
 eigendecomposition, so eigenvalues are real by construction.  When a
-cluster's leverage reaches 1 (for instance when a covariate identifies a
-single cluster) the correction is mathematically undefined: the function
+cluster's leverage reaches 1 (for instance when a covariate identifies
+a single cluster), or when the estimated working covariance is not
+positive definite, the variance is mathematically undefined: the function
 then signals a classed error (condition class
 \code{"fewclust_correction_error"}) naming the cluster, rather than returning
 an unstable number.  A final gate rejects any non-finite or

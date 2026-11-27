@@ -237,3 +237,60 @@ test_that("with method = \"auto\" no result falls back to GEE", {
   expect_true(any(grepl("marginalized multilevel model: no result", out)))
   expect_true(any(grepl("did not converge \\(nlm code 4\\)", out)))
 })
+
+test_that("a trend fit error still tries the constant-SD refit", {
+  d <- vedovelli_data()
+  local_mocked_bindings(
+    fc_mmm_fit_once = function(des, inits) {
+      if (des$m_s > 1L) stop("trend numerical error")
+      real_fit_once(des, inits)
+    },
+    .package = "fewclust"
+  )
+  fit <- fit_fewclust(d, binY ~ time * trt, id = id, time = time, method = "mmm")
+  expect_equal(fit$method, "mmm")
+  expect_equal(fit$convergence$path, "constant fit used")
+  expect_true(fit$convergence$boundary)
+  expect_match(paste(fit$convergence$reason, collapse = " "), "trend numerical error")
+})
+
+test_that("a trend fit with code 1 and non-finite SE falls back to converged constant refit", {
+  d <- vedovelli_data(5L)
+  local_mocked_bindings(
+    fc_mmm_fit_once = function(des, inits) {
+      f <- real_fit_once(des, inits)
+      if (des$m_s > 1L) {
+        f$code <- 1L
+        f$slope_min <- 0.5
+        f$vcov[] <- NA_real_
+      }
+      f
+    },
+    .package = "fewclust"
+  )
+  fit <- fit_fewclust(d, binY ~ time * trt, id = id, time = time, method = "mmm")
+  expect_equal(fit$method, "mmm")
+  expect_equal(fit$convergence$path, "constant fit used")
+  expect_true(fit$convergence$boundary)
+  expect_true(all(is.finite(tidy(fit)$p.value)))
+})
+
+test_that("without time, a non-converged MMM is rejected when check = TRUE", {
+  d <- fc_test_data(20, seed = 4)
+  parsed <- fewclust:::fc_parse(y ~ time + arm, d, quote(id))
+  local_mocked_bindings(
+    fc_mmm_fit_once = function(des, inits) {
+      f <- real_fit_once(des, inits)
+      f$code <- 5L
+      f
+    },
+    .package = "fewclust"
+  )
+  res <- fewclust:::fit_mmm(parsed, fewclust_control(check = TRUE), "t", 0.05, 17L)
+  expect_s3_class(res, "fc_failure")
+  expect_match(res$reason, "nlm code 5")
+  # With check = FALSE the unconverged fit is still returned
+  raw <- fewclust:::fit_mmm(parsed, fewclust_control(check = FALSE), "t", 0.05, 17L)
+  expect_true(raw$ok)
+  expect_equal(raw$model$code, 5L)
+})

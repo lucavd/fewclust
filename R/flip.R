@@ -20,11 +20,12 @@
 #'
 #' The test is not computable, and returns `NA` with a warning that gives
 #' the reason, when the outcome is constant; when the model without the
-#' tested term fails, does not converge or diverges (a coefficient of 1,000
-#' or more in absolute value, as with separation); when its information
-#' matrix is singular; or when the score contributions are all zero or
-#' numerically zero (the tested term is not identified, for instance when
-#' one arm has only zero outcomes).
+#' tested term fails, does not converge or diverges (a standardised
+#' coefficient of 1,000 or more in absolute value, as with separation);
+#' when its information matrix is singular; or when the score contributions
+#' are all zero or numerically zero relative to the scale of the tested
+#' covariate (the tested term is not identified, for instance when one arm
+#' has only zero outcomes).
 #'
 #' @param data A data frame (or tibble).
 #' @param formula Two-sided formula for the mean model, e.g.
@@ -190,10 +191,16 @@ fc_flip_core <- function(id, y, x, x0, offset, signs, enumerated) {
                   u = NULL) {
     list(p = p, why = why, stat = stat, u = u)
   }
+  # Normalise nuisance columns by RMS so the reduced fit, its divergence
+  # guard and its information matrix are invariant to covariate units.
+  s0 <- apply(x0, 2L, function(v) sqrt(mean(v^2)))
+  s0[!is.finite(s0) | s0 == 0] <- 1
+  x0s <- x0 / rep(s0, each = nrow(x0))
+
   ctrl <- list(epsilon = 1e-12, maxit = 100, trace = FALSE)
   f <- tryCatch(
     suppressWarnings(
-      glm.fit(x0, y, family = binomial(), offset = offset, control = ctrl)
+      glm.fit(x0s, y, family = binomial(), offset = offset, control = ctrl)
     ),
     error = function(e) NULL
   )
@@ -208,18 +215,20 @@ fc_flip_core <- function(id, y, x, x0, offset, signs, enumerated) {
   mu <- f$fitted.values
   e <- y - mu
   w <- mu * (1 - mu)
-  info_00 <- crossprod(x0, x0 * w)
-  info_x0 <- colSums(x0 * (w * x))
+  info_00 <- crossprod(x0s, x0s * w)
+  info_x0 <- colSums(x0s * (w * x))
   proj <- tryCatch(solve(info_00, info_x0), error = function(e) NULL)
   if (is.null(proj)) {
     return(out(why = "information singular"))
   }
   u_raw <- rowsum(x * e, id, reorder = TRUE)[, 1]
-  u <- as.numeric(u_raw - rowsum(x0 * e, id, reorder = TRUE) %*% proj)
+  u <- as.numeric(u_raw - rowsum(x0s * e, id, reorder = TRUE) %*% proj)
   if (!(sum(u^2) > 0)) {
     return(out(why = "zero score variance", stat = sum(u), u = u))
   }
-  if (max(abs(u)) < 1e-6) {
+  sx <- sqrt(mean(x^2))
+  if (!is.finite(sx) || sx == 0) sx <- 1
+  if (max(abs(u)) < 1e-6 * sx) {
     return(out(why = "score numerically zero", stat = sum(u), u = u))
   }
   t_obs <- abs(sum(u))

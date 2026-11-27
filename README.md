@@ -38,9 +38,11 @@ fc_trial |>
 By default it fits the marginalized multilevel model (Heagerty 1999) with a
 convergence check, with tests on a t distribution with N - p degrees of
 freedom (N groups, p coefficients).  If that model gives no usable estimate,
-it fits GEE with an AR(1) working correlation and the Fay-Graubard
-small-sample correction instead, and tells you.  `method = "gee"` asks for
-GEE directly; `corstr` and `correction` choose its variant.
+it fits GEE with the Fay-Graubard small-sample correction instead (using an
+AR(1) working correlation with `time`, or exchangeable without `time`,
+falling back to independence if the working correlation degenerates), and
+tells you.  `method = "gee"` asks for GEE directly; `corstr` and
+`correction` choose its variant.
 
 The coefficients are marginal (population-averaged) log odds ratios.
 

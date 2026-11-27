@@ -1,3 +1,51 @@
+# fewclust 0.4.4
+
+Bug fixes and numerical robustness improvements; the default method (the
+marginalized multilevel model), the simulation-study convergence rule
+(D-90), and the logit-scale usability criterion are unchanged.
+
+- **Exact separation detection**: replaced the single-column / residual
+  heuristic with an exact Konis (2007) linear programme via `lpSolve`,
+  eliminating both missed multi-column/interaction separations and false
+  positives from large but finite MLEs.
+- **GEE convergence, working covariance, and fallback to independence**:
+  - `fc_gee_model()` now checks `geese$error != 0` and rejects non-converged
+    fits (such as diverging working-correlation estimates); `glance()`
+    reports real GEE convergence instead of `NA`.
+  - `gee_vcov()` now verifies positive-definiteness of each cluster's
+    working covariance via Cholesky decomposition for all four estimators
+    (`"unc"`, `"fg"`, `"md"`, `"kc"`).
+  - `corstr` in `fit_fewclust()` now defaults to `NULL`, choosing `"ar1"`
+    when `time` is given and `"exchangeable"` when `time` is `NULL` (since
+    AR(1) without `time` depends on row order; requesting `corstr = "ar1"`
+    without `time` emits a warning).  When `corstr` is left at its default
+    and the working correlation degenerates (`geese$error != 0` or
+    non-positive-definite working covariance), `fit_fewclust()`
+    automatically retries with `corstr = "independence"` and reports this
+    with a message.
+- **Marginalized model convergence-check and numerical fixes**:
+  - When the trend-SD fit fails numerically and `check = TRUE`, `fit_mmm()`
+    now still attempts the constant-SD refit instead of failing immediately;
+    a trend fit with `code %in% 1:2` but non-finite estimates or standard
+    errors likewise triggers the refit.
+  - When `time` is `NULL` and `check = TRUE`, non-converged or non-finite
+    constant-SD fits are rejected rather than returned silently.
+  - Hardened `fc_mmm_negloglik()` against parameter overflow (`a > 50`) and
+    non-finite intermediate quantities, rejected fits stopped on the
+    `a > 50` barrier in `fc_mmm_fit_once()`, and scaled the initial latent
+    SD slope on long series (`z_max > 12`).
+- **Within-cluster covariates and documentation**:
+  - `fit_fewclust()` now informs once per session when the marginalized
+    model includes non-`time` within-cluster covariates, inviting a
+    comparison with `method = "gee"` if cluster-varying effects (random
+    slopes) are plausible.
+  - Documented the limits of model-based standard errors on both paths
+    (with and without `time`), the full-covariate conditional mean
+    assumption of Pepe and Anderson (1994) for GEE, and Konis (2007).
+- **`flip_test()` scale invariance**: nuisance columns are normalised by
+  RMS before fitting the reduced logistic model, and the `1e-6` score-zero
+  threshold is scaled by the tested covariate's RMS.
+
 # fewclust 0.4.3
 
 Preparation of the first CRAN release; the fits and their numbers are

@@ -195,3 +195,20 @@ test_that("the number of random sign assignments is set with `reps`", {
   ft <- flip_test(d, y ~ time * arm, id = id, reps = 499, seed = 1)
   expect_equal(ft$n_signs, 500)
 })
+
+test_that("flip_test is invariant to rescaling of tested and nuisance covariates", {
+  d <- fc_trial
+  d$x_tiny <- d$x * 1e-7
+  d$x_huge <- d$x * 1e7
+  d$t_tiny <- d$time * 1e-5
+  base <- flip_test(d, y ~ time + arm + x, id = id, time = time, term = "x", seed = 1)
+  tiny <- flip_test(d, y ~ time + arm + x_tiny, id = id, time = time, term = "x_tiny", seed = 1)
+  huge <- flip_test(d, y ~ time + arm + x_huge, id = id, time = time, term = "x_huge", seed = 1)
+  nuis <- flip_test(d, y ~ t_tiny + arm + x, id = id, time = time, term = "x", seed = 1)
+  expect_true(tiny$computable)
+  expect_true(huge$computable)
+  expect_true(nuis$computable)
+  expect_equal(tiny$p.value, base$p.value)
+  expect_equal(huge$p.value, base$p.value)
+  expect_equal(nuis$p.value, base$p.value)
+})
