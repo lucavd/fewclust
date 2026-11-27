@@ -1,4 +1,4 @@
-# fewclust (development version)
+# fewclust 0.5.0
 
 ## Robustness, statistical calibration and numerical fixes
 
