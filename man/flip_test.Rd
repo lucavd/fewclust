@@ -60,7 +60,7 @@ power; there the test keeps its level, but it has little power too.
 }
 \details{
 The model without the tested term is fitted as a logistic regression
-with independent observations (\code{\link[stats:glm.fit]{stats::glm.fit()}}, tolerance 1e-12, at
+with independent observations (\code{\link[stats:glm]{stats::glm.fit()}}, tolerance 1e-12, at
 most 100 iterations).  The effective score contribution of each group to
 the tested term is its score contribution minus the projection on the
 other coefficients.  The p-value compares the absolute sum of the
@@ -72,11 +72,12 @@ differences in variance between groups.
 
 The test is not computable, and returns \code{NA} with a warning that gives
 the reason, when the outcome is constant; when the model without the
-tested term fails, does not converge or diverges (a coefficient of 1,000
-or more in absolute value, as with separation); when its information
-matrix is singular; or when the score contributions are all zero or
-numerically zero (the tested term is not identified, for instance when
-one arm has only zero outcomes).
+tested term fails, does not converge or diverges (a standardised
+coefficient of 1,000 or more in absolute value, as with separation);
+when its information matrix is singular; or when the score contributions
+are all zero or numerically zero relative to the scale of the tested
+covariate (the tested term is not identified, for instance when one arm
+has only zero outcomes).
 }
 \examples{
 flip_test(fc_trial, y ~ time * arm, id = id, time = time, seed = 1)

@@ -105,7 +105,7 @@ test_that("the unit of time changes neither the dependence model nor the optimum
   expect_equal(tidy(a)$p.value, tidy(b)$p.value, tolerance = 1e-4)
 })
 
-test_that("the coherence condition catches a converged false optimum on real data", {
+test_that("the convergence check catches a false optimum with an indefinite Hessian", {
   d <- simulate_clustered_binary(n_groups = 10, n_occasions = 6, seed = 8)
   d$time <- round(d$time * 5)
   fit <- fit_fewclust(d, y ~ time * arm, id = id, time = time, method = "mmm")
@@ -113,12 +113,13 @@ test_that("the coherence condition catches a converged false optimum on real dat
   expect_true(fit$convergence$boundary)
   expect_equal(fit$convergence$latent_sd, "constant")
   expect_match(paste(fit$convergence$reason, collapse = " "), "false optimum")
-  # with the published two-condition rule alone the trend fit is kept
+  # Even with check_coherence = FALSE, the indefinite Hessian at the false
+  # optimum yields non-finite SEs and triggers the fallback to constant SD
   raw <- fit_fewclust(d, y ~ time * arm, id = id, time = time, method = "mmm",
                       control = fewclust_control(check_coherence = FALSE))
-  expect_false(raw$convergence$boundary)
-  expect_equal(raw$convergence$latent_sd, "time trend")
-  expect_lt(raw$engine$logLik, fit$engine$logLik)
+  expect_true(raw$convergence$boundary)
+  expect_equal(raw$convergence$latent_sd, "constant")
+  expect_match(paste(raw$convergence$reason, collapse = " "), "not finite")
 })
 
 test_that("a trend fit below its own sub-model is treated as a false optimum (stub)", {
@@ -136,6 +137,12 @@ test_that("a trend fit below its own sub-model is treated as a false optimum (st
   expect_true(res$model$check$boundary)
   expect_equal(res$model$check$latent_sd, "constant")
   expect_match(paste(res$notes, collapse = " "), "false optimum")
+  # With check_coherence = FALSE the positive-definite trend fit is kept
+  raw <- fewclust:::fit_mmm(
+    parsed, fewclust_control(check_coherence = FALSE), "t", 0.05, 36L
+  )
+  expect_false(raw$model$check$boundary)
+  expect_equal(raw$model$check$latent_sd, "time trend")
 })
 
 test_that("repeated time values within a group are refused at parse time", {
@@ -157,4 +164,59 @@ test_that("a fit with no usable coefficient is a structured failure", {
   res <- fewclust:::fit_mmm(parsed, fewclust_control(), "t", 0.05, 37L)
   expect_s3_class(res, "fc_failure")
   expect_match(res$reason, "no usable estimate")
+})
+
+test_that("continuous/jittered visit times scale occasion cleanly and fit genuine slopes", {
+  set.seed(42)
+  d <- simulate_clustered_binary(
+    n_groups = 40, n_occasions = 6, slope_sd = 2, sigma_u = 1, seed = 1
+  )
+  d$day <- d$time * 100 + runif(nrow(d), -2, 2)
+  d <- d[order(d$id, d$day), ]
+  f_reg <- fit_fewclust(d, y ~ time + arm, id = id, time = time, method = "mmm")
+  f_jit <- suppressWarnings(
+    fit_fewclust(d, y ~ day + arm, id = id, time = day, method = "mmm")
+  )
+  expect_equal(f_jit$convergence$path, "trend fit kept")
+  expect_true(f_jit$convergence$trend$code %in% c(1L, 2L))
+  expect_gt(f_jit$convergence$trend$slope_min, 0.1)
+  expect_equal(f_jit$engine$logLik, f_reg$engine$logLik, tolerance = 2)
+  # Irregular continuous times should not trigger bogus "miss an occasion" gaps
+  expect_equal(f_jit$design$groups_with_gaps, 0L)
+})
+
+test_that("many unique jittered times do not cause false convergence or underflow", {
+  set.seed(1)
+  d <- simulate_clustered_binary(n_groups = 120, n_occasions = 10, seed = 1)
+  d$day <- d$time * 100 + runif(nrow(d), 0, 0.5)
+  d <- d[order(d$id, d$day), ]
+  # Must succeed even without check_coherence
+  fit <- suppressWarnings(fit_fewclust(
+    d, y ~ day + arm, id = id, time = day, method = "mmm",
+    control = fewclust_control(check_coherence = FALSE)
+  ))
+  expect_equal(fit$method, "mmm")
+  expect_true(all(is.finite(tidy(fit)$p.value)))
+  expect_gt(fit$convergence$trend$logLik, fit$convergence$constant$logLik - 50)
+})
+
+test_that("fc_mmm_negloglik guards against overflowing parameters without error", {
+  d <- fc_test_data(15, seed = 2)
+  des <- mmm_design(d, y ~ time + arm, trend = TRUE, transition = TRUE)
+  val <- fewclust:::fc_mmm_negloglik(c(0, 0, 0, 0, 1, 500), des)
+  expect_true(is.numeric(val) && length(val) == 1L)
+})
+
+test_that("Hessian inversion recovers finite beta SEs at the sigma_0 -> 0 boundary", {
+  d <- simulate_clustered_binary(
+    n_groups = 25, n_occasions = 4, effect = 0.4, sigma_u = 0, seed = 3
+  )
+  des <- mmm_design(d, y ~ time + arm, trend = FALSE, transition = FALSE)
+  g <- glm(y ~ time + arm, family = binomial(), data = d)
+  th <- c(coef(g) * des$scale, -12)
+  V <- fewclust:::fc_mmm_vcov(th, des)
+  se_beta <- sqrt(diag(V)[seq_len(des$p)])
+  se_glm <- unname(summary(g)$coefficients[, "Std. Error"])
+  expect_true(all(is.finite(se_beta)))
+  expect_equal(unname(se_beta), se_glm, tolerance = 1e-2)
 })

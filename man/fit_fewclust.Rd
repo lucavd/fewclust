@@ -10,7 +10,7 @@ fit_fewclust(
   id,
   time = NULL,
   method = c("auto", "mmm", "gee"),
-  corstr = c("ar1", "exchangeable", "independence"),
+  corstr = NULL,
   correction = c("fg", "md", "kc", "none"),
   conf_level = 0.95,
   control = fewclust_control()
@@ -32,8 +32,9 @@ model its serial dependence; recommended for repeated measurements.}
 
 \item{method}{\code{"auto"} (default), \code{"mmm"} or \code{"gee"}.}
 
-\item{corstr}{Working correlation of GEE: \code{"ar1"} (default),
-\code{"exchangeable"} or \code{"independence"}.}
+\item{corstr}{Working correlation of GEE: \code{"ar1"}, \code{"exchangeable"} or
+\code{"independence"}.  When \code{NULL} (default), uses \code{"ar1"} if \code{time} is
+given and \code{"exchangeable"} if \code{time} is \code{NULL}.}
 
 \item{correction}{Small-sample correction of the GEE sandwich variance:
 \code{"fg"} (Fay-Graubard, default), \code{"md"} (Mancl-DeRouen), \code{"kc"}
@@ -57,13 +58,18 @@ reported instead) and
 \description{
 Fits a regression model for a binary outcome measured repeatedly within a
 small number of groups (clusters), with tests and intervals that remain
-calibrated with few groups.  The default is the method recommended by
-the simulation study behind the package: the marginalized multilevel
-model of Heagerty (1999) with a convergence check, its Wald statistics
-referred to a t distribution on N - p degrees of freedom (N groups, p
-coefficients).  When that model gives no usable estimate, GEE with an
-AR(1) working correlation and the Fay-Graubard small-sample correction,
-with the same t reference, is fitted instead, and a message says so.
+calibrated with few groups.  With \code{time}, the default is the method
+recommended for longitudinal designs by the simulation study behind the
+package: the marginalized multilevel model of Heagerty (1999) with a
+convergence check, its Wald statistics referred to a t distribution on
+N - p degrees of freedom (N groups, p coefficients).  When that model
+gives no usable estimate, GEE with an AR(1) working correlation and the
+Fay-Graubard small-sample correction, with the same t reference, is
+fitted instead, and a message says so.  Without \code{time} (unordered
+clusters), the default is GEE with an exchangeable working correlation
+and the Fay-Graubard correction, because the marginalized model's
+standard errors are model-based and can understate uncertainty when
+within-cluster correlation departs from a constant random intercept.
 }
 \details{
 The coefficients are marginal (population-averaged) log odds ratios.
@@ -81,35 +87,47 @@ estimates and standard errors; otherwise the model gives no result
 (\code{"auto"} then fits GEE, \code{"mmm"} stops with an error).  The fit at the
 boundary is never reported.  Without \code{time} the latent standard
 deviation is constant and there is no transition term.  Standard
-errors are model-based.
+errors are model-based, so they rely on the dependence structure being
+adequately captured; when unmodelled random slopes, cluster-specific
+heterogeneity, or non-stationary correlation are plausible, compare
+with \code{method = "gee"}.
 \item \code{"gee"}: \code{\link[geepack:geeglm]{geepack::geeglm()}} with the scale parameter fixed at 1, on
 rows ordered by group and \code{time}, with the small-sample sandwich
-variance chosen by \code{correction} (see \code{\link[=gee_vcov]{gee_vcov()}}).
-\item \code{"auto"} (default): \code{"mmm"}, and \code{"gee"} (with \code{corstr} and
-\code{correction}) when \code{"mmm"} gives no usable estimate.
+variance chosen by \code{correction} (see \code{\link[=gee_vcov]{gee_vcov()}}).  With
+time-varying covariates and a non-independence working correlation,
+consistency of GEE requires the full-covariate conditional mean
+assumption of Pepe and Anderson (1994); where covariate feedback is
+suspected, use \code{corstr = "independence"}.
+\item \code{"auto"} (default): with \code{time}, \code{"mmm"} with fallback to \code{"gee"}
+(using \code{corstr} and \code{correction}) when \code{"mmm"} gives no usable
+estimate; without \code{time}, \code{"gee"} directly (with \code{"exchangeable"}
+working correlation unless \code{corstr} is supplied).
 }
 
 A coefficient is usable when its estimate and standard error are finite
-and smaller than 10 in absolute value on the logit scale; otherwise its
-statistic, p-value and interval are \code{NA} (with a warning).  A model with
-no usable coefficient gives no result.
+and smaller than 10 in absolute value on the standardised logit scale
+(scaled by the covariate range for two-valued columns, standard
+deviation for multi-valued columns, and 1 for constant columns);
+otherwise its statistic, p-value and interval are \code{NA} (with a warning).
+A model with no usable coefficient gives no result.
 }
 
 \section{Errors, warnings, messages and notes}{
 
 The function stops with an error (class \code{"fewclust_error"}) when no
 estimate can be computed: an outcome that is not binary or is constant,
-an outcome that varies within one group only, separation, as many
-coefficients as groups or more, a single observation per group, repeated
-values of \code{time} within a group, random-effects terms in the formula,
-or no usable estimate from the requested method(s).  It warns (class
-\code{"fewclust_warning"}) when the result is less reliable: fewer than 10
-groups; GEE with 2 occasions and fewer than 15 groups; a GEE correction
-other than Fay-Graubard; coefficients without inference; a marginalized
-model that did not converge; series with gaps or unequally spaced
-occasions.  Messages (class \code{"fewclust_message"}) report a fallback to
-GEE and a missing \code{time}.  Notes stored in the fit and shown by
-\code{print()} describe small designs and the convergence check.
+an outcome that varies within one group only, separation (checked with
+an exact linear programme), as many coefficients as groups or more, a
+single observation per group, repeated values of \code{time} within a group,
+random-effects terms in the formula, or no usable estimate from the
+requested method(s).  It warns (class \code{"fewclust_warning"}) when the
+result is less reliable: fewer than 10 groups; GEE with 2 occasions and
+fewer than 15 groups; a GEE correction other than Fay-Graubard; AR(1)
+working correlation without \code{time}; coefficients without inference; a
+marginalized model that did not converge; series with gaps or unequally
+spaced occasions.  Messages (class \code{"fewclust_message"}) report a
+fallback to GEE and fitting without \code{time}.  Notes stored in the fit
+and shown by \code{print()} describe small designs and the convergence check.
 }
 
 \examples{
@@ -136,6 +154,11 @@ longitudinal binary data. \emph{Biometrics} 55(3), 688-698.
 Fay MP, Graubard BI (2001). Small-sample adjustments for Wald-type tests
 using sandwich estimators. \emph{Biometrics} 57(4), 1198-1206.
 \doi{10.1111/j.0006-341X.2001.01198.x}
+
+Pepe MS, Anderson GL (1994). A cautionary note on inference for marginal
+regression models with longitudinal data and general correlated response
+data. \emph{Communications in Statistics - Simulation and Computation}
+23(4), 939-951. \doi{10.1080/03610919408813210}
 }
 \seealso{
 \code{\link[=flip_test]{flip_test()}} for a p-value with very small designs,

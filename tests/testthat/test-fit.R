@@ -37,12 +37,13 @@ test_that("the default falls back to GEE when the marginalized model fails", {
   d <- fc_test_data(30, seed = 2)
   local_mocked_bindings(fit_mmm = function(...) fewclust:::fc_failure("stubbed failure"),
                         .package = "fewclust")
-  expect_message(fit <- fit_fewclust(d, y ~ time + arm, id = id), "stubbed failure",
+  expect_message(fit <- fit_fewclust(d, y ~ time + arm, id = id, time = time), "stubbed failure",
                  class = "fewclust_message")
   expect_equal(fit$method, "gee")
+  expect_equal(fit$corstr, "ar1")
   expect_match(fit$fallback, "stubbed failure")
   # an explicit request does not fall back
-  expect_error(fit_fewclust(d, y ~ time + arm, id = id, method = "mmm"), "stubbed failure",
+  expect_error(fit_fewclust(d, y ~ time + arm, id = id, time = time, method = "mmm"), "stubbed failure",
                class = "fewclust_error")
 })
 
@@ -51,20 +52,82 @@ test_that("when both models fail the error points to flip_test()", {
   local_mocked_bindings(fit_mmm = function(...) fewclust:::fc_failure("stub MMM"),
                         fc_gee_model = function(...) fewclust:::fc_failure("stub GEE"),
                         .package = "fewclust")
-  err <- expect_error(fit_fewclust(d, y ~ time + arm, id = id), class = "fewclust_error")
+  err <- expect_error(fit_fewclust(d, y ~ time + arm, id = id, time = time), class = "fewclust_error")
   expect_match(conditionMessage(err), "stub MMM")
   expect_match(conditionMessage(err), "stub GEE")
   expect_match(conditionMessage(err), "flip_test")
 })
 
-test_that("a coefficient failing the usability criterion gets NA inference and a warning", {
+test_that("without time, auto defaults to exchangeable GEE-FG and ar1 warns", {
+  d <- fc_test_data(30, seed = 2)
+  expect_message(
+    fit <- fit_fewclust(d, y ~ arm + x, id = id),
+    "exchangeable",
+    class = "fewclust_message"
+  )
+  expect_equal(fit$method, "gee")
+  expect_equal(fit$corstr, "exchangeable")
+  expect_equal(fit$correction, "fg")
+
+  g <- suppressMessages(fit_fewclust(d, y ~ arm + x, id = id, method = "gee"))
+  expect_equal(g$corstr, "exchangeable")
+
+  expect_warning(
+    g_ar1 <- suppressMessages(
+      fit_fewclust(d, y ~ arm + x, id = id, method = "gee", corstr = "ar1")
+    ),
+    "order of",
+    class = "fewclust_warning"
+  )
+  expect_equal(g_ar1$corstr, "ar1")
+
+  # explicit method = "mmm" without time still fits the constant-SD MMM
+  m <- suppressMessages(fit_fewclust(d, y ~ arm + x, id = id, method = "mmm"))
+  expect_equal(m$method, "mmm")
+  expect_equal(m$convergence$latent_sd, "constant")
+})
+
+test_that("inference is invariant to covariate unit conversions", {
+  d <- fc_trial
+  d$time_yr <- d$time / 50
+  d$x_small <- d$x / 100
+  d$x_big <- d$x * 1000
+  f0 <- fit_fewclust(d, y ~ time * arm + x, id = id, time = time)
+  f_yr <- fit_fewclust(d, y ~ time_yr * arm + x_small, id = id, time = time_yr)
+  f_big <- fit_fewclust(d, y ~ time * arm + x_big, id = id, time = time)
+  t0 <- tidy(f0)
+  ty <- tidy(f_yr)
+  tb <- tidy(f_big)
+  expect_true(all(is.finite(ty$p.value)))
+  expect_true(all(is.finite(tb$p.value)))
+  expect_equal(ty$statistic, t0$statistic, tolerance = 1e-3)
+  expect_equal(ty$p.value, t0$p.value, tolerance = 1e-3)
+  expect_equal(tb$statistic, t0$statistic, tolerance = 1e-3)
+  expect_equal(tb$p.value, t0$p.value, tolerance = 1e-3)
+})
+
+test_that("a coefficient failing the standardized usability criterion gets NA inference and a warning", {
   d <- fc_test_data(40, seed = 3, n_occasions = 6)
-  d$x100 <- d$x / 100
-  expect_warning(fit <- fit_fewclust(d, y ~ time * arm + x100, id = id, time = time),
-                 "x100", class = "fewclust_warning")
+  d$x_big <- d$x * 1000
+  real_fit <- fewclust:::fc_mmm_fit_once
+  local_mocked_bindings(
+    fc_mmm_fit_once = function(des, inits) {
+      f <- real_fit(des, inits)
+      # Inflate the SE of x_big to 12 on the standardized scale (0.012 raw)
+      k <- match("x_big", names(f$theta))
+      s <- sd(d$x_big)
+      f$vcov[k, k] <- (12 / s)^2
+      f
+    },
+    .package = "fewclust"
+  )
+  expect_warning(
+    fit <- fit_fewclust(d, y ~ time * arm + x_big, id = id, time = time, method = "mmm"),
+    "x_big",
+    class = "fewclust_warning"
+  )
   tab <- tidy(fit)
-  bad <- tab$term == "x100"
-  expect_true(tab$std.error[bad] >= 10)
+  bad <- tab$term == "x_big"
   expect_true(is.na(tab$p.value[bad]))
   expect_true(all(is.finite(tab$p.value[!bad])))
 })

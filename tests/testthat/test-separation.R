@@ -95,3 +95,66 @@ test_that("near-boundary but non-separated data are not flagged", {
   dg <- diag_of(y ~ time + arm + x, d, group = id)
   expect_equal(dg$separation$status, "none")
 })
+
+test_that("quasi-complete separation in a 2x2 interaction cell is detected", {
+  # Zero events in control arm at follow-up (time == 1, arm == 0):
+  # separating vector is time - time:arm, so no single column separates alone
+  d <- simulate_clustered_binary(
+    n_groups = 20, n_occasions = 2, prevalence = 0.3, effect = 0, seed = 10
+  )
+  d$y[d$time == 1 & d$arm == 0] <- 0L
+  dg <- diag_of(y ~ time * arm, d, group = id, time = time)
+  expect_equal(dg$separation$status, "quasi")
+  expect_error(
+    fit_fewclust(d, y ~ time * arm, id = id, time = time),
+    "separat",
+    class = "fewclust_error"
+  )
+})
+
+test_that("multi-column quasi-complete separation in an additive model is detected", {
+  set.seed(11)
+  n <- 80
+  d <- data.frame(
+    id = factor(rep(1:20, each = 4)),
+    a = rep(c(0L, 1L), each = 2, times = 20),
+    b = rep(c(0L, 1L), times = 40)
+  )
+  # Separating vector: -1 + a + b (<0 at (0,0), >0 at (1,1), 0 at (0,1)&(1,0))
+  d$y <- ifelse(d$a == 0 & d$b == 0, 0L,
+    ifelse(d$a == 1 & d$b == 1, 1L, rbinom(n, 1, 0.5))
+  )
+  dg <- diag_of(y ~ a + b, d, group = id)
+  expect_equal(dg$separation$status, "quasi")
+})
+
+test_that("a single pure cell in an additive 2x2 model is NOT separation", {
+  set.seed(12)
+  n <- 120
+  d <- data.frame(
+    id = factor(rep(1:30, each = 4)),
+    a = rep(c(0L, 1L), each = 2, times = 30),
+    b = rep(c(0L, 1L), times = 60)
+  )
+  # Only (1,1) is pure; (0,0), (0,1), (1,0) are mixed -> finite MLE
+  d$y <- ifelse(d$a == 1 & d$b == 1, 1L, rbinom(n, 1, 0.45))
+  dg <- diag_of(y ~ a + b, d, group = id)
+  expect_equal(dg$separation$status, "none")
+})
+
+test_that("separation detection is invariant to covariate scaling", {
+  d <- simulate_clustered_binary(
+    n_groups = 20, n_occasions = 2, prevalence = 0.3, effect = 0, seed = 10
+  )
+  d$y[d$time == 1 & d$arm == 0] <- 0L
+  d$time_small <- d$time * 1e-5
+  d$time_big <- d$time * 1e5
+  expect_equal(diag_of(y ~ time_small * arm, d, group = id)$separation$status, "quasi")
+  expect_equal(diag_of(y ~ time_big * arm, d, group = id)$separation$status, "quasi")
+
+  d2 <- fc_trial
+  d2$x_small <- d2$x * 1e-5
+  d2$x_big <- d2$x * 1e5
+  expect_equal(diag_of(y ~ time * arm + x_small, d2, group = id)$separation$status, "none")
+  expect_equal(diag_of(y ~ time * arm + x_big, d2, group = id)$separation$status, "none")
+})

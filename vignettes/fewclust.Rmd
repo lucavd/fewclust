@@ -47,21 +47,26 @@ with GEE, not within a group as with a mixed model.
 
 ## What the default does
 
-`method = "auto"` (the default) fits the **marginalized multilevel model**
-of Heagerty (1999).  With `time` the model has a first-order transition
-term between consecutive observations of a group and a latent standard
-deviation that may change linearly over the occasions.  A convergence check
-replaces a trend fit at the boundary (or that did not converge) with the
-fit with a constant latent standard deviation, if that fit converges with
-finite estimates and standard errors; if it does not, the marginalized
-model gives no result for the dataset.  The tests use a t
+With `time`, `method = "auto"` (the default) fits the **marginalized
+multilevel model** of Heagerty (1999).  The model has a first-order
+transition term between consecutive observations of a group and a latent
+standard deviation that may change linearly over the occasions.  A
+convergence check replaces a trend fit at the boundary (or that did not
+converge) with the fit with a constant latent standard deviation, if that
+fit converges with finite estimates and standard errors; if it does not,
+the marginalized model gives no result for the dataset.  The tests use a t
 distribution with N - p degrees of freedom: N groups minus p coefficients.
 
 If the marginalized model gives no usable estimate, `fit_fewclust()` fits
 **GEE** with an AR(1) working correlation and the Fay-Graubard small-sample
-correction, with the same t reference, and says so with a message.  A
-coefficient is usable when its estimate and standard error are finite and
-smaller than 10 on the logit scale.
+correction, with the same t reference, and says so with a message.  Without
+`time` (unordered clusters), `method = "auto"` fits GEE with an
+exchangeable working correlation and the Fay-Graubard correction directly,
+because the marginalized model's standard errors are model-based and can
+understate uncertainty when within-cluster dependence departs from a
+constant random intercept.  A coefficient is usable when its estimate and
+standard error are finite and smaller than 10 on the standardised logit
+scale.
 
 `summary()` shows the details, including the convergence check:
 
@@ -80,10 +85,16 @@ tidy(gee)
 ```
 
 `corstr` sets the working correlation of GEE (`"ar1"`, `"exchangeable"`,
-`"independence"`) and `correction` the small-sample correction (`"fg"`,
+`"independence"`; by default `"ar1"` with `time` and `"exchangeable"`
+without `time`) and `correction` the small-sample correction (`"fg"`,
 `"md"`, `"kc"`, `"none"`).  Choosing anything other than the Fay-Graubard
 correction gives a warning, because with few groups it was the most
-reliable.
+reliable.  Because the marginalized model's standard errors are
+model-based, comparing it against `method = "gee"` is good practice when
+unmodelled random slopes or cluster-specific heterogeneity are plausible;
+conversely, in GEE with time-varying covariates that may depend on prior
+outcomes, `corstr = "independence"` avoids the full-covariate conditional
+mean bias of Pepe and Anderson (1994).
 
 ## Errors, warnings, messages and notes
 
@@ -163,3 +174,8 @@ using sandwich estimators. *Biometrics* 57(4), 1198-1206.
 Hemerik J, Goeman JJ, Finos L (2020). Robust testing in generalized linear
 models by sign flipping score contributions. *Journal of the Royal
 Statistical Society: Series B* 82(3), 841-864.
+
+Pepe MS, Anderson GL (1994). A cautionary note on inference for marginal
+regression models with longitudinal data and general correlated response
+data. *Communications in Statistics - Simulation and Computation* 23(4),
+939-951.

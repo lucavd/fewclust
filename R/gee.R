@@ -28,13 +28,19 @@ fc_gee_model <- function(parsed, corstr) {
     "GEE fit"
   )
   if (inherits(q$value, "fc_failure")) {
-    q$value
-  } else {
-    list(model = q$value, notes = q$notes)
+    return(q$value)
   }
+  err <- q$value$geese$error
+  if (!is.null(err) && !is.na(err) && err != 0L) {
+    return(fc_failure(sprintf(
+      "GEE fit did not converge (geese error %d)", err
+    )))
+  }
+  list(model = q$value, notes = q$notes)
 }
 
-fc_gee_infer <- function(m, notes, control, type, reference, alpha, df) {
+fc_gee_infer <- function(m, notes, control, type, reference, alpha, df,
+                         scale = 1) {
   v <- tryCatch(gee_vcov(m, type, fg_bound = control$fg_bound),
     error = function(e) fc_failure(conditionMessage(e))
   )
@@ -43,7 +49,8 @@ fc_gee_infer <- function(m, notes, control, type, reference, alpha, df) {
   }
   fc_wald_result(
     names(coef(m)), coef(m), fc_se(v), v, m, reference, df,
-    alpha, notes
+    alpha, notes,
+    scale = scale
   )
 }
 
@@ -53,5 +60,8 @@ fit_gee <- function(parsed, control, type, reference, alpha, df,
   if (inherits(base, "fc_failure")) {
     return(base)
   }
-  fc_gee_infer(base$model, base$notes, control, type, reference, alpha, df)
+  fc_gee_infer(
+    base$model, base$notes, control, type, reference, alpha, df,
+    scale = fc_col_scale(parsed$X)
+  )
 }

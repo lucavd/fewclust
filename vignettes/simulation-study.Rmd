@@ -117,3 +117,24 @@ knitr::kable(tab2, caption = paste(
   )
 ))
 ```
+
+## Scope and model-based standard errors
+
+The simulation study evaluated longitudinal designs on regular occasion
+grids where the latent dependence structure is well approximated by a
+random intercept (constant or with a linear time trend) plus a first-order
+transition term.  Because the marginalized multilevel model reports
+model-based standard errors, its calibration relies on that dependence
+structure being adequately specified.  When a dataset has unmodelled random
+slopes, heterogeneous cluster effects, or unordered cross-sectional
+clusters (no `time`), model-based standard errors can understate sampling
+variability; in those settings GEE with the Fay-Graubard sandwich
+correction is more robust to misspecification of the within-cluster
+dependence, which is why `fit_fewclust()` defaults to exchangeable GEE-FG
+when `time` is omitted and recommends comparing the marginalized model
+against `method = "gee"` on empirical applications.
+
+For GEE with time-varying covariates and a non-independence working
+correlation, consistency also requires the full-covariate conditional mean
+assumption of Pepe and Anderson (1994); where covariate feedback is
+plausible, use `corstr = "independence"`.

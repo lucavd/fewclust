@@ -1,3 +1,53 @@
+# fewclust (development version)
+
+## Robustness, statistical calibration and numerical fixes
+
+- **Exact separation detection**: replaced the single-column / residual
+  heuristic with an exact Konis (2007) linear programme via `lpSolve`,
+  eliminating missed complete and quasi-complete separation in multi-column
+  and interaction designs.
+- **Unordered clusters (`time = NULL`)**: `fit_fewclust(..., method = "auto")`
+  now defaults to GEE with an exchangeable working correlation and the
+  Fay-Graubard correction when `time` is omitted, rather than a constant-SD
+  marginalized model whose model-based standard errors are sensitive to
+  unmodelled cluster heterogeneity.  `corstr` now defaults to `"ar1"` with
+  `time` and `"exchangeable"` without `time`; requesting `corstr = "ar1"`
+  without `time` emits a warning that the fit depends on row order.
+  Explicit `method = "mmm"` without `time` continues to fit the constant-SD
+  marginalized model.
+- **Irregular and continuous `time` grids**: the marginalized multilevel
+  model now scales elapsed time by the median within-group spacing on
+  irregular grids instead of pooling unique values into ranks, and
+  `fc_diagnose()` no longer reports spurious missing-occasion warnings on
+  continuous or jittered time stamps.
+- **Scale-invariant usability and `flip_test()` guards**: the `< 10`
+  usability criterion is now evaluated on a standardised logit scale
+  (invariant to linear rescaling of covariates while preserving the exact
+  threshold on binary 0/1 indicators).  `flip_test()` normalises nuisance
+  columns before fitting the reduced model and scales its zero-score
+  threshold by the tested covariate's RMS.
+- **Marginalized model numerical hardening and convergence check fixes**:
+  - Guarded `fc_mmm_negloglik()` against non-finite parameters, extreme
+    latent SDs, and non-positive likelihoods; tightened inner Newton
+    tolerance to `1e-12` and recomputed derivatives at the converged
+    intercept; scaled initial latent SD slope on long series.
+  - Replaced `solve(H)` with Cholesky inversion (`chol2inv(chol(H))`) so
+    indefinite saddle-point Hessians return `NA` instead of collapsed
+    standard errors; on constant-SD boundary fits (`sigma_0 < 1e-3`), the
+    non-boundary parameter block is inverted cleanly.
+  - Fixed three convergence-check edge cases: a trend-model failure now
+    still attempts the constant-SD refit when `check = TRUE`; non-finite
+    trend fits or `NA` latent slopes now trigger the boundary fallback; and
+    when `time = NULL` with `check = TRUE`, non-converged or non-finite
+    constant-SD fits are rejected rather than returned silently.
+- **GEE convergence and working-covariance guards**:
+  - `fc_gee_model()` now checks `geese$error != 0` and rejects failed GEE
+    fits; `glance()` reports actual GEE convergence instead of `NA`.
+  - `gee_vcov()` now verifies positive-definiteness of each cluster's
+    working covariance via Cholesky decomposition for all estimators
+    (`"unc"`, `"fg"`, `"md"`, `"kc"`), rejecting degenerate working
+    correlations instead of silently returning invalid variances.
+
 # fewclust 0.4.3
 
 Preparation of the first CRAN release; the fits and their numbers are

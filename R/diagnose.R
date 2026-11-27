@@ -26,9 +26,13 @@ fc_diagnose <- function(parsed) {
   prev_by_group <- tapply(y, id, mean)
   grid <- NA
   if (!is.null(parsed$time)) grid <- sort(unique(parsed$data[[parsed$time]]))
-  # a gap is a missing occasion of the grid between the first and the last
-  # occasion of a group (a series truncated at either end has none)
-  gaps <- if (is.null(parsed$time)) {
+  time_grid_regular <- is.null(parsed$time) || length(grid) < 3L ||
+    isTRUE(all.equal(diff(grid), rep(diff(grid)[1L], length(grid) - 1L)))
+  # a gap is a missing occasion of a regular shared grid between the first
+  # and the last occasion of a group (a series truncated at either end has
+  # none; on an irregular/continuous time grid there is no discrete grid to
+  # miss occasions from)
+  gaps <- if (is.null(parsed$time) || !time_grid_regular) {
     0L
   } else {
     rk <- match(parsed$data[[parsed$time]], grid)
@@ -43,11 +47,7 @@ fc_diagnose <- function(parsed) {
         max = max(sizes)
       ),
       n_occasions = n_occasions,
-      # the occasion index of the dependence model is the rank of `time` in
-      # this grid; it matches the study's occasions only when the grid is
-      # equally spaced (one grid shared by all groups)
-      time_grid_regular = is.null(parsed$time) || length(grid) < 3L ||
-        isTRUE(all.equal(diff(grid), rep(diff(grid)[1L], length(grid) - 1L))),
+      time_grid_regular = time_grid_regular,
       groups_with_gaps = as.integer(gaps),
       prevalence = mean(y),
       pure_groups = sum(prev_by_group %in% c(0, 1)),

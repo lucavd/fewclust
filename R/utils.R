@@ -71,19 +71,40 @@ fc_se <- function(vcov) {
   sqrt(ifelse(is.finite(v) & v > 0, v, NA_real_))
 }
 
-# The usability criterion of the study, coefficient by coefficient: finite
-# estimate and standard error, |estimate| < 10, 0 < SE < 10 on the logit
-# scale.
-fc_usable <- function(estimate, se) {
-  is.finite(estimate) & is.finite(se) & abs(estimate) < 10 &
-    se > 0 & se < 10
+# Column scales for the usability criterion: 1 for constant columns (such
+# as the intercept), diff(range) for 2-valued columns (1 for 0/1 dummies,
+# even when unbalanced), and SD for covariates with 3 or more distinct
+# values.  Multiplying |estimate| and SE by this scale makes the usability
+# filter strictly invariant to covariate units.
+fc_col_scale <- function(x_mat) {
+  apply(x_mat, 2L, function(v) {
+    u <- unique(v[is.finite(v)])
+    if (length(u) < 2L) {
+      1
+    } else if (length(u) == 2L) {
+      diff(range(u))
+    } else {
+      s <- stats::sd(v)
+      if (is.finite(s) && s > 0) s else 1
+    }
+  })
+}
+
+# The usability criterion of the study, coefficient by coefficient,
+# evaluated on the standardised logit scale so that unit conversions of a
+# covariate do not discard valid inference: finite estimate and standard
+# error, |estimate| * scale < 10, 0 < SE * scale < 10.
+fc_usable <- function(estimate, se, scale = 1) {
+  is.finite(estimate) & is.finite(se) & abs(estimate) * scale < 10 &
+    se > 0 & se * scale < 10
 }
 
 # Wald-type coefficient table with a t(df) or standard normal reference.
 # Coefficients that fail the usability criterion keep their estimate and
 # standard error but get no statistic, p-value or interval.
-fc_coef_table <- function(term, estimate, se, reference, df, alpha) {
-  ok <- fc_usable(estimate, se)
+fc_coef_table <- function(term, estimate, se, reference, df, alpha,
+                          scale = 1) {
+  ok <- fc_usable(estimate, se, scale = scale)
   statistic <- ifelse(ok, estimate / se, NA_real_)
   df <- if (reference == "t") df else Inf
   crit <- qt(1 - alpha / 2, df = df)
@@ -100,26 +121,26 @@ fc_coef_table <- function(term, estimate, se, reference, df, alpha) {
 # Engine result for a Wald strategy: a failure when no coefficient is
 # usable, otherwise the table with a note naming the unusable terms.
 fc_wald_result <- function(term, estimate, se, vcov, model, reference,
-                           df, alpha, notes = character(0)) {
-  ok <- fc_usable(estimate, se)
+                           df, alpha, notes = character(0), scale = 1) {
+  ok <- fc_usable(estimate, se, scale = scale)
   if (!any(ok)) {
     return(fc_failure(paste0(
       "no usable estimate: every coefficient or its standard error is ",
-      "non-finite or of 10 or more on the logit scale"
+      "non-finite or of 10 or more on the standardised logit scale"
     )))
   }
   if (!all(ok)) {
     notes <- c(notes, sprintf(paste0(
       "no usable inference for %s: estimate or standard error non-finite ",
-      "or of 10 or more on the logit scale (statistic, p-value and interval ",
-      "set to NA)"
+      "or of 10 or more on the standardised logit scale (statistic, p-value ",
+      "and interval set to NA)"
     ), paste(term[!ok], collapse = ", ")))
   }
   list(
     ok = TRUE,
     coefficients = fc_coef_table(
-      term, estimate, se, reference, df,
-      alpha
+      term, estimate, se, reference, df, alpha,
+      scale = scale
     ),
     vcov = vcov, model = model, reference = reference, notes = notes
   )

@@ -68,14 +68,24 @@ fc_mmm_negloglik <- function(theta, d) {
   Q <- length(z)
   n <- length(d$y)
   npar <- length(theta)
+  bad_nll <- structure(Inf, gradient = rep(NA_real_, npar))
+  if (!all(is.finite(theta))) {
+    return(bad_nll)
+  }
   beta <- theta[seq_len(d$p)]
   g <- theta[d$p + seq_len(d$m_g)]
   a <- theta[d$p + d$m_g + seq_len(d$m_s)]
+  if (any(a > 50)) {
+    return(bad_nll)
+  }
 
   eta <- drop(d$X %*% beta) + d$offset
   mu <- plogis(eta)
   gam <- if (d$m_g) drop(d$W %*% g) else numeric(n)
   sig <- drop(d$Z %*% exp(a))
+  if (!all(is.finite(mu)) || !all(is.finite(gam)) || !all(is.finite(sig))) {
+    return(bad_nll)
+  }
   # derivatives of the three linear predictors with respect to theta
   dmu <- cbind(mu * (1 - mu) * d$X, matrix(0, n, d$m_g + d$m_s))
   dgam <- cbind(matrix(0, n, d$p), d$W, matrix(0, n, d$m_s))
@@ -95,14 +105,26 @@ fc_mmm_negloglik <- function(theta, d) {
       h1 <- plogis(dl + gam[idx] + sz)
       A0 <- h0 * (1 - h0) * (1 - Pk)
       A1 <- h1 * (1 - h1) * Pk
-      step <- drop(((h0 * (1 - Pk) + h1 * Pk) %*% w) - mu[idx]) /
-        drop((A0 + A1) %*% w)
+      denom <- drop((A0 + A1) %*% w)
+      if (!all(is.finite(denom)) || any(denom <= 0)) {
+        return(bad_nll)
+      }
+      step <- drop(((h0 * (1 - Pk) + h1 * Pk) %*% w) - mu[idx]) / denom
       step <- pmin(0.5, pmax(-0.5, step))
       dl <- dl - step
-      if (max(abs(step)) < 1e-10) break
+      if (max(abs(step)) < 1e-12) break
     }
+    # Recompute conditional probabilities and weights at the final dl so
+    # that dDelta and dP are exact at the converged Delta.
+    h0 <- plogis(dl + sz)
+    h1 <- plogis(dl + gam[idx] + sz)
+    A0 <- h0 * (1 - h0) * (1 - Pk)
+    A1 <- h1 * (1 - h1) * Pk
     Delta[idx] <- dl
     dF_dDelta <- drop((A0 + A1) %*% w)
+    if (!all(is.finite(dF_dDelta)) || any(dF_dDelta <= 0)) {
+      return(bad_nll)
+    }
     Az <- drop(((A0 + A1) * rep(z, each = length(idx))) %*% w)
     A1w <- drop(A1 %*% w)
     H <- h1 - h0
@@ -124,13 +146,20 @@ fc_mmm_negloglik <- function(theta, d) {
   mx <- apply(S, 1L, max)
   E <- exp(S - mx) * rep(w, each = d$n_cl)
   L <- rowSums(E)
+  if (!all(is.finite(L)) || any(L <= 0)) {
+    return(bad_nll)
+  }
   omega <- E / L # posterior weight of each node
   resid <- d$y - plogis(lp)
   grad <- vapply(seq_len(npar), function(r) {
     dlp <- dDelta[, r] + dgam[, r] * d$ylag + outer(dsig[, r], z)
     sum(omega * rowsum(resid * dlp, d$cl))
   }, numeric(1))
-  structure(-sum(log(L) + mx), gradient = -grad)
+  nll <- -sum(log(L) + mx)
+  if (!is.finite(nll) || !all(is.finite(grad))) {
+    return(bad_nll)
+  }
+  structure(nll, gradient = -grad)
 }
 
 # Observed information by central differences of the analytic gradient.
@@ -143,6 +172,37 @@ fc_mmm_hessian <- function(theta, d, h = 1e-5) {
   (H + t(H)) / 2
 }
 
+# Invert the observed information using Cholesky so indefinite Hessians
+# (saddle points / boundary artefacts) never produce collapsed standard
+# errors.  When the constant-SD model sits on the zero-variance boundary
+# (sigma_0 -> 0), the log-likelihood is flat in a_0 and orthogonal to
+# (beta, gamma) to O(sigma_0^2), so the non-boundary block is inverted.
+fc_mmm_vcov <- function(theta, d) {
+  npar <- length(theta)
+  na_mat <- matrix(NA_real_, npar, npar)
+  H <- tryCatch(fc_mmm_hessian(theta, d), error = function(e) NULL)
+  if (is.null(H) || !all(is.finite(H))) {
+    return(na_mat)
+  }
+  V <- tryCatch(chol2inv(chol(H)), error = function(e) NULL)
+  if (!is.null(V)) {
+    return(V)
+  }
+  if (d$m_s == 1L && is.finite(theta[npar]) && exp(theta[npar]) < 1e-3) {
+    sub_idx <- seq_len(npar - 1L)
+    V_sub <- tryCatch(
+      chol2inv(chol(H[sub_idx, sub_idx, drop = FALSE])),
+      error = function(e) NULL
+    )
+    if (!is.null(V_sub)) {
+      V <- na_mat
+      V[sub_idx, sub_idx] <- V_sub
+      return(V)
+    }
+  }
+  na_mat
+}
+
 # One maximum-likelihood fit.  Starting values and optimiser settings are
 # those of MMLB::mm, so that the convergence check behaves as in the study.
 fc_mmm_fit_once <- function(d, inits) {
@@ -151,8 +211,7 @@ fc_mmm_fit_once <- function(d, inits) {
     iterlim = 100L, check.analyticals = FALSE
   )
   theta <- opt$estimate
-  V <- tryCatch(solve(fc_mmm_hessian(theta, d)), error = function(e) NULL)
-  if (is.null(V)) V <- matrix(NA_real_, length(theta), length(theta))
+  V <- fc_mmm_vcov(theta, d)
   back <- c(1 / d$scale, rep(1, d$m_g + d$m_s)) # to the original scale
   theta <- theta * back
   V <- V * tcrossprod(back)
@@ -178,7 +237,34 @@ fc_mmm_inits <- function(d) {
   b <- suppressWarnings(
     glm.fit(d$X, d$y, offset = d$offset, family = binomial())$coefficients
   )
-  c(b, rep(1, d$m_g + d$m_s))
+  a_init <- rep(1, d$m_s)
+  if (d$m_s > 1L) {
+    z_max <- apply(abs(d$Z[, -1L, drop = FALSE]), 2L, max)
+    # Keep MMLB::mm's starting value a = 1 on short/moderate series (<= 12);
+    # scale down on longer series so exp(a) * Z never overflows plogis.
+    long <- is.finite(z_max) & z_max > 12
+    a_init[-1L][long] <- log(2 / z_max[long])
+  }
+  c(b, rep(1, d$m_g), a_init)
+}
+
+# Occasion index for the latent-SD time trend: exact grid rank on a common
+# equally spaced grid (matching MMLB::mm on the study's designs), and
+# elapsed time divided by the median within-group spacing on irregular or
+# continuous time grids (so pooled ranks never blow up with N * T).
+fc_occasion_index <- function(tv, id) {
+  grid <- sort(unique(tv))
+  regular <- length(grid) < 3L ||
+    isTRUE(all.equal(diff(grid), rep(diff(grid)[1L], length(grid) - 1L)))
+  if (regular) {
+    return(match(tv, grid) - 1)
+  }
+  steps <- unlist(tapply(tv, id, diff), use.names = FALSE)
+  step_unit <- stats::median(steps[steps > 0])
+  if (!is.finite(step_unit) || step_unit <= 0) {
+    return(stats::ave(seq_along(tv), id, FUN = seq_along) - 1)
+  }
+  (tv - min(tv)) / step_unit
 }
 
 # Status of the refit without the time trend, for the convergence check:
@@ -210,17 +296,19 @@ fc_refit_problem <- function(refit, status) {
 }
 
 # The engine used by fit_fewclust().  With `time` the latent standard
-# deviation has a linear trend in the occasion index (0, 1, 2, ... over the
-# distinct values of `time`, so that the threshold of the convergence check
-# is per occasion, as in the study, whatever the unit of `time`) and the
-# series carries a first-order transition term; without `time` the latent
-# standard deviation is constant, there is no transition term, and there
-# is nothing to check.  The mean model uses `time` as given.
+# deviation has a linear trend in the occasion index (0, 1, 2, ... on a
+# regular grid, or elapsed time scaled by the median within-group spacing
+# on irregular/continuous grids, so that the threshold of the convergence
+# check is per occasion whatever the unit of `time`) and the series carries
+# a first-order transition term; without `time` the latent standard
+# deviation is constant and there is no transition term.  The mean model
+# uses `time` as given.
 #
 # Convergence check (the rule of the study, plus the optional coherence
 # condition of fewclust_control): the fit with the trend is at the boundary
-# when nlm does not report convergence (code other than 1 or 2), when the
-# estimated slope of the latent standard deviation is below
+# when it fails numerically, when nlm does not report convergence (code
+# other than 1 or 2), when its estimates or standard errors are not finite,
+# when the estimated slope of the latent standard deviation is below
 # `check_threshold`, or (coherence condition, not part of the study's rule)
 # when its log-likelihood is below that of the fit without the trend, which
 # is its own sub-model (a false optimum).  A boundary fit is replaced by
@@ -229,8 +317,8 @@ fc_refit_problem <- function(refit, status) {
 # of the study, decision D-90); otherwise the model gives no result: an
 # fc_failure carrying the record of the check, so that fit_fewclust() falls
 # back to GEE (method = "auto") or stops (method = "mmm").  The boundary
-# fit is never reported.  The result records the path, the reasons and
-# both fits, so that a user can report how often the check intervened.
+# fit is never reported.  Without `time`, a non-converged or non-finite fit
+# is likewise rejected when `control$check` is TRUE.
 fit_mmm <- function(parsed, control, reference, alpha, df) {
   time <- parsed$time
   ord <- if (is.null(time)) {
@@ -247,7 +335,7 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
   W <- NULL
   if (!is.null(time)) {
     tv <- parsed$data[[time]][ord]
-    Z <- cbind(one, occasion = match(tv, sort(unique(tv))) - 1)
+    Z <- cbind(one, occasion = fc_occasion_index(tv, id))
     W <- one
   }
   fit_once <- function(Z, what) {
@@ -271,7 +359,8 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
 
   trend <- fit_once(Z, "marginalized model")
   fit <- trend$value
-  if (inherits(fit, "fc_failure")) {
+  trend_failed <- inherits(fit, "fc_failure")
+  if (trend_failed && !(control$check && !is.null(time))) {
     return(fit)
   }
   notes <- trend$notes
@@ -281,7 +370,8 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
     path = if (is.null(time)) "no trend to check" else "trend fit kept",
     reason = character(0), threshold = control$check_threshold,
     coherence = control$check_coherence, refit_status = NA_character_,
-    trend = if (is.null(time)) NULL else record(fit), constant = NULL
+    trend = if (is.null(time) || trend_failed) NULL else record(fit),
+    constant = NULL
   )
   if (!is.null(time) && !control$check) {
     notes <- c(notes, paste0(
@@ -290,31 +380,65 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
       "only with it"
     ))
   }
+  if (is.null(time) && control$check) {
+    check$constant <- record(fit)
+    if (!fit$code %in% c(1L, 2L)) {
+      check$path <- "no result"
+      check$latent_sd <- "no result"
+      out <- fc_failure(sprintf(
+        "the optimiser did not converge (nlm code %d)", fit$code
+      ))
+      out$check <- check
+      return(out)
+    }
+    if (!finite(fit)) {
+      check$path <- "no result"
+      check$latent_sd <- "no result"
+      out <- fc_failure(sprintf(
+        "no finite estimate or standard error (nlm code %d)", fit$code
+      ))
+      out$check <- check
+      return(out)
+    }
+  }
   if (check$requested) {
     constant <- fit_once(one, "refit without the time trend")
     refit <- constant$value
     ok_refit <- !inherits(refit, "fc_failure") && finite(refit)
-    below <- ok_refit && fit$logLik < refit$logLik - 1e-4
-    why <- c(
-      if (!fit$code %in% c(1L, 2L)) {
-        sprintf("the optimiser did not converge (nlm code %d)", fit$code)
-      },
-      if (fit$slope_min < control$check_threshold) {
-        sprintf(
+    below <- !trend_failed && ok_refit && is.finite(fit$logLik) &&
+      fit$logLik < refit$logLik - 1e-4
+    why <- if (trend_failed) {
+      sprintf(
+        "trend fit failed (%s)",
+        sub("^marginalized model: ", "", fit$reason)
+      )
+    } else {
+      c(
+        if (!fit$code %in% c(1L, 2L)) {
+          sprintf("the optimiser did not converge (nlm code %d)", fit$code)
+        },
+        if (!finite(fit)) {
+          "estimates or standard errors are not finite"
+        },
+        if (is.na(fit$slope_min)) {
+          "the slope of the latent standard deviation is not finite"
+        } else if (fit$slope_min < control$check_threshold) {
+          sprintf(
+            paste0(
+              "the slope of the latent standard deviation is %.2g per ",
+              "occasion (< %g)"
+            ),
+            fit$slope_min, control$check_threshold
+          )
+        },
+        if (control$check_coherence && below) {
           paste0(
-            "the slope of the latent standard deviation is %.2g per ",
-            "occasion (< %g)"
-          ),
-          fit$slope_min, control$check_threshold
-        )
-      },
-      if (control$check_coherence && below) {
-        paste0(
-          "its log-likelihood is below that of the fit without the trend ",
-          "(a false optimum)"
-        )
-      }
-    )
+            "its log-likelihood is below that of the fit without the trend ",
+            "(a false optimum)"
+          )
+        }
+      )
+    }
     check$boundary <- length(why) > 0L
     check$reason <- why
     if (!inherits(refit, "fc_failure")) check$constant <- record(refit)
@@ -350,7 +474,8 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
     colnames(X), fit$theta[k], fc_se(fit$vcov)[k],
     fit$vcov[k, k, drop = FALSE],
     structure(fit, class = "fewclust_mmm"), reference, df, alpha,
-    notes
+    notes,
+    scale = fc_col_scale(X)
   )
 }
 # nolint end
