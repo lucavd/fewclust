@@ -80,10 +80,18 @@ tidy(gee)
 ```
 
 `corstr` sets the working correlation of GEE (`"ar1"`, `"exchangeable"`,
-`"independence"`) and `correction` the small-sample correction (`"fg"`,
-`"md"`, `"kc"`, `"none"`).  Choosing anything other than the Fay-Graubard
+`"independence"`; by default `"ar1"` with `time` and `"exchangeable"`
+without `time`, falling back to `"independence"` if the working correlation
+degenerates) and `correction` the small-sample correction (`"fg"`, `"md"`,
+`"kc"`, `"none"`).  Choosing anything other than the Fay-Graubard
 correction gives a warning, because with few groups it was the most
-reliable.
+reliable.  Because the marginalized model's standard errors are
+model-based on both paths (with and without `time`), comparing against
+`method = "gee"` is good practice when the model includes within-cluster
+covariates whose effect may vary across groups (random slopes);
+conversely, in GEE with time-varying covariates that may depend on prior
+outcomes, `corstr = "independence"` avoids the full-covariate conditional
+mean bias of Pepe and Anderson (1994).
 
 ## Errors, warnings, messages and notes
 
@@ -163,3 +171,11 @@ using sandwich estimators. *Biometrics* 57(4), 1198-1206.
 Hemerik J, Goeman JJ, Finos L (2020). Robust testing in generalized linear
 models by sign flipping score contributions. *Journal of the Royal
 Statistical Society: Series B* 82(3), 841-864.
+
+Konis K (2007). Linear programming algorithms for detecting separated data
+in binary logistic regression models. DPhil thesis, University of Oxford.
+
+Pepe MS, Anderson GL (1994). A cautionary note on inference for marginal
+regression models with longitudinal data and general correlated response
+data. *Communications in Statistics - Simulation and Computation* 23(4),
+939-951.

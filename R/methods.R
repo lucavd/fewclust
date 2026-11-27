@@ -326,7 +326,11 @@ glance.fewclust <- function(x, ...) {
     fallback = !is.null(x$fallback), nobs = x$n_obs, n_groups = x$n_groups,
     n_occasions = x$n_occasions, df = x$df,
     logLik = if (mmm) x$engine$logLik else NA_real_,
-    converged = if (mmm) x$engine$code %in% c(1L, 2L) else NA
+    converged = if (mmm) {
+      x$engine$code %in% c(1L, 2L)
+    } else {
+      identical(as.integer(x$engine$geese$error), 0L)
+    }
   )
 }
 

@@ -94,3 +94,87 @@ test_that("argument validation gives clear errors", {
   expect_error(fit_fewclust(fc_trial, y ~ arm + (1 | id), id = id), "random-effects",
                class = "fewclust_error")
 })
+
+test_that("without time, auto keeps MMM, gee defaults to exchangeable, and ar1 warns", {
+  d <- fc_test_data(30, seed = 2)
+  m <- suppressMessages(fit_fewclust(d, y ~ arm, id = id))
+  expect_equal(m$method, "mmm")
+  expect_equal(m$convergence$latent_sd, "constant")
+
+  g <- suppressMessages(fit_fewclust(d, y ~ arm, id = id, method = "gee"))
+  expect_equal(g$corstr, "exchangeable")
+  expect_equal(g$correction, "fg")
+
+  expect_warning(
+    g_ar1 <- suppressMessages(
+      fit_fewclust(d, y ~ arm, id = id, method = "gee", corstr = "ar1")
+    ),
+    "order of",
+    class = "fewclust_warning"
+  )
+  expect_equal(g_ar1$corstr, "ar1")
+})
+
+test_that("default corstr falls back to independence when working correlation degenerates", {
+  # Unequal cluster sizes (2 and 6) with negative alternation -> non-PD exchangeable Vi
+  d <- rbind(
+    data.frame(
+      id = factor(rep(1:10, each = 2)),
+      arm = rep(rep(0:1, each = 2), 5),
+      y = rep(c(0L, 1L), 10)
+    ),
+    data.frame(
+      id = factor(rep(11:14, each = 6)),
+      arm = rep(rep(0:1, each = 6), 2),
+      y = rep(c(0L, 1L, 0L, 1L, 0L, 1L), 4)
+    )
+  )
+  d$y[c(1, 22)] <- 1L - d$y[c(1, 22)]
+  expect_message(
+    g_auto <- fit_fewclust(d, y ~ arm, id = id, method = "gee"),
+    "independence",
+    class = "fewclust_message"
+  )
+  expect_equal(g_auto$method, "gee")
+  expect_equal(g_auto$corstr, "independence")
+  expect_true(all(is.finite(tidy(g_auto)$p.value)))
+
+  # Explicit corstr = "exchangeable" is NOT silently overridden
+  expect_error(
+    fit_fewclust(d, y ~ arm, id = id, method = "gee", corstr = "exchangeable"),
+    "not positive definite",
+    class = "fewclust_error"
+  )
+
+  # Also works inside method = "auto" fallback when MMM fails and default corstr degenerates
+  local_mocked_bindings(
+    fit_mmm = function(...) fewclust:::fc_failure("stub MMM"),
+    .package = "fewclust"
+  )
+  expect_message(
+    a_fb <- fit_fewclust(d, y ~ arm, id = id),
+    "independence",
+    class = "fewclust_message"
+  )
+  expect_equal(a_fb$method, "gee")
+  expect_equal(a_fb$corstr, "independence")
+})
+
+test_that("within-cluster non-time covariates are detected and inform once on MMM", {
+  p_between <- fewclust:::fc_parse(y ~ time * arm, fc_trial, quote(id), quote(time))
+  expect_identical(fewclust:::fc_within_cluster_vars(p_between), character(0))
+
+  p_within <- fewclust:::fc_parse(y ~ time * arm + x, fc_trial, quote(id), quote(time))
+  expect_identical(fewclust:::fc_within_cluster_vars(p_within), "x")
+
+  p_notime <- fewclust:::fc_parse(y ~ arm + x, fc_trial, quote(id))
+  expect_identical(fewclust:::fc_within_cluster_vars(p_notime), "x")
+
+  # Reset rlang once-per-session frequency guard for deterministic test
+  rlang::reset_message_verbosity("fewclust_within_cluster")
+  expect_message(
+    fit_fewclust(fc_trial, y ~ time * arm + x, id = id, time = time, method = "mmm"),
+    "within-cluster",
+    class = "fewclust_message"
+  )
+})

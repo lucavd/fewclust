@@ -6,9 +6,12 @@
 #' the simulation study behind the package: the marginalized multilevel
 #' model of Heagerty (1999) with a convergence check, its Wald statistics
 #' referred to a t distribution on N - p degrees of freedom (N groups, p
-#' coefficients).  When that model gives no usable estimate, GEE with an
-#' AR(1) working correlation and the Fay-Graubard small-sample correction,
-#' with the same t reference, is fitted instead, and a message says so.
+#' coefficients).  When that model gives no usable estimate, GEE with the
+#' Fay-Graubard small-sample correction and the same t reference is fitted
+#' instead (using an AR(1) working correlation with `time` and an
+#' exchangeable working correlation without `time`, falling back to
+#' independence if the default working correlation degenerates), and a
+#' message says so.
 #'
 #' The coefficients are marginal (population-averaged) log odds ratios.
 #'
@@ -23,10 +26,20 @@
 #'   (`"auto"` then fits GEE, `"mmm"` stops with an error).  The fit at the
 #'   boundary is never reported.  Without `time` the latent standard
 #'   deviation is constant and there is no transition term.  Standard
-#'   errors are model-based.
+#'   errors are model-based on both paths (with and without `time`), so
+#'   they rely on the dependence structure being adequately captured; when
+#'   the model includes within-cluster covariates whose effect may vary
+#'   across groups (random slopes), compare with `method = "gee"`.
 #' * `"gee"`: [geepack::geeglm()] with the scale parameter fixed at 1, on
 #'   rows ordered by group and `time`, with the small-sample sandwich
-#'   variance chosen by `correction` (see [gee_vcov()]).
+#'   variance chosen by `correction` (see [gee_vcov()]).  When `corstr` is
+#'   not supplied and the default working correlation fails to converge or
+#'   gives a non-positive-definite working covariance, GEE is refitted with
+#'   `corstr = "independence"` and a message says so.  With time-varying
+#'   covariates and a non-independence working correlation, consistency of
+#'   GEE requires the full-covariate conditional mean assumption of Pepe
+#'   and Anderson (1994); where covariate feedback is suspected, use
+#'   `corstr = "independence"`.
 #' * `"auto"` (default): `"mmm"`, and `"gee"` (with `corstr` and
 #'   `correction`) when `"mmm"` gives no usable estimate.
 #'
@@ -38,17 +51,20 @@
 #' @section Errors, warnings, messages and notes:
 #' The function stops with an error (class `"fewclust_error"`) when no
 #' estimate can be computed: an outcome that is not binary or is constant,
-#' an outcome that varies within one group only, separation, as many
-#' coefficients as groups or more, a single observation per group, repeated
-#' values of `time` within a group, random-effects terms in the formula,
-#' or no usable estimate from the requested method(s).  It warns (class
+#' an outcome that varies within one group only, separation (checked with
+#' the exact linear programme of Konis 2007), as many coefficients as
+#' groups or more, a single observation per group, repeated values of
+#' `time` within a group, random-effects terms in the formula, or no
+#' usable estimate from the requested method(s).  It warns (class
 #' `"fewclust_warning"`) when the result is less reliable: fewer than 10
 #' groups; GEE with 2 occasions and fewer than 15 groups; a GEE correction
-#' other than Fay-Graubard; coefficients without inference; a marginalized
-#' model that did not converge; series with gaps or unequally spaced
-#' occasions.  Messages (class `"fewclust_message"`) report a fallback to
-#' GEE and a missing `time`.  Notes stored in the fit and shown by
-#' `print()` describe small designs and the convergence check.
+#' other than Fay-Graubard; AR(1) working correlation without `time`;
+#' coefficients without inference; a marginalized model that did not
+#' converge; series with gaps or unequally spaced occasions.  Messages
+#' (class `"fewclust_message"`) report a fallback to GEE or to an
+#' independence working correlation, a missing `time`, and within-cluster
+#' covariates under the marginalized model.  Notes stored in the fit and
+#' shown by `print()` describe small designs and the convergence check.
 #'
 #' @param data A data frame or tibble with one row per observation.
 #' @param formula A two-sided formula for the mean model, for example
@@ -60,8 +76,10 @@
 #'   orders the observations within a group and gives the marginalized
 #'   model its serial dependence; recommended for repeated measurements.
 #' @param method `"auto"` (default), `"mmm"` or `"gee"`.
-#' @param corstr Working correlation of GEE: `"ar1"` (default),
-#'   `"exchangeable"` or `"independence"`.
+#' @param corstr Working correlation of GEE: `"ar1"`, `"exchangeable"` or
+#'   `"independence"`.  When `NULL` (default), uses `"ar1"` if `time` is
+#'   given and `"exchangeable"` if `time` is `NULL`, falling back to
+#'   `"independence"` if that working correlation degenerates.
 #' @param correction Small-sample correction of the GEE sandwich variance:
 #'   `"fg"` (Fay-Graubard, default), `"md"` (Mancl-DeRouen), `"kc"`
 #'   (Kauermann-Carroll) or `"none"`.
@@ -87,6 +105,15 @@
 #' using sandwich estimators. *Biometrics* 57(4), 1198-1206.
 #' \doi{10.1111/j.0006-341X.2001.01198.x}
 #'
+#' Konis K (2007). Linear programming algorithms for detecting separated
+#' data in binary logistic regression models. DPhil thesis, University of
+#' Oxford.
+#'
+#' Pepe MS, Anderson GL (1994). A cautionary note on inference for marginal
+#' regression models with longitudinal data and general correlated response
+#' data. *Communications in Statistics - Simulation and Computation*
+#' 23(4), 939-951. \doi{10.1080/03610919408813210}
+#'
 #' @examples
 #' fit <- fit_fewclust(fc_trial, y ~ time * arm, id = id, time = time)
 #' fit
@@ -107,13 +134,16 @@
 #' @export
 fit_fewclust <- function(data, formula, id, time = NULL,
                          method = c("auto", "mmm", "gee"),
-                         corstr = c("ar1", "exchangeable", "independence"),
+                         corstr = NULL,
                          correction = c("fg", "md", "kc", "none"),
                          conf_level = 0.95, control = fewclust_control()) {
   cl <- match.call()
   call <- rlang::current_env()
   method <- rlang::arg_match(method)
-  corstr <- rlang::arg_match(corstr)
+  corstr_auto <- is.null(corstr)
+  if (!corstr_auto) {
+    corstr <- rlang::arg_match(corstr, c("ar1", "exchangeable", "independence"))
+  }
   correction <- rlang::arg_match(correction)
   if (!fc_is_number(conf_level) || conf_level <= 0 || conf_level >= 1) {
     fc_abort(paste0(
@@ -140,14 +170,34 @@ fit_fewclust <- function(data, formula, id, time = NULL,
     ))
   }
   parsed <- fc_parse(formula, data, cols$id, cols$time, call = call)
+  if (corstr_auto) {
+    corstr <- if (is.null(parsed$time)) "exchangeable" else "ar1"
+  }
   dg <- fc_diagnose(parsed)
   fc_check_design(dg, call = call)
-  if (is.null(parsed$time)) fc_inform_no_time()
+  if (is.null(parsed$time) && method != "gee") fc_inform_no_time()
 
   alpha <- 1 - conf_level
   type <- c(fg = "fg", md = "md", kc = "kc", none = "unc")[[correction]]
+  corstr_used <- corstr
+  corstr_fallback <- NULL
   fit_gee_t <- function() {
-    fit_gee(parsed, control, type, "t", alpha, dg$df_t, corstr = corstr)
+    r <- fit_gee(parsed, control, type, "t", alpha, dg$df_t,
+      corstr = corstr_used
+    )
+    can_fallback <- inherits(r, "fc_failure") && corstr_auto &&
+      isTRUE(r$corstr_degenerate) && corstr_used != "independence"
+    if (can_fallback) {
+      r_ind <- fit_gee(parsed, control, type, "t", alpha, dg$df_t,
+        corstr = "independence"
+      )
+      if (!inherits(r_ind, "fc_failure")) {
+        corstr_fallback <<- list(from = corstr_used, reason = r$reason)
+        corstr_used <<- "independence"
+        return(r_ind)
+      }
+    }
+    r
   }
   fallback <- NULL
   mmm_check <- NULL
@@ -159,6 +209,17 @@ fit_fewclust <- function(data, formula, id, time = NULL,
         "i" = paste0(
           "Try the default {.code method = \"auto\"}, or {.fn flip_test} ",
           "for a p-value."
+        )
+      ))
+    }
+    if (!is.null(corstr_fallback)) {
+      fc_inform(c(
+        paste0(
+          "GEE with {fc_gee_label(corstr_fallback$from, correction)} gave ",
+          "no usable estimate ({corstr_fallback$reason})."
+        ),
+        "i" = paste0(
+          "Reporting GEE with {fc_gee_label(corstr_used, correction)} instead."
         )
       ))
     }
@@ -196,15 +257,19 @@ fit_fewclust <- function(data, formula, id, time = NULL,
           "({fallback})."
         ),
         "i" = paste0(
-          "Reporting GEE with {fc_gee_label(corstr, correction)} instead."
+          "Reporting GEE with {fc_gee_label(corstr_used, correction)} instead."
         )
       ))
     }
   }
-  out <- fc_new_fit(res, parsed, dg, fallback, corstr, correction, conf_level,
-    control,
+  out <- fc_new_fit(res, parsed, dg, fallback, corstr_used, correction,
+    conf_level, control,
     call = cl, mmm_check = mmm_check
   )
+  if (out$method == "mmm") {
+    wc <- fc_within_cluster_vars(parsed)
+    if (length(wc)) fc_inform_within_cluster(wc)
+  }
   fc_fit_warnings(out)
   out$notes <- fc_fit_notes(out, res$notes)
   out
@@ -250,6 +315,43 @@ fc_inform_no_time <- function() {
       )
     ),
     .frequency = "once", .frequency_id = "fewclust_no_time"
+  )
+}
+
+# Predictor variables in the mean model (other than `time`) that vary within
+# at least one cluster.
+fc_within_cluster_vars <- function(parsed) {
+  tl <- attr(parsed$terms, "term.labels")
+  if (!length(tl)) {
+    return(character(0))
+  }
+  vars <- setdiff(all.vars(stats::reformulate(tl)), parsed$time)
+  vars <- intersect(vars, names(parsed$data))
+  if (!length(vars)) {
+    return(character(0))
+  }
+  id <- parsed$data[[parsed$group]]
+  keep <- vapply(vars, function(v) {
+    val <- parsed$data[[v]]
+    any(tapply(val, id, function(z) length(unique(z)) > 1L))
+  }, logical(1))
+  vars[keep]
+}
+
+fc_inform_within_cluster <- function(vars) {
+  fc_inform(
+    c(
+      paste0(
+        "The model includes within-cluster covariate(s) ({.var {vars}}): ",
+        "the marginalized multilevel model reports model-based standard ",
+        "errors."
+      ),
+      "i" = paste0(
+        "If their effect may vary across groups (random slopes), compare ",
+        "with {.code method = \"gee\"}."
+      )
+    ),
+    .frequency = "once", .frequency_id = "fewclust_within_cluster"
   )
 }
 
@@ -402,6 +504,18 @@ fc_fit_warnings <- function(fit) {
         "too often."
       ),
       "i" = "Check the result with {.fn flip_test}."
+    ))
+  }
+  if (gee && is.null(fit$time) && fit$corstr == "ar1") {
+    fc_warn(c(
+      paste0(
+        "AR(1) working correlation without {.arg time} depends on the ",
+        "row order of {.arg data}."
+      ),
+      "i" = paste0(
+        "Give {.arg time} for longitudinal data, or use ",
+        "{.code corstr = \"exchangeable\"} for unordered clusters."
+      )
     ))
   }
   if (gee && fit$correction == "none") {

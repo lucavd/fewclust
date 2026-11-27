@@ -94,4 +94,26 @@ test_that("the GEE strategy is the study's fit, whatever the order of the rows",
   expect_equal(tidy(fit)$std.error, unname(ref_se), tolerance = 1e-10)
   expect_equal(unname(fit$engine$geese$alpha), unname(ref$geese$alpha), tolerance = 1e-10)
   expect_true(fit$engine$geese$model$scale.fix)
+  expect_true(glance(fit)$converged)
+})
+
+test_that("a non-converged geeglm fit (geese$error != 0) is treated as a failure", {
+  d <- fc_test_data(25, seed = 2)
+  parsed <- fewclust:::fc_parse(y ~ time + arm, d, group_expr = quote(id), time_expr = quote(time))
+  m <- geepack::geeglm(
+    y ~ time + arm, id = id, data = d[order(d$id, d$time), ],
+    family = binomial("logit"), corstr = "ar1", scale.fix = TRUE
+  )
+  m$geese$error <- 1L
+  local_mocked_bindings(
+    geeglm = function(...) m,
+    .package = "geepack"
+  )
+  res <- fewclust:::fc_gee_model(parsed, "ar1")
+  expect_s3_class(res, "fc_failure")
+  expect_match(res$reason, "did not converge")
+  expect_true(isTRUE(res$corstr_degenerate))
+  res_ind <- fewclust:::fc_gee_model(parsed, "independence")
+  expect_s3_class(res_ind, "fc_failure")
+  expect_false(isTRUE(res_ind$corstr_degenerate))
 })

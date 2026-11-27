@@ -16,7 +16,9 @@
 #'   estimates and standard errors are finite.  Otherwise the marginalized
 #'   model gives no result: [fit_fewclust()] falls back to GEE with
 #'   `method = "auto"` and stops with an error with `method = "mmm"`.  The
-#'   fit at the boundary is never reported.  The model is recommended only
+#'   fit at the boundary is never reported.  When `time` is `NULL` the
+#'   check likewise rejects a constant-SD fit that does not converge or has
+#'   non-finite estimates or standard errors.  The model is recommended only
 #'   with the check; switching it off is recorded in the notes of the fit.
 #' @param check_coherence Whether the check also replaces a trend fit whose
 #'   log-likelihood is below that of the fit with a constant latent standard

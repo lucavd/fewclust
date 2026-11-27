@@ -28,15 +28,28 @@ fc_gee_model <- function(parsed, corstr) {
     "GEE fit"
   )
   if (inherits(q$value, "fc_failure")) {
-    q$value
-  } else {
-    list(model = q$value, notes = q$notes)
+    return(q$value)
   }
+  err <- q$value$geese$error
+  if (!is.null(err) && !is.na(err) && err != 0L) {
+    out <- fc_failure(sprintf(
+      "GEE fit did not converge (geese error %d)", err
+    ))
+    out$corstr_degenerate <- corstr != "independence"
+    return(out)
+  }
+  list(model = q$value, notes = q$notes)
 }
 
 fc_gee_infer <- function(m, notes, control, type, reference, alpha, df) {
   v <- tryCatch(gee_vcov(m, type, fg_bound = control$fg_bound),
-    error = function(e) fc_failure(conditionMessage(e))
+    error = function(e) {
+      msg <- conditionMessage(e)
+      out <- fc_failure(msg)
+      out$corstr_degenerate <- !identical(m$corstr, "independence") &&
+        grepl("not positive definite", msg, fixed = TRUE)
+      out
+    }
   )
   if (inherits(v, "fc_failure")) {
     return(v)

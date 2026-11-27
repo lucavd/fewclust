@@ -158,3 +158,37 @@ test_that("a fit with no usable coefficient is a structured failure", {
   expect_s3_class(res, "fc_failure")
   expect_match(res$reason, "no usable estimate")
 })
+
+test_that("fc_mmm_negloglik guards against overflowing parameters without error", {
+  d <- fc_test_data(15, seed = 2)
+  des <- mmm_design(d, y ~ time + arm, trend = TRUE, transition = TRUE)
+  val <- fewclust:::fc_mmm_negloglik(c(0, 0, 0, 0, 1, 500), des)
+  expect_true(is.numeric(val) && length(val) == 1L && is.infinite(val))
+  expect_true(all(is.na(attr(val, "gradient"))))
+})
+
+test_that("fc_mmm_fit_once rejects a fit stopped on the a > 50 barrier", {
+  d <- fc_test_data(15, seed = 2)
+  des <- mmm_design(d, y ~ time + arm, trend = TRUE, transition = TRUE)
+  local_mocked_bindings(
+    nlm = function(f, p, ...) {
+      list(
+        minimum = 10, estimate = c(0, 0, 0, 0, 50, 1),
+        gradient = numeric(6), code = 2L, iterations = 3L
+      )
+    },
+    .package = "fewclust"
+  )
+  res <- fewclust:::fc_mmm_fit_once(des, numeric(6))
+  expect_equal(res$code, 5L)
+  expect_true(is.na(res$logLik))
+  expect_true(all(is.na(res$vcov)))
+})
+
+test_that("long series scale the initial latent SD slope and converge cleanly", {
+  d <- simulate_clustered_binary(n_groups = 20, n_occasions = 25, seed = 9)
+  fit <- fit_fewclust(d, y ~ time + arm, id = id, time = time, method = "mmm")
+  expect_equal(fit$method, "mmm")
+  expect_true(fit$engine$code %in% c(1L, 2L))
+  expect_true(all(is.finite(tidy(fit)$p.value)))
+})

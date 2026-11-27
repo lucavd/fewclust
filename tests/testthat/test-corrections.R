@@ -130,3 +130,33 @@ test_that("Fay-Graubard follows Fay and Graubard (2001) also where diag(Q) is ne
   expect_true(ref$any_negative)
   expect_equal(unname(gee_vcov(m, "fg")), unname(ref$V), tolerance = 1e-10)
 })
+
+test_that("non-positive-definite working covariance is rejected for all estimators", {
+  # Unequal cluster sizes (2 and 6) with strong negative within-cluster
+  # alternation yield exchangeable alpha < -1/5, making Vi indefinite for n=6
+  d <- rbind(
+    data.frame(
+      id = factor(rep(1:10, each = 2)),
+      arm = rep(rep(0:1, each = 2), 5),
+      y = rep(c(0L, 1L), 10)
+    ),
+    data.frame(
+      id = factor(rep(11:14, each = 6)),
+      arm = rep(rep(0:1, each = 6), 2),
+      y = rep(c(0L, 1L, 0L, 1L, 0L, 1L), 4)
+    )
+  )
+  d$y[c(1, 22)] <- 1L - d$y[c(1, 22)]
+  m <- suppressWarnings(geepack::geeglm(
+    y ~ arm, id = id, data = d,
+    family = binomial(), corstr = "exchangeable", scale.fix = TRUE
+  ))
+  expect_lt(m$geese$alpha, -1 / 5)
+  for (ty in c("unc", "fg", "md", "kc")) {
+    expect_error(
+      gee_vcov(m, ty),
+      "not positive definite",
+      class = "fewclust_correction_error"
+    )
+  }
+})

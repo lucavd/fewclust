@@ -7,6 +7,7 @@ cli
 DeRouen
 df
 doi
+DPhil
 eigendecomposition
 estimand
 estimands
@@ -15,6 +16,7 @@ Finos
 geesmv
 GenBinaryY
 GH
+GL
 GLMM
 Goeman
 Graubard
@@ -27,6 +29,7 @@ intraclass
 JASA
 JJ
 Kauermann
+Konis
 Liang
 lme
 Mancl
@@ -36,10 +39,12 @@ nlm
 overridable
 Overridable
 parametrised
+Pepe
 PJ
 quadrature
 reformulas
 RJ
+RMS
 RSSB
 rssb
 Schildcrout
