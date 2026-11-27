@@ -124,14 +124,15 @@ The simulation study evaluated longitudinal designs with a cluster-level
 treatment (`arm`) on regular occasion grids where the latent dependence is
 approximated by a random intercept (constant or with a linear time trend)
 and a first-order transition term.  Because the marginalized multilevel
-model reports model-based standard errors on both paths (with and without
-`time`), its calibration relies on that dependence structure being
-adequately captured.  When a model includes within-cluster covariates whose
-effect varies across clusters (random slopes), model-based standard errors
-can understate sampling variability regardless of whether `time` is given;
-in those settings sandwich-based GEE with the Fay-Graubard correction is
-more robust to misspecification of the within-cluster dependence, so
-comparing `method = "mmm"` against `method = "gee"` is good practice.
+model reports model-based standard errors by default (`mmm_vcov = "model"`)
+on both paths (with and without `time`), its calibration relies on that
+dependence structure being adequately captured.  When a model includes
+within-cluster covariates whose effect varies across clusters (random
+slopes), model-based standard errors can understate sampling variability
+regardless of whether `time` is given; in those settings setting
+`mmm_vcov = "sandwich"` (Fay-Graubard small-sample sandwich standard errors
+for the marginalized model) or comparing against `method = "gee"` provides
+inference robust to misspecification of the within-cluster dependence.
 
 For GEE with time-varying covariates and a non-independence working
 correlation, consistency also requires the full-covariate conditional mean

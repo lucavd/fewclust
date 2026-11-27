@@ -26,6 +26,9 @@ fc_correction_label <- function(correction) {
 
 fc_method_label <- function(x) {
   if (x$method == "mmm") {
+    if (identical(x$mmm_vcov, "sandwich")) {
+      return("Marginalized multilevel model, Fay-Graubard sandwich")
+    }
     return("Marginalized multilevel model")
   }
   sprintf(

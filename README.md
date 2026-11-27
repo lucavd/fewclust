@@ -41,8 +41,10 @@ freedom (N groups, p coefficients).  If that model gives no usable estimate,
 it fits GEE with the Fay-Graubard small-sample correction instead (using an
 AR(1) working correlation with `time`, or exchangeable without `time`,
 falling back to independence if the working correlation degenerates), and
-tells you.  `method = "gee"` asks for GEE directly; `corstr` and
-`correction` choose its variant.
+tells you.  `method = "gee"` asks for GEE directly; `corstr` and `correction` choose
+its variant; `mmm_vcov = "sandwich"` computes Fay-Graubard small-sample
+sandwich standard errors for the marginalized multilevel model (useful
+when within-cluster covariates may have random slopes).
 
 The coefficients are marginal (population-averaged) log odds ratios.
 

@@ -105,7 +105,7 @@ test_that("the unit of time changes neither the dependence model nor the optimum
   expect_equal(tidy(a)$p.value, tidy(b)$p.value, tolerance = 1e-4)
 })
 
-test_that("the coherence condition catches a converged false optimum on real data", {
+test_that("the convergence check catches a false optimum and indefinite Hessian on real data", {
   d <- simulate_clustered_binary(n_groups = 10, n_occasions = 6, seed = 8)
   d$time <- round(d$time * 5)
   fit <- fit_fewclust(d, y ~ time * arm, id = id, time = time, method = "mmm")
@@ -113,9 +113,26 @@ test_that("the coherence condition catches a converged false optimum on real dat
   expect_true(fit$convergence$boundary)
   expect_equal(fit$convergence$latent_sd, "constant")
   expect_match(paste(fit$convergence$reason, collapse = " "), "false optimum")
-  # with the published two-condition rule alone the trend fit is kept
-  raw <- fit_fewclust(d, y ~ time * arm, id = id, time = time, method = "mmm",
-                      control = fewclust_control(check_coherence = FALSE))
+  expect_match(
+    paste(fit$convergence$reason, collapse = " "),
+    "observed information matrix is not positive definite"
+  )
+  # With check_coherence = FALSE alone, check_hessian = TRUE still rejects it
+  no_coh <- fit_fewclust(
+    d, y ~ time * arm, id = id, time = time, method = "mmm",
+    control = fewclust_control(check_coherence = FALSE)
+  )
+  expect_true(no_coh$convergence$boundary)
+  expect_equal(no_coh$convergence$latent_sd, "constant")
+  expect_match(
+    paste(no_coh$convergence$reason, collapse = " "),
+    "observed information matrix is not positive definite"
+  )
+  # Disabling both package extensions reproduces the published two-condition rule
+  raw <- fit_fewclust(
+    d, y ~ time * arm, id = id, time = time, method = "mmm",
+    control = fewclust_control(check_coherence = FALSE, check_hessian = FALSE)
+  )
   expect_false(raw$convergence$boundary)
   expect_equal(raw$convergence$latent_sd, "time trend")
   expect_lt(raw$engine$logLik, fit$engine$logLik)
@@ -136,6 +153,11 @@ test_that("a trend fit below its own sub-model is treated as a false optimum (st
   expect_true(res$model$check$boundary)
   expect_equal(res$model$check$latent_sd, "constant")
   expect_match(paste(res$notes, collapse = " "), "false optimum")
+  raw <- fewclust:::fit_mmm(
+    parsed, fewclust_control(check_coherence = FALSE), "t", 0.05, 36L
+  )
+  expect_false(raw$model$check$boundary)
+  expect_equal(raw$model$check$latent_sd, "time trend")
 })
 
 test_that("repeated time values within a group are refused at parse time", {
@@ -191,4 +213,122 @@ test_that("long series scale the initial latent SD slope and converge cleanly", 
   expect_equal(fit$method, "mmm")
   expect_true(fit$engine$code %in% c(1L, 2L))
   expect_true(all(is.finite(tidy(fit)$p.value)))
+})
+
+test_that("boundary block inversion at sigma_0 < 1e-3 recovers glm SEs and records a note", {
+  d <- simulate_clustered_binary(
+    n_groups = 25, n_occasions = 4, effect = 0.4, sigma_u = 0, seed = 3
+  )
+  des <- mmm_design(d, y ~ time + arm, trend = FALSE, transition = FALSE)
+  g <- glm(y ~ time + arm, family = binomial(), data = d)
+  th <- c(coef(g) * des$scale, -800)
+  vc <- fewclust:::fc_mmm_vcov(th, des, check_hessian = TRUE)
+  expect_true(vc$boundary_block)
+  expect_false(vc$hessian_indefinite)
+  se_beta <- sqrt(diag(vc$vcov)[seq_len(des$p)])
+  se_glm <- unname(summary(g)$coefficients[, "Std. Error"])
+  expect_equal(unname(se_beta), se_glm, tolerance = 1e-2)
+
+  # Verify note is recorded on a fit where boundary_block activates
+  parsed <- fewclust:::fc_parse(y ~ time + arm, d, quote(id))
+  real_once <- fewclust:::fc_mmm_fit_once
+  local_mocked_bindings(
+    fc_mmm_fit_once = function(des_in, inits) {
+      f <- real_once(des_in, inits)
+      f$boundary_block <- TRUE
+      f
+    },
+    .package = "fewclust"
+  )
+  fit <- suppressMessages(fit_fewclust(d, y ~ time + arm, id = id, method = "mmm"))
+  expect_true(fit$convergence$boundary_block)
+  expect_match(paste(fit$notes, collapse = " "), "conditional on log\\(sigma_0\\) held fixed")
+})
+
+test_that("continuous/jittered visit times scale cleanly and stay close to regular-grid fit", {
+  set.seed(42)
+  d <- simulate_clustered_binary(
+    n_groups = 40, n_occasions = 6, slope_sd = 2, sigma_u = 1, seed = 1
+  )
+  d$day <- d$time * 100 + runif(nrow(d), -2, 2)
+  d <- d[order(d$id, d$day), ]
+  f_reg <- fit_fewclust(d, y ~ time + arm, id = id, time = time, method = "mmm")
+  f_jit <- suppressWarnings(
+    fit_fewclust(d, y ~ day + arm, id = id, time = day, method = "mmm")
+  )
+  expect_equal(f_jit$design$time_grid_regime, "continuous")
+  expect_equal(f_jit$design$groups_with_gaps, 0L)
+  expect_equal(f_jit$convergence$path, "trend fit kept")
+  expect_true(f_jit$convergence$trend$code %in% c(1L, 2L))
+  expect_lt(abs(f_jit$engine$logLik - f_reg$engine$logLik), 1.5)
+  expect_lt(abs(unname(coef(f_jit)["arm"]) - unname(coef(f_reg)["arm"])), 0.1)
+})
+
+test_that("many unique jittered times converge cleanly without sub-model logLik collapse", {
+  set.seed(1)
+  d <- simulate_clustered_binary(n_groups = 120, n_occasions = 10, seed = 1)
+  d$day <- d$time * 100 + runif(nrow(d), 0, 0.5)
+  d <- d[order(d$id, d$day), ]
+  fit <- suppressWarnings(fit_fewclust(
+    d, y ~ day + arm, id = id, time = day, method = "mmm",
+    control = fewclust_control(check_coherence = FALSE)
+  ))
+  expect_equal(fit$method, "mmm")
+  expect_true(all(is.finite(tidy(fit)$p.value)))
+  # Trend model nests constant model, so logLik must not collapse below constant
+  expect_gt(fit$convergence$trend$logLik, fit$convergence$constant$logLik - 1e-2)
+})
+
+test_that("mmm_vcov = 'sandwich' computes exact Fay-Graubard sandwich SEs with and without time", {
+  # With time
+  fm <- suppressMessages(fit_fewclust(
+    fc_trial, y ~ time * arm + x, id = id, time = time,
+    method = "mmm", mmm_vcov = "model"
+  ))
+  rlang::reset_message_verbosity("fewclust_within_cluster")
+  expect_no_message(
+    fs <- fit_fewclust(
+      fc_trial, y ~ time * arm + x, id = id, time = time,
+      method = "mmm", mmm_vcov = "sandwich"
+    )
+  )
+  expect_equal(fs$mmm_vcov, "sandwich")
+  expect_equal(coef(fs), coef(fm), tolerance = 1e-10)
+  expect_true(all(is.finite(tidy(fs)$std.error) & tidy(fs)$std.error > 0))
+  expect_false(isTRUE(all.equal(tidy(fs)$std.error, tidy(fm)$std.error)))
+  expect_output(print(fs), "Fay-Graubard sandwich")
+
+  # Direct verification of B^{-1} sum_i (F_i U_i)(F_i U_i)' B^{-1} on constant-SD fit
+  d_ord <- fc_trial[order(fc_trial$id), ]
+  X <- model.matrix(y ~ arm + x, d_ord)
+  des <- fewclust:::fc_mmm_design(
+    d_ord$y, X, factor(d_ord$id), matrix(1, nrow(d_ord), 1),
+    vcov_type = "sandwich", fg_bound = 0.75
+  )
+  fs0 <- suppressMessages(fit_fewclust(
+    fc_trial, y ~ arm + x, id = id, method = "mmm", mmm_vcov = "sandwich"
+  ))
+  back <- c(1 / des$scale, 1)
+  th <- unname(fs0$engine$theta / back)
+  hc <- fewclust:::fc_mmm_hessian_clusters(th, des)
+  Binv <- chol2inv(chol(hc$H))
+  U_adj <- t(vapply(seq_len(nrow(hc$U)), function(i) {
+    q <- diag(hc$H_list[[i]] %*% Binv)
+    hc$U[i, ] / sqrt(1 - pmin(0.75, q))
+  }, numeric(ncol(hc$U))))
+  V_ref <- (Binv %*% crossprod(U_adj) %*% Binv) * tcrossprod(back)
+  expect_equal(unname(vcov(fs0)), unname(V_ref[1:3, 1:3]), tolerance = 1e-8)
+
+  # On a within-cluster random-slope design, sandwich SE exceeds model-based SE
+  set.seed(77)
+  G <- 40; m <- 10
+  id_r <- factor(rep(seq_len(G), each = m))
+  x_r <- rnorm(G * m)
+  u0 <- rnorm(G, 0, 1)[as.integer(id_r)]
+  u1 <- rnorm(G, 0, 2)[as.integer(id_r)]
+  y_r <- rbinom(G * m, 1, plogis(-0.5 + u0 + u1 * x_r))
+  dr <- data.frame(id = id_r, x = x_r, y = y_r)
+  fm_r <- suppressMessages(fit_fewclust(dr, y ~ x, id = id, method = "mmm", mmm_vcov = "model"))
+  fs_r <- suppressMessages(fit_fewclust(dr, y ~ x, id = id, method = "mmm", mmm_vcov = "sandwich"))
+  expect_gt(tidy(fs_r)$std.error[2], 1.3 * tidy(fm_r)$std.error[2])
 })

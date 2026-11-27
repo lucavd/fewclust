@@ -79,3 +79,42 @@ test_that("logical and factor outcomes are accepted", {
   expect_equal(dg$event, "yes")
   expect_output(print(dg), 'event "yes"')
 })
+
+test_that("fc_time_grid distinguishes regular, missing-slot, shared-irregular and continuous grids", {
+  # 1. Exact regular grid
+  id <- factor(rep(1:10, each = 4))
+  tv_reg <- rep(c(0, 10, 20, 30), 10)
+  tg1 <- fewclust:::fc_time_grid(tv_reg, id)
+  expect_equal(tg1$regime, "regular")
+  expect_true(tg1$regular)
+  expect_equal(tg1$groups_with_gaps, 0L)
+  expect_equal(tg1$occasion, rep(0:3, 10))
+
+  # 2. Regular grid with an entire missing occasion (0, 1, 2, 4; nobody at 3)
+  tv_miss <- rep(c(0, 1, 2, 4), 10)
+  tg2 <- fewclust:::fc_time_grid(tv_miss, id)
+  expect_equal(tg2$regime, "regular_missing")
+  expect_false(tg2$regular)
+  expect_equal(tg2$occasion, rep(c(0, 1, 2, 4), 10))
+  expect_equal(tg2$groups_with_gaps, 10L)
+
+  # 3. Shared planned irregular grid (0, 1, 2, 4, 8) with 4 internal gaps
+  id5 <- factor(rep(1:10, each = 5))
+  tv5 <- rep(c(0, 1, 2, 4, 8), 10)
+  drop_idx <- c(3, 8, 12, 19) # 4 groups drop an internal visit
+  tg3 <- fewclust:::fc_time_grid(tv5[-drop_idx], id5[-drop_idx])
+  expect_equal(tg3$regime, "shared_irregular")
+  expect_false(tg3$regular)
+  expect_equal(tg3$groups_with_gaps, 4L)
+  # Index is (tv - 0) / mean(diff(0,1,2,4,8)) = tv / 2, independent of missingness
+  expect_equal(sort(unique(tg3$occasion)), c(0, 0.5, 1, 2, 4))
+
+  # 4. Truly continuous / jittered timestamps
+  set.seed(1)
+  tv_cont <- rep(c(0, 1, 2, 3), 10) + runif(40, -0.05, 0.05)
+  tg4 <- fewclust:::fc_time_grid(tv_cont, id)
+  expect_equal(tg4$regime, "continuous")
+  expect_false(tg4$regular)
+  expect_equal(tg4$groups_with_gaps, 0L)
+  expect_lt(max(tg4$occasion), 3.5)
+})

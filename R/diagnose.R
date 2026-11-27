@@ -24,15 +24,10 @@ fc_diagnose <- function(parsed) {
     NA_real_
   }
   prev_by_group <- tapply(y, id, mean)
-  grid <- NA
-  if (!is.null(parsed$time)) grid <- sort(unique(parsed$data[[parsed$time]]))
-  # a gap is a missing occasion of the grid between the first and the last
-  # occasion of a group (a series truncated at either end has none)
-  gaps <- if (is.null(parsed$time)) {
-    0L
+  tg <- if (is.null(parsed$time)) {
+    list(regime = NA_character_, regular = TRUE, groups_with_gaps = 0L)
   } else {
-    rk <- match(parsed$data[[parsed$time]], grid)
-    sum(tapply(rk, id, function(r) length(r) > 1L && any(diff(sort(r)) > 1L)))
+    fc_time_grid(parsed$data[[parsed$time]], id)
   }
   structure(
     list(
@@ -43,12 +38,9 @@ fc_diagnose <- function(parsed) {
         max = max(sizes)
       ),
       n_occasions = n_occasions,
-      # the occasion index of the dependence model is the rank of `time` in
-      # this grid; it matches the study's occasions only when the grid is
-      # equally spaced (one grid shared by all groups)
-      time_grid_regular = is.null(parsed$time) || length(grid) < 3L ||
-        isTRUE(all.equal(diff(grid), rep(diff(grid)[1L], length(grid) - 1L))),
-      groups_with_gaps = as.integer(gaps),
+      time_grid_regime = tg$regime,
+      time_grid_regular = tg$regular,
+      groups_with_gaps = tg$groups_with_gaps,
       prevalence = mean(y),
       pure_groups = sum(prev_by_group %in% c(0, 1)),
       icc = fc_icc(y, id),
@@ -63,6 +55,75 @@ fc_diagnose <- function(parsed) {
       n_dropped = parsed$n_dropped
     ),
     class = "cluster_diagnosis"
+  )
+}
+
+# Single source of truth for time-grid classification, internal gap counts,
+# and the MMM occasion index Z:
+#  1. "regular": exact equally spaced shared grid (occasion = 0, 1, ..., K-1,
+#     matching MMLB::mm on the study's designs).
+#  2. "regular_missing": shared grid whose values are integer multiples of a
+#     common step h with >= 75% of slots observed (e.g. 0, 1, 2, 4 missing 3);
+#     occasion = (tv - min) / h and gaps are counted on the full regular grid.
+#  3. "shared_irregular": shared planned irregular schedule (e.g. 0, 1, 2, 4,
+#     8); occasion = (tv - min(grid)) / mean(diff(grid)) (independent of
+#     missingness, span K - 1) and gaps are counted on the planned grid.
+#  4. "continuous": truly continuous / jittered timestamps; no discrete gaps
+#     (0L) and occasion = (tv - min(tv)) / median(within-group diffs).
+fc_time_grid <- function(tv, id) {
+  grid <- sort(unique(tv))
+  n_grid <- length(grid)
+  count_gaps <- function(rk) {
+    as.integer(sum(tapply(
+      rk, id, function(r) length(r) > 1L && any(diff(sort(r)) > 1L)
+    )))
+  }
+  if (n_grid < 3L) {
+    return(list(
+      regime = "regular", regular = TRUE, shared = TRUE,
+      occasion = match(tv, grid) - 1, groups_with_gaps = 0L
+    ))
+  }
+  d <- diff(grid)
+  if (isTRUE(all.equal(d, rep(d[1L], length(d))))) {
+    rk <- match(tv, grid)
+    return(list(
+      regime = "regular", regular = TRUE, shared = TRUE,
+      occasion = rk - 1, groups_with_gaps = count_gaps(rk)
+    ))
+  }
+  max_n_i <- max(as.integer(table(id)))
+  counts <- as.integer(table(tv))
+  is_shared <- mean(counts >= 2L) >= 0.5 && n_grid <= 2L * max_n_i
+  if (is_shared) {
+    h <- min(d)
+    mult <- (grid - grid[1L]) / h
+    is_mult <- all(abs(mult - round(mult)) < 1e-6)
+    n_full <- round(mult[n_grid]) + 1
+    if (is_mult && n_grid / n_full >= 0.75) {
+      occ <- round((tv - grid[1L]) / h)
+      return(list(
+        regime = "regular_missing", regular = FALSE, shared = TRUE,
+        occasion = occ, groups_with_gaps = count_gaps(occ + 1)
+      ))
+    }
+    rk <- match(tv, grid)
+    return(list(
+      regime = "shared_irregular", regular = FALSE, shared = TRUE,
+      occasion = (tv - grid[1L]) / mean(d), groups_with_gaps = count_gaps(rk)
+    ))
+  }
+  ord <- order(id, tv)
+  steps <- unlist(tapply(tv[ord], id[ord], diff), use.names = FALSE)
+  step_unit <- stats::median(steps[steps > 0])
+  occ <- if (is.finite(step_unit) && step_unit > 0) {
+    (tv - min(tv)) / step_unit
+  } else {
+    stats::ave(seq_along(tv), id, FUN = seq_along) - 1
+  }
+  list(
+    regime = "continuous", regular = FALSE, shared = FALSE,
+    occasion = occ, groups_with_gaps = 0L
   )
 }
 

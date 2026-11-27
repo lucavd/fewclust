@@ -45,7 +45,9 @@ fc_gh <- function(q) {
 # covariate is on a large scale); columns on the scale of the study are left
 # as they are, so the optimiser follows the path of MMLB::mm.  Estimates and
 # covariance are mapped back to the original scale in fc_mmm_fit_once.
-fc_mmm_design <- function(y, X, id, Z, W = NULL, offset = NULL, q = 20L) {
+fc_mmm_design <- function(y, X, id, Z, W = NULL, offset = NULL, q = 20L,
+                          check_hessian = TRUE, vcov_type = "model",
+                          fg_bound = 0.75) {
   cl <- as.integer(id)
   pos <- stats::ave(seq_along(cl), cl, FUN = seq_along)
   ylag <- c(0L, y[-length(y)]) * (pos > 1L)
@@ -56,13 +58,17 @@ fc_mmm_design <- function(y, X, id, Z, W = NULL, offset = NULL, q = 20L) {
     offset = if (is.null(offset)) numeric(length(y)) else offset,
     cl = cl, n_cl = nlevels(id), ylag = ylag,
     by_pos = split(seq_along(cl), pos), gh = fc_gh(q),
-    p = ncol(X), m_g = if (is.null(W)) 0L else ncol(W), m_s = ncol(Z)
+    p = ncol(X), m_g = if (is.null(W)) 0L else ncol(W), m_s = ncol(Z),
+    check_hessian = isTRUE(check_hessian), vcov_type = vcov_type,
+    fg_bound = fg_bound
   )
 }
 
 # Negative log-likelihood with its analytic gradient as attribute, in the
-# form nlm() consumes.  theta = (beta, g, a).
-fc_mmm_negloglik <- function(theta, d) {
+# form nlm() consumes.  theta = (beta, g, a).  When cluster_scores = TRUE,
+# also attaches the n_cl x npar matrix of per-cluster score contributions
+# (d log L_i / d theta) for sandwich variance estimation.
+fc_mmm_negloglik <- function(theta, d, cluster_scores = FALSE) {
   z <- d$gh$z
   w <- d$gh$w
   Q <- length(z)
@@ -112,8 +118,14 @@ fc_mmm_negloglik <- function(theta, d) {
       step <- drop(((h0 * (1 - Pk) + h1 * Pk) %*% w) - mu[idx]) / denom
       step <- pmin(0.5, pmax(-0.5, step))
       dl <- dl - step
-      if (max(abs(step)) < 1e-10) break
+      if (max(abs(step)) < 1e-12) break
     }
+    # Recompute conditional probabilities and weights at the converged dl so
+    # that dDelta and dP are exact at the final intercept.
+    h0 <- plogis(dl + sz)
+    h1 <- plogis(dl + gam[idx] + sz)
+    A0 <- h0 * (1 - h0) * (1 - Pk)
+    A1 <- h1 * (1 - h1) * Pk
     Delta[idx] <- dl
     dF_dDelta <- drop((A0 + A1) %*% w)
     if (!all(is.finite(dF_dDelta)) || any(dF_dDelta <= 0)) {
@@ -145,15 +157,26 @@ fc_mmm_negloglik <- function(theta, d) {
   }
   omega <- E / L # posterior weight of each node
   resid <- d$y - plogis(lp)
-  grad <- vapply(seq_len(npar), function(r) {
-    dlp <- dDelta[, r] + dgam[, r] * d$ylag + outer(dsig[, r], z)
-    sum(omega * rowsum(resid * dlp, d$cl))
-  }, numeric(1))
+  if (cluster_scores) {
+    U <- vapply(seq_len(npar), function(r) {
+      dlp <- dDelta[, r] + dgam[, r] * d$ylag + outer(dsig[, r], z)
+      rowSums(omega * rowsum(resid * dlp, d$cl))
+    }, numeric(d$n_cl))
+    if (d$n_cl == 1L) U <- matrix(U, nrow = 1L)
+    grad <- colSums(U)
+  } else {
+    grad <- vapply(seq_len(npar), function(r) {
+      dlp <- dDelta[, r] + dgam[, r] * d$ylag + outer(dsig[, r], z)
+      sum(omega * rowsum(resid * dlp, d$cl))
+    }, numeric(1))
+  }
   nll <- -sum(log(L) + mx)
   if (!is.finite(nll) || !all(is.finite(grad))) {
     return(bad_nll)
   }
-  structure(nll, gradient = -grad)
+  out <- structure(nll, gradient = -grad)
+  if (cluster_scores) attr(out, "cluster_scores") <- U
+  out
 }
 
 # Observed information by central differences of the analytic gradient.
@@ -164,6 +187,125 @@ fc_mmm_hessian <- function(theta, d, h = 1e-5) {
     (g(theta + e) - g(theta - e)) / (2 * h)
   }, numeric(length(theta)))
   (H + t(H)) / 2
+}
+
+# Per-cluster score matrix U (n_cl x npar) and per-cluster observed
+# information matrices H_i = -dU_i / dtheta by central differences, for
+# Fay-Graubard small-sample sandwich variance estimation.
+fc_mmm_hessian_clusters <- function(theta, d, h = 1e-5) {
+  npar <- length(theta)
+  scores <- function(th) {
+    attr(fc_mmm_negloglik(th, d, cluster_scores = TRUE), "cluster_scores")
+  }
+  U <- scores(theta)
+  if (is.null(U) || !all(is.finite(U))) {
+    return(NULL)
+  }
+  dU <- lapply(seq_len(npar), function(j) {
+    e <- replace(numeric(npar), j, h)
+    up <- scores(theta + e)
+    um <- scores(theta - e)
+    bad_pair <- is.null(up) || is.null(um) || !all(is.finite(up)) ||
+      !all(is.finite(um))
+    if (bad_pair) {
+      return(NULL)
+    }
+    (um - up) / (2 * h)
+  })
+  if (any(vapply(dU, is.null, logical(1)))) {
+    return(NULL)
+  }
+  n_cl <- nrow(U)
+  H_list <- lapply(seq_len(n_cl), function(i) {
+    Hi <- vapply(dU, function(M) M[i, ], numeric(npar))
+    (Hi + t(Hi)) / 2
+  })
+  H <- Reduce(`+`, H_list)
+  list(U = U, H = (H + t(H)) / 2, H_list = H_list)
+}
+
+# Invert the observed information matrix (model-based) or form the
+# Fay-Graubard small-sample sandwich variance B^{-1} M_FG B^{-1} where
+# B = sum_i H_i and F_i = diag((1 - min(b, diag(H_i B^{-1})))^{-1/2}).
+# When check_hessian is TRUE (default), uses Cholesky so indefinite
+# Hessians (saddle points / boundary artefacts) are rejected rather than
+# inverted into unreliable SEs.  On a constant-SD fit at the zero-variance
+# boundary (sigma_0 < 1e-3), the non-boundary block is inverted
+# (conditional SEs with log(sigma_0) held fixed, boundary_block = TRUE).
+fc_mmm_vcov <- function(theta, d, check_hessian = TRUE,
+                        vcov_type = "model", fg_bound = 0.75) {
+  npar <- length(theta)
+  na_mat <- matrix(NA_real_, npar, npar)
+  hc <- if (identical(vcov_type, "sandwich")) {
+    tryCatch(fc_mmm_hessian_clusters(theta, d), error = function(e) NULL)
+  } else {
+    NULL
+  }
+  H <- if (identical(vcov_type, "sandwich")) {
+    if (is.null(hc)) NULL else hc$H
+  } else {
+    tryCatch(fc_mmm_hessian(theta, d), error = function(e) NULL)
+  }
+  if (is.null(H) || !all(is.finite(H))) {
+    return(list(
+      vcov = na_mat, hessian_indefinite = FALSE,
+      boundary_block = FALSE
+    ))
+  }
+  sub_idx <- seq_len(npar)
+  boundary_block <- FALSE
+  if (!isTRUE(check_hessian)) {
+    Binv <- tryCatch(solve(H), error = function(e) NULL)
+    if (is.null(Binv)) {
+      return(list(
+        vcov = na_mat, hessian_indefinite = FALSE,
+        boundary_block = FALSE
+      ))
+    }
+  } else {
+    Binv <- tryCatch(chol2inv(chol(H)), error = function(e) NULL)
+    at_zero_bound <- is.null(Binv) && d$m_s == 1L &&
+      is.finite(theta[npar]) && exp(theta[npar]) < 1e-3
+    if (at_zero_bound) {
+      sub_idx <- seq_len(npar - 1L)
+      Binv <- tryCatch(
+        chol2inv(chol(H[sub_idx, sub_idx, drop = FALSE])),
+        error = function(e) NULL
+      )
+      boundary_block <- !is.null(Binv)
+    }
+    if (is.null(Binv)) {
+      return(list(
+        vcov = na_mat, hessian_indefinite = TRUE,
+        boundary_block = FALSE
+      ))
+    }
+  }
+  if (identical(vcov_type, "sandwich")) {
+    Us <- hc$U[, sub_idx, drop = FALSE]
+    n_sub <- length(sub_idx)
+    Us_fg <- vapply(seq_len(nrow(Us)), function(i) {
+      Hi <- hc$H_list[[i]][sub_idx, sub_idx, drop = FALSE]
+      q_diag <- rowSums(Hi * Binv)
+      Us[i, ] / sqrt(1 - pmin(fg_bound, q_diag))
+    }, numeric(n_sub))
+    Us_fg <- if (n_sub == 1L) matrix(Us_fg, ncol = 1L) else t(Us_fg)
+    V_sub <- Binv %*% crossprod(Us_fg) %*% Binv
+    if (!all(is.finite(V_sub)) || any(diag(V_sub)[seq_len(d$p)] <= 0)) {
+      return(list(
+        vcov = na_mat, hessian_indefinite = FALSE,
+        boundary_block = boundary_block
+      ))
+    }
+  } else {
+    V_sub <- Binv
+  }
+  V <- na_mat
+  V[sub_idx, sub_idx] <- V_sub
+  list(
+    vcov = V, hessian_indefinite = FALSE,
+    boundary_block = boundary_block
+  )
 }
 
 # One maximum-likelihood fit.  Starting values and optimiser settings are
@@ -178,13 +320,24 @@ fc_mmm_fit_once <- function(d, inits) {
   hit_barrier <- !all(is.finite(theta)) ||
     !is.finite(opt$minimum) || opt$minimum >= 1e300 ||
     !all(is.finite(opt$gradient)) || any(a_est >= 49.5)
+  check_h <- if (is.null(d$check_hessian)) TRUE else isTRUE(d$check_hessian)
+  vc_type <- if (is.null(d$vcov_type)) "model" else d$vcov_type
+  fg_b <- if (is.null(d$fg_bound)) 0.75 else d$fg_bound
   if (hit_barrier) {
     V <- matrix(NA_real_, length(theta), length(theta))
     loglik <- NA_real_
     code <- 5L
+    hessian_indefinite <- FALSE
+    boundary_block <- FALSE
   } else {
-    V <- tryCatch(solve(fc_mmm_hessian(theta, d)), error = function(e) NULL)
-    if (is.null(V)) V <- matrix(NA_real_, length(theta), length(theta))
+    vc <- fc_mmm_vcov(
+      theta, d,
+      check_hessian = check_h,
+      vcov_type = vc_type, fg_bound = fg_b
+    )
+    V <- vc$vcov
+    hessian_indefinite <- vc$hessian_indefinite
+    boundary_block <- vc$boundary_block
     loglik <- -opt$minimum
     code <- opt$code
   }
@@ -201,6 +354,8 @@ fc_mmm_fit_once <- function(d, inits) {
   list(
     theta = theta, vcov = V, logLik = loglik, code = code,
     iterations = opt$iterations, p = d$p,
+    hessian_indefinite = hessian_indefinite,
+    boundary_block = boundary_block,
     slope_min = if (d$m_s > 1L) {
       min(exp(theta[d$p + d$m_g + 2:d$m_s]))
     } else {
@@ -244,6 +399,15 @@ fc_refit_problem <- function(refit, status) {
     ))
   }
   if (status == "not finite") {
+    if (isTRUE(refit$hessian_indefinite)) {
+      return(sprintf(
+        paste0(
+          "had a non-positive-definite observed information matrix ",
+          "(nlm code %d)"
+        ),
+        refit$code
+      ))
+    }
     return(sprintf(
       "returned no finite estimate or standard error (nlm code %d)",
       refit$code
@@ -253,29 +417,31 @@ fc_refit_problem <- function(refit, status) {
 }
 
 # The engine used by fit_fewclust().  With `time` the latent standard
-# deviation has a linear trend in the occasion index (0, 1, 2, ... over the
-# distinct values of `time`, so that the threshold of the convergence check
-# is per occasion, as in the study, whatever the unit of `time`) and the
-# series carries a first-order transition term; without `time` the latent
-# standard deviation is constant and there is no transition term.  The mean
-# model uses `time` as given.
+# deviation has a linear trend in the occasion index (from fc_time_grid(),
+# 0, 1, 2, ... on regular grids so that the threshold of the convergence
+# check is per occasion, as in the study, whatever the unit of `time`) and
+# the series carries a first-order transition term; without `time` the
+# latent standard deviation is constant and there is no transition term.
+# The mean model uses `time` as given.
 #
-# Convergence check (the rule of the study, plus the optional coherence
-# condition of fewclust_control): the fit with the trend is at the boundary
-# when it fails numerically, when nlm does not report convergence (code
-# other than 1 or 2), when its estimates or standard errors are not finite,
-# when the estimated slope of the latent standard deviation is below
-# `check_threshold`, or (coherence condition, not part of the study's rule)
-# when its log-likelihood is below that of the fit without the trend, which
-# is its own sub-model (a false optimum).  A boundary fit is replaced by
-# the fit without the trend only when nlm reports convergence of that fit
-# (code 1 or 2) and its estimates and standard errors are finite (the rule
-# of the study, decision D-90); otherwise the model gives no result: an
-# fc_failure carrying the record of the check, so that fit_fewclust() falls
-# back to GEE (method = "auto") or stops (method = "mmm").  The boundary
-# fit is never reported.  Without `time`, a non-converged or non-finite fit
-# is likewise rejected when `control$check` is TRUE.
-fit_mmm <- function(parsed, control, reference, alpha, df) {
+# Convergence check (the rule of the study, plus the optional coherence and
+# positive-definite Hessian extensions of fewclust_control): the fit with
+# the trend is at the boundary when it fails numerically, when nlm does not
+# report convergence (code other than 1 or 2), when its observed information
+# matrix is not positive definite (if check_hessian is TRUE), when its
+# estimates or standard errors are not finite, when the estimated slope of
+# the latent standard deviation is below `check_threshold`, or (coherence
+# condition) when its log-likelihood is below that of the fit without the
+# trend, which is its own sub-model (a false optimum).  A boundary fit is
+# replaced by the fit without the trend only when nlm reports convergence of
+# that fit (code 1 or 2) and its estimates and standard errors are finite
+# (decision D-90); otherwise the model gives no result: an fc_failure
+# carrying the record of the check, so that fit_fewclust() falls back to GEE
+# (method = "auto") or stops (method = "mmm").  The boundary fit is never
+# reported.  Without `time`, a non-converged or non-finite fit is likewise
+# rejected when `control$check` is TRUE.
+fit_mmm <- function(parsed, control, reference, alpha, df,
+                    mmm_vcov = "model") {
   time <- parsed$time
   ord <- if (is.null(time)) {
     order(parsed$id)
@@ -291,11 +457,20 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
   W <- NULL
   if (!is.null(time)) {
     tv <- parsed$data[[time]][ord]
-    Z <- cbind(one, occasion = match(tv, sort(unique(tv))) - 1)
+    Z <- cbind(one, occasion = fc_time_grid(tv, id)$occasion)
     W <- one
   }
+  check_h <- if (is.null(control$check_hessian)) {
+    TRUE
+  } else {
+    isTRUE(control$check_hessian)
+  }
   fit_once <- function(Z, what) {
-    d <- fc_mmm_design(y, X, id, Z, W, offset, control$q)
+    d <- fc_mmm_design(
+      y, X, id, Z, W, offset, control$q,
+      check_hessian = check_h, vcov_type = mmm_vcov,
+      fg_bound = control$fg_bound
+    )
     fc_quietly(fc_mmm_fit_once(d, fc_mmm_inits(d)), what)
   }
   finite <- function(f) {
@@ -325,7 +500,8 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
     latent_sd = if (is.null(time)) "constant" else "time trend",
     path = if (is.null(time)) "no trend to check" else "trend fit kept",
     reason = character(0), threshold = control$check_threshold,
-    coherence = control$check_coherence, refit_status = NA_character_,
+    coherence = control$check_coherence, hessian = check_h,
+    boundary_block = FALSE, refit_status = NA_character_,
     trend = if (is.null(time) || trend_failed) NULL else record(fit),
     constant = NULL
   )
@@ -350,9 +526,17 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
     if (!finite(fit)) {
       check$path <- "no result"
       check$latent_sd <- "no result"
-      out <- fc_failure(sprintf(
-        "no finite estimate or standard error (nlm code %d)", fit$code
-      ))
+      msg <- if (isTRUE(fit$hessian_indefinite)) {
+        sprintf(
+          "observed information matrix is not positive definite (nlm code %d)",
+          fit$code
+        )
+      } else {
+        sprintf(
+          "no finite estimate or standard error (nlm code %d)", fit$code
+        )
+      }
+      out <- fc_failure(msg)
       out$check <- check
       return(out)
     }
@@ -373,7 +557,9 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
         if (!fit$code %in% c(1L, 2L)) {
           sprintf("the optimiser did not converge (nlm code %d)", fit$code)
         },
-        if (!finite(fit)) {
+        if (isTRUE(fit$hessian_indefinite)) {
+          "observed information matrix is not positive definite"
+        } else if (!finite(fit)) {
           "estimates or standard errors are not finite"
         },
         if (is.na(fit$slope_min)) {
@@ -424,13 +610,24 @@ fit_mmm <- function(parsed, control, reference, alpha, df) {
       return(out)
     }
   }
+  if (isTRUE(fit$boundary_block)) {
+    check$boundary_block <- TRUE
+    notes <- c(
+      notes,
+      paste0(
+        "latent standard deviation at the zero boundary (sigma_0 < 1e-3): ",
+        "standard errors are conditional on log(sigma_0) held fixed"
+      )
+    )
+  }
   fit$check <- check
   k <- seq_len(fit$p)
   fc_wald_result(
     colnames(X), fit$theta[k], fc_se(fit$vcov)[k],
     fit$vcov[k, k, drop = FALSE],
     structure(fit, class = "fewclust_mmm"), reference, df, alpha,
-    notes
+    notes,
+    scale = fc_col_scale(X)
   )
 }
 # nolint end
