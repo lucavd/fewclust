@@ -57,14 +57,48 @@ test_that("when both models fail the error points to flip_test()", {
   expect_match(conditionMessage(err), "flip_test")
 })
 
-test_that("a coefficient failing the usability criterion gets NA inference and a warning", {
+test_that("inference is invariant to multiplicative covariate unit conversions", {
+  d <- fc_trial
+  d$time_yr <- d$time / 50
+  d$x_small <- d$x / 100
+  d$x_big <- d$x * 1000
+  f0 <- suppressMessages(fit_fewclust(d, y ~ time * arm + x, id = id, time = time))
+  f_yr <- suppressMessages(fit_fewclust(d, y ~ time_yr * arm + x_small, id = id, time = time_yr))
+  f_big <- suppressMessages(fit_fewclust(d, y ~ time * arm + x_big, id = id, time = time))
+  t0 <- tidy(f0)
+  ty <- tidy(f_yr)
+  tb <- tidy(f_big)
+  expect_true(all(is.finite(ty$p.value)))
+  expect_true(all(is.finite(tb$p.value)))
+  expect_equal(ty$statistic, t0$statistic, tolerance = 1e-3)
+  expect_equal(ty$p.value, t0$p.value, tolerance = 1e-3)
+  expect_equal(tb$statistic, t0$statistic, tolerance = 1e-3)
+  expect_equal(tb$p.value, t0$p.value, tolerance = 1e-3)
+})
+
+test_that("a coefficient failing the standardised usability criterion gets NA inference and a warning", {
   d <- fc_test_data(40, seed = 3, n_occasions = 6)
-  d$x100 <- d$x / 100
-  expect_warning(fit <- fit_fewclust(d, y ~ time * arm + x100, id = id, time = time),
-                 "x100", class = "fewclust_warning")
+  d$x_big <- d$x * 1000
+  real_fit <- fewclust:::fc_mmm_fit_once
+  local_mocked_bindings(
+    fc_mmm_fit_once = function(des, inits) {
+      f <- real_fit(des, inits)
+      k <- match("x_big", names(f$theta))
+      s <- sd(d$x_big)
+      f$vcov[k, k] <- (12 / s)^2
+      f
+    },
+    .package = "fewclust"
+  )
+  expect_warning(
+    fit <- suppressMessages(
+      fit_fewclust(d, y ~ time * arm + x_big, id = id, time = time, method = "mmm")
+    ),
+    "x_big",
+    class = "fewclust_warning"
+  )
   tab <- tidy(fit)
-  bad <- tab$term == "x100"
-  expect_true(tab$std.error[bad] >= 10)
+  bad <- tab$term == "x_big"
   expect_true(is.na(tab$p.value[bad]))
   expect_true(all(is.finite(tab$p.value[!bad])))
 })

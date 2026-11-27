@@ -1,3 +1,59 @@
+# fewclust 0.5.0
+
+Methodological extensions following the package audit (PR 2 of 2).  The
+default method remains the marginalized multilevel model (`mmm_vcov =
+"model"`), preserving exact backward compatibility with `DESCRIPTION`; all
+extensions to the simulation-study convergence rule (D-90) are explicit and
+controllable via `fewclust_control()`.
+
+## New features and methodological extensions
+
+- **Small-sample sandwich standard errors for the marginalized model**:
+  `fit_fewclust()` gains `mmm_vcov = c("model", "sandwich")`.  With
+  `mmm_vcov = "sandwich"`, the marginalized model computes cluster-level
+  Fay-Graubard (2001) small-sample sandwich standard errors from the
+  per-cluster score contributions and observed information matrices,
+  protecting against unmodelled random slopes on within-cluster covariates
+  on both the with-`time` and without-`time` paths while retaining the
+  marginalized model's stability on unbalanced clusters.
+- **Positive-definite observed information check (D-90 extension)**:
+  `fewclust_control()` gains `check_hessian = TRUE` (alongside
+  `check_coherence = TRUE`).  When `TRUE`, the marginalized model inverts
+  the observed information matrix via Cholesky decomposition; indefinite
+  Hessians (saddle points or boundary artefacts) trigger the convergence
+  check with the dedicated reason `"observed information matrix is not
+  positive definite"`.  On a constant-SD fit at the zero-variance boundary
+  (`sigma_0 < 1e-3`), the non-boundary parameter block is inverted and a
+  note records that standard errors are conditional on `log(sigma_0)` held
+  fixed.  Inner Newton tolerance in `fc_mmm_negloglik()` is tightened to
+  `1e-12` with final derivative re-evaluation at the converged intercept.
+  Setting `check_coherence = FALSE, check_hessian = FALSE` reproduces the
+  published D-90 rule exactly.
+- **Unified 3-regime time-grid handling (`fc_time_grid()`)**: eliminates
+  duplicated grid logic between diagnosis and fitting, distinguishing:
+  1. exact regular shared grids (`0, 1, ..., K - 1`, identical to the
+     study);
+  2. regular shared grids with an entire missing occasion (e.g.
+     `0, 1, 2, 4`, integer multiples of a common step with at least 75% of
+     slots observed: preserves true integer slots and counts gaps on the
+     full regular grid);
+  3. planned irregular shared schedules (e.g. `0, 1, 2, 4, 8`: uses
+     `(tv - min(grid)) / mean(diff(grid))`, independent of missingness,
+     and preserves internal missing-occasion gap warnings);
+  4. truly continuous or jittered timestamps (median within-group step
+     scaling and no spurious missing-occasion warnings).
+  Unequally spaced warnings remain active for all non-regular regimes
+  because the transition term treats consecutive observations as one lag
+  apart.
+- **Multiplicative-scale-invariant usability criterion**: the `< 10`
+  usability threshold is now evaluated on a standardised logit scale
+  (`1` for constants, `diff(range)` for 2-valued columns so 0/1 dummies
+  keep scale `1`, and `sd` for columns with 3 or more distinct values).
+  This makes inference invariant to multiplicative unit conversions of
+  covariates (translation still shifts the intercept); across 378 fitted
+  study datasets it differed from the raw `< 10` threshold on 1 dataset
+  (0.26%).
+
 # fewclust 0.4.4
 
 Bug fixes and numerical robustness improvements; the default method (the

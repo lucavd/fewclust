@@ -8,6 +8,7 @@ fewclust_control(
   q = 20L,
   check = TRUE,
   check_coherence = TRUE,
+  check_hessian = TRUE,
   check_threshold = 0.001,
   fg_bound = 0.75
 )
@@ -36,7 +37,19 @@ log-likelihood is below that of the fit with a constant latent standard
 deviation.  The constant fit is a sub-model of the trend fit, so a
 maximum cannot lie below it: the optimiser stopped at a false optimum.
 This condition is an addition of the package to the procedure of the
-study; \code{check_coherence = FALSE} gives that procedure exactly.}
+study.}
+
+\item{check_hessian}{Whether the marginalized model requires the observed
+information matrix to be positive definite (Cholesky inversion).  When
+\code{TRUE} (default), an indefinite Hessian (saddle point or boundary
+artefact) yields non-finite standard errors and triggers the
+convergence check with the reason \code{"observed information matrix is not positive definite"}.  On a constant-SD fit at the zero-variance
+boundary (\eqn{\sigma_0 < 10^{-3}}), the non-boundary block is inverted
+and a note records that standard errors are conditional on
+\eqn{\log(\sigma_0)} held fixed.  Like \code{check_coherence}, this is an
+extension of the package to the published procedure; setting both
+\code{check_coherence = FALSE} and \code{check_hessian = FALSE} gives the
+study's rule exactly.}
 
 \item{check_threshold}{Slope of the latent standard deviation (per
 occasion) below which the trend fit is considered at the boundary.}
@@ -58,6 +71,6 @@ fewclust_control()
 # the convergence check exactly as in the simulation study
 fit_fewclust(fc_trial, y ~ time * arm,
   id = id, time = time,
-  control = fewclust_control(check_coherence = FALSE)
+  control = fewclust_control(check_coherence = FALSE, check_hessian = FALSE)
 )
 }

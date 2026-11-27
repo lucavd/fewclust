@@ -25,7 +25,19 @@
 #'   deviation.  The constant fit is a sub-model of the trend fit, so a
 #'   maximum cannot lie below it: the optimiser stopped at a false optimum.
 #'   This condition is an addition of the package to the procedure of the
-#'   study; `check_coherence = FALSE` gives that procedure exactly.
+#'   study.
+#' @param check_hessian Whether the marginalized model requires the observed
+#'   information matrix to be positive definite (Cholesky inversion).  When
+#'   `TRUE` (default), an indefinite Hessian (saddle point or boundary
+#'   artefact) yields non-finite standard errors and triggers the
+#'   convergence check with the reason `"observed information matrix is not
+#'   positive definite"`.  On a constant-SD fit at the zero-variance
+#'   boundary (\eqn{\sigma_0 < 10^{-3}}), the non-boundary block is inverted
+#'   and a note records that standard errors are conditional on
+#'   \eqn{\log(\sigma_0)} held fixed.  Like `check_coherence`, this is an
+#'   extension of the package to the published procedure; setting both
+#'   `check_coherence = FALSE` and `check_hessian = FALSE` gives the
+#'   study's rule exactly.
 #' @param check_threshold Slope of the latent standard deviation (per
 #'   occasion) below which the trend fit is considered at the boundary.
 #' @param fg_bound Bound \eqn{b} of the Fay-Graubard correction, strictly
@@ -38,10 +50,11 @@
 #' # the convergence check exactly as in the simulation study
 #' fit_fewclust(fc_trial, y ~ time * arm,
 #'   id = id, time = time,
-#'   control = fewclust_control(check_coherence = FALSE)
+#'   control = fewclust_control(check_coherence = FALSE, check_hessian = FALSE)
 #' )
 #' @export
 fewclust_control <- function(q = 20L, check = TRUE, check_coherence = TRUE,
+                             check_hessian = TRUE,
                              check_threshold = 1e-3, fg_bound = 0.75) {
   if (!fc_is_whole(q) || q < 2) {
     fc_abort("{.arg q} must be a single whole number of at least 2.")
@@ -52,6 +65,9 @@ fewclust_control <- function(q = 20L, check = TRUE, check_coherence = TRUE,
   if (!fc_is_flag(check_coherence)) {
     fc_abort("{.arg check_coherence} must be TRUE or FALSE.")
   }
+  if (!fc_is_flag(check_hessian)) {
+    fc_abort("{.arg check_hessian} must be TRUE or FALSE.")
+  }
   if (!fc_is_number(check_threshold) || check_threshold <= 0) {
     fc_abort("{.arg check_threshold} must be a single positive number.")
   }
@@ -61,7 +77,8 @@ fewclust_control <- function(q = 20L, check = TRUE, check_coherence = TRUE,
   structure(
     list(
       q = as.integer(q), check = check, check_coherence = check_coherence,
-      check_threshold = check_threshold, fg_bound = fg_bound
+      check_hessian = check_hessian, check_threshold = check_threshold,
+      fg_bound = fg_bound
     ),
     class = "fewclust_control"
   )
@@ -71,10 +88,15 @@ fewclust_control <- function(q = 20L, check = TRUE, check_coherence = TRUE,
 print.fewclust_control <- function(x, ...) {
   cat("<fewclust_control>\n")
   cat(sprintf("  quadrature points : %d\n", x$q))
+  extras <- c(
+    if (x$check_coherence) "coherence",
+    if (isTRUE(x$check_hessian)) "positive-definite Hessian"
+  )
   cat(sprintf(
     "  convergence check : %s (threshold %g%s)\n",
     if (x$check) "on" else "off", x$check_threshold,
-    if (x$check_coherence) ", with the coherence condition" else ""
+    if (length(extras)) paste0(", with ", paste(extras, collapse = " and "))
+    else ""
   ))
   cat(sprintf("  Fay-Graubard bound: %g\n", x$fg_bound))
   invisible(x)

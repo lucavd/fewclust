@@ -61,7 +61,8 @@ If the marginalized model gives no usable estimate, `fit_fewclust()` fits
 **GEE** with an AR(1) working correlation and the Fay-Graubard small-sample
 correction, with the same t reference, and says so with a message.  A
 coefficient is usable when its estimate and standard error are finite and
-smaller than 10 on the logit scale.
+smaller than 10 on the standardised logit scale (invariant to
+multiplicative unit conversions of covariates).
 
 `summary()` shows the details, including the convergence check:
 
@@ -85,13 +86,15 @@ without `time`, falling back to `"independence"` if the working correlation
 degenerates) and `correction` the small-sample correction (`"fg"`, `"md"`,
 `"kc"`, `"none"`).  Choosing anything other than the Fay-Graubard
 correction gives a warning, because with few groups it was the most
-reliable.  Because the marginalized model's standard errors are
-model-based on both paths (with and without `time`), comparing against
-`method = "gee"` is good practice when the model includes within-cluster
-covariates whose effect may vary across groups (random slopes);
-conversely, in GEE with time-varying covariates that may depend on prior
-outcomes, `corstr = "independence"` avoids the full-covariate conditional
-mean bias of Pepe and Anderson (1994).
+reliable.  Because the marginalized model's default standard errors
+(`mmm_vcov = "model"`) are model-based on both paths (with and without
+`time`), use `mmm_vcov = "sandwich"` (Fay-Graubard small-sample sandwich
+variance on the marginalized model) or compare against `method = "gee"`
+when the model includes within-cluster covariates whose effect may vary
+across groups (random slopes); conversely, in GEE with time-varying
+covariates that may depend on prior outcomes, `corstr = "independence"`
+avoids the full-covariate conditional mean bias of Pepe and Anderson
+(1994).
 
 ## Errors, warnings, messages and notes
 

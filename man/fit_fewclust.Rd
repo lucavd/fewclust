@@ -12,6 +12,7 @@ fit_fewclust(
   method = c("auto", "mmm", "gee"),
   corstr = NULL,
   correction = c("fg", "md", "kc", "none"),
+  mmm_vcov = c("model", "sandwich"),
   conf_level = 0.95,
   control = fewclust_control()
 )
@@ -41,6 +42,12 @@ given and \code{"exchangeable"} if \code{time} is \code{NULL}, falling back to
 \code{"fg"} (Fay-Graubard, default), \code{"md"} (Mancl-DeRouen), \code{"kc"}
 (Kauermann-Carroll) or \code{"none"}.}
 
+\item{mmm_vcov}{Variance estimator for the marginalized multilevel model:
+\code{"model"} (model-based observed information, default) or \code{"sandwich"}
+(cluster-level Fay-Graubard small-sample sandwich variance, robust to
+unmodelled random slopes on within-cluster covariates on both the
+with-\code{time} and without-\code{time} paths).}
+
 \item{conf_level}{Confidence level of the intervals.}
 
 \item{control}{Tuning constants from \code{\link[=fewclust_control]{fewclust_control()}}.}
@@ -50,6 +57,7 @@ An object of class \code{"fewclust"}.  Use \code{print()}, \code{summary()},
 \code{coef()}, \code{vcov()}, \code{confint()}, \code{predict()}, \code{nobs()}, and the broom
 verbs \code{\link[=tidy]{tidy()}}, \code{\link[=glance]{glance()}} and \code{\link[=augment]{augment()}}, which return tibbles.  The
 list also holds \code{method} (\code{"mmm"} or \code{"gee"}, the model reported),
+\code{mmm_vcov} (\code{"model"}, \code{"sandwich"}, or \code{NA_character_} for GEE),
 \code{fallback} (\code{NULL}, or why the marginalized model was not used),
 \code{df}, \code{notes}, \code{convergence} (the record of the convergence check of
 the marginalized model, also when it gave no result and GEE was
@@ -78,18 +86,25 @@ The coefficients are marginal (population-averaged) log odds ratios.
 \itemize{
 \item \code{"mmm"}: the marginalized multilevel model (Heagerty 1999).  With
 \code{time} the latent standard deviation follows a linear trend over the
-occasions and a first-order transition term links consecutive
-observations; the convergence check (see \code{\link[=fewclust_control]{fewclust_control()}})
-replaces a trend fit at the boundary with the fit with a constant
-latent standard deviation when that fit converges and has finite
-estimates and standard errors; otherwise the model gives no result
-(\code{"auto"} then fits GEE, \code{"mmm"} stops with an error).  The fit at the
-boundary is never reported.  Without \code{time} the latent standard
-deviation is constant and there is no transition term.  Standard
-errors are model-based on both paths (with and without \code{time}), so
-they rely on the dependence structure being adequately captured; when
-the model includes within-cluster covariates whose effect may vary
-across groups (random slopes), compare with \code{method = "gee"}.
+occasions (indexed via a unified 3-regime grid: exact ranks on regular
+grids, integer step slots on regular grids with a missing occasion,
+missing-invariant proportional elapsed time on planned irregular grids,
+and median-step elapsed time on continuous timestamps) and a
+first-order transition term links consecutive observations; the
+convergence check (see \code{\link[=fewclust_control]{fewclust_control()}}) replaces a trend fit at
+the boundary (including a non-positive-definite observed information
+matrix when \code{check_hessian = TRUE}) with the fit with a constant latent
+standard deviation when that fit converges and has finite estimates and
+standard errors; otherwise the model gives no result (\code{"auto"} then
+fits GEE, \code{"mmm"} stops with an error).  The fit at the boundary is
+never reported.  Without \code{time} the latent standard deviation is
+constant and there is no transition term.  By default
+(\code{mmm_vcov = "model"}), standard errors are model-based on both paths
+(with and without \code{time}), matching the simulation study; when the
+model includes within-cluster covariates whose effect may vary across
+groups (random slopes), set \code{mmm_vcov = "sandwich"} for Fay-Graubard
+small-sample sandwich standard errors on the marginalized model, or
+compare with \code{method = "gee"}.
 \item \code{"gee"}: \code{\link[geepack:geeglm]{geepack::geeglm()}} with the scale parameter fixed at 1, on
 rows ordered by group and \code{time}, with the small-sample sandwich
 variance chosen by \code{correction} (see \code{\link[=gee_vcov]{gee_vcov()}}).  When \code{corstr} is
@@ -105,9 +120,13 @@ and Anderson (1994); where covariate feedback is suspected, use
 }
 
 A coefficient is usable when its estimate and standard error are finite
-and smaller than 10 in absolute value on the logit scale; otherwise its
-statistic, p-value and interval are \code{NA} (with a warning).  A model with
-no usable coefficient gives no result.
+and smaller than 10 in absolute value on the standardised logit scale
+(scaled by the range for two-valued columns, standard deviation for
+columns with three or more distinct values, and 1 for constant columns;
+invariant to multiplicative unit conversions of covariates, while
+translation shifts the intercept); otherwise its statistic, p-value and
+interval are \code{NA} (with a warning).  A model with no usable coefficient
+gives no result.
 }
 
 \section{Errors, warnings, messages and notes}{
@@ -126,14 +145,20 @@ coefficients without inference; a marginalized model that did not
 converge; series with gaps or unequally spaced occasions.  Messages
 (class \code{"fewclust_message"}) report a fallback to GEE or to an
 independence working correlation, a missing \code{time}, and within-cluster
-covariates under the marginalized model.  Notes stored in the fit and
-shown by \code{print()} describe small designs and the convergence check.
+covariates under the marginalized model with model-based standard errors.
+Notes stored in the fit and shown by \code{print()} describe small designs and
+the convergence check.
 }
 
 \examples{
 fit <- fit_fewclust(fc_trial, y ~ time * arm, id = id, time = time)
 fit
 tidy(fit, conf.int = TRUE)
+
+# Marginalized model with Fay-Graubard sandwich SEs (within-cluster x)
+fit_fewclust(fc_trial, y ~ time * arm + x,
+  id = id, time = time, mmm_vcov = "sandwich"
+)
 
 # GEE with an exchangeable working correlation
 fit_fewclust(fc_trial, y ~ time * arm,
